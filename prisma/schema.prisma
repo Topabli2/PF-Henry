@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Games {
+  id          Int         @id @default(autoincrement())
+  title       String      @unique
+  platform    Json
+  description String
+  genre       String
+  releaseDate String
+  developer   String
+  publishedby String
+  image       String
+  video       String
+  size        String
+  price       Float
+  userGames   UserGames[] // Campo para almacenar el id de la clave asociada, Relación opuesta para la tabla intermedia UserGames
+  licenseId   Int
+  license     License     @relation(fields: [licenseId], references: [id])
+}
+
+model User {
+  id        Int         @id @default(autoincrement())
+  username  String
+  lastName  String
+  email     String
+  country   String
+  phone     Int?
+  userGames UserGames[] // Relación opuesta para la tabla intermedia UserGames 
+  profile   Profile?
+}
+
+model Profile {
+  id           Int    @id @default(autoincrement())
+  profileName  String
+  profile_type Int
+  userId       Int    @unique
+  user         User   @relation(fields: [userId], references: [id])
+}
+
+model License {
+  id     Int      @id @default(autoincrement())
+  Date   DateTime
+  active Boolean
+  game   Games[]
+}
+
+model userGames {
+  id Int @id @default(autoincrement())
+}
+
+model UserGames {
+  id     Int @id @default(autoincrement())
+  userId Int
+  gameId Int
+  // gameLicenceId Int
+
+  user User  @relation(fields: [userId], references: [id]) // Llaves foráneas
+  game Games @relation(fields: [gameId], references: [id]) // Llaves foráneas
+  // gameLicence gameLicence @relation(fields: [gameLicenceId], references: [id]) // Llaves foráneas
+
+  @@unique([userId, gameId]) // Restricción única para evitar duplicados
+}
+
+// model usedLicense{
+//   id        Int    @id @default(autoincrement())
+//   gameKey   String @unique
+//   Date      DateTime
+//   game      String
+// }
