@@ -1,0 +1,12 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/api/games/[gameId]/route": "app/api/games/[gameId]/route.js",
+  "/api/games/route": "app/api/games/route.js",
+  "/api/license/[licenseId]/route": "app/api/license/[licenseId]/route.js",
+  "/api/license/route": "app/api/license/route.js",
+  "/api/profile/[profileId]/route": "app/api/profile/[profileId]/route.js",
+  "/api/profile/route": "app/api/profile/route.js",
+  "/api/users/[userId]/route": "app/api/users/[userId]/route.js",
+  "/api/users/route": "app/api/users/route.js",
+  "/page": "app/page.js"
+}
