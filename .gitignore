@@ -9,8 +9,8 @@
 # testing
 /coverage
 
-# next.js
-/.next/
+/ next.js
+/ .next/
 /out/
 
 # production
@@ -36,3 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 .env
+.next
