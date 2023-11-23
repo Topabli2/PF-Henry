@@ -24,8 +24,7 @@ model Games {
   size        String
   price       Float
   userGames   UserGames[] // Campo para almacenar el id de la clave asociada, Relación opuesta para la tabla intermedia UserGames
-  licenseId   Int?
-  license     License?    @relation(fields: [licenseId], references: [id])
+  licenses    License[]   // Cambio de nombre del campo "game" a "licenses"
 }
 
 model User {
@@ -35,7 +34,7 @@ model User {
   email     String
   country   String
   phone     String?
-  userGames UserGames[] // Relación opuesta para la tabla intermedia UserGames 
+  userGames UserGames[]  
   profile   Profile?
 }
 
@@ -48,10 +47,11 @@ model Profile {
 }
 
 model License {
-  id     Int     @id @default(autoincrement())
-  name   String
-  active Boolean
-  game   Games[]
+  id        Int      @id @default(autoincrement())
+  name      String
+  active    Boolean
+  gameId    Int     
+  game      Games    @relation(fields: [gameId], references: [id])
   createdAt DateTime @default(now())
 }
 
