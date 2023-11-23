@@ -43,13 +43,14 @@ model Profile {
   id           Int    @id @default(autoincrement())
   profileName  String
   profile_type Int
-  userId       Int    @unique
-  user         User   @relation(fields: [userId], references: [id])
+  userId       Int?    @unique
+  user         User?   @relation(fields: [userId], references: [id])
 }
 
 model License {
   id     Int      @id @default(autoincrement())
-  Date   DateTime
+  name   String
+  date   String
   active Boolean
   game   Games[]
 }
