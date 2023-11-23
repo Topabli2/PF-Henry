@@ -1,29 +1,46 @@
-import { NextResponse } from 'next/server';
-import  {prisma } from '@/libs/prisma';
-
 export async function GET() {
- 
-        const findLicense = await prisma.license.findMany();
-          const licensesWithGames = findLicense.map((license) => {
-            const gameName = license.Games ? license.Games.title : null;
-            return {
-              ...license,
-              gameName,
-            };
-          });
+  const findLicense = await prisma.license.findMany({
+    include: {
+      game: {
+        select: {
+          title: true
+        }
+      }
+    }
+  });
 
-          return NextResponse.json(licensesWithGames);
-    
+  return NextResponse.json(findLicense);
 }
 
-export async function POST (request) {
-  const {name, active, } = await request.json();
-      const createLicense = await prisma.license.create({
-        data: {
-          name,
-          active
+export async function POST(request) {
+  const { name, active, game } = await request.json();
+
+  const createLicense = await prisma.license.create({
+    data: {
+      name,
+      active,
+      game: {
+        connect: {
+          title: game
         }
-        });
-        
-        return NextResponse.json(createLicense);
+      }
+    }
+  });
+
+  return NextResponse.json(createLicense);
+}
+
+export async function PUT(request) {
+  const { id, active } = await request.json();
+
+  const updatedLicense = await prisma.license.update({
+    where: {
+      id: id
+    },
+    data: {
+      active: active
+    }
+  });
+
+  return NextResponse.json(updatedLicense);
 }
