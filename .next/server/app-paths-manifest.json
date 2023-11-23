@@ -1,5 +1,3 @@
 {
-  "/page": "app/page.js",
-  "/api/users/route": "app/api/users/route.js",
   "/api/profile/route": "app/api/profile/route.js"
 }

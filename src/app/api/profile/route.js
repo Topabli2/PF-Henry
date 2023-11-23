@@ -16,3 +16,17 @@ export async function GET() {
     });
     return NextResponse.json(newProfile)
   }
+
+export async function PUT(request) {
+  const {id, profileName, profile_type} = await request.json();
+    const newProfile = await prisma.profile.update({
+      where: {
+        id: id,
+      },
+      data: {
+        profileName,
+        profile_type
+      },
+    });
+    return NextResponse.json(newProfile)
+}
