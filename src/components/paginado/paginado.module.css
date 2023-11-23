@@ -1,0 +1,10 @@
+.containButPage{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonPage{
+    border: 1px solid;
+    padding: 10px;
+}
