@@ -50,9 +50,9 @@ model Profile {
 model License {
   id     Int      @id @default(autoincrement())
   name   String
-  date   String
   active Boolean
   game   Games[]
+  createdAt DateTime @default(now())
 }
 
 model userGames {
