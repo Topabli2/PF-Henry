@@ -17,11 +17,10 @@ export async function GET() {
 }
 
 export async function POST (request) {
-  const {name, active, date } = await request.json();
+  const {name, active, } = await request.json();
       const createLicense = await prisma.license.create({
         data: {
           name,
-          date,
           active
         }
         });

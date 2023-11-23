@@ -43,8 +43,8 @@ CREATE TABLE "Profile" (
 CREATE TABLE "License" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
-    "date" TEXT NOT NULL,
     "active" BOOLEAN NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "License_pkey" PRIMARY KEY ("id")
 );
