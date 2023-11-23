@@ -15,8 +15,25 @@ export async function POST(request) {
       lastName,
       email,
       country,
-      phone
+      phone,
     },
 });
   return NextResponse.json(newUser);
+};
+
+
+export async function PUT(request) {
+  const { id, username, lastName, country, phone } = await request.json();
+  const updatedUser = await prisma.user.update({
+    where: {
+      id: id,
+    },
+    data: {
+      username,
+      lastName,
+      country,
+      phone,
+    },
+  });
+  return NextResponse.json(updatedUser);
 };

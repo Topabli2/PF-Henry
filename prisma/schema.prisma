@@ -34,7 +34,7 @@ model User {
   lastName  String
   email     String
   country   String
-  phone     Int?
+  phone     String?
   userGames UserGames[] // Relación opuesta para la tabla intermedia UserGames 
   profile   Profile?
 }
