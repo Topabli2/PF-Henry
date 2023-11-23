@@ -1,22 +1,22 @@
-import { prisma } from "@/libs/prisma";
+import { NextResponse } from 'next/server';
+import  {prisma } from '@/libs/prisma';
 
-export const GET= async(req, res) => {
+
+export async function GET() {
   const Allusers = await prisma.user.findMany()
-  console.log(Allusers)
-  res.json(Allusers);
+  return NextResponse.json(Allusers)
 }
 
-export const POST = async(req, res) => {
-  const { username,lastName,email,country, phone} = req.body
+export async function POST(request) {
+  const {username, lastName, email, country, phone } = await request.json()
   const newUser = await prisma.user.create({
-    data:
-    {
-    username: username,
-    lastName: lastName,
-    email: email,
-    country: country, 
-    phone: phone
-  }
-})
-  res.json(newUser);
-}
+    data:{
+      username,
+      lastName,
+      email,
+      country,
+      phone
+    },
+});
+  return NextResponse.json(newUser);
+};

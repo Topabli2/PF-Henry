@@ -1,17 +1,18 @@
-import { prisma } from "@/libs/prisma";
+import { NextResponse } from 'next/server';
+import  {prisma } from '@/libs/prisma';
 
-export async function GET(req, res) {
+export async function GET() {
     const allProfile = await prisma.profile.findMany();
-    res.json(allProfile);
+    return NextResponse.json(allProfile);
   }
   
- export async function POST (req, res) {
-    const { profileName, profile_type} = req.body;
+ export async function POST(request) {
+    const { profileName, profile_type} = await request.json();
     const newProfile = await prisma.profile.create({
       data: {
         profileName,
         profile_type
       },
     });
-  res.json(newProfile)
+    return NextResponse.json(newProfile)
   }
