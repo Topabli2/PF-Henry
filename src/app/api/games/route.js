@@ -8,33 +8,39 @@ export async function GET() {
 }
 
 export async function POST(request) {
-  const {
-    title,
-    platform,
-    description,
-    genre,
-    releaseDate,
-    developer,
-    publishedby,
-    image,
-    video,
-    size,
-    price,
-  } = await request.json();
-  const newGame = await prisma.games.create({
-    data: {
-      title,
-      platform,
-      description,
-      genre,
-      releaseDate,
-      developer,
-      publishedby,
-      image,
-      video,
-      size,
-      price,
-    },
-  });
+  const data = await request.json();
+  const newGame = await prisma.games.create({ data });
   return NextResponse.json(newGame);
 }
+
+// export async function POST(request) {
+//   const {
+//     title,
+//     platform,
+//     description,
+//     genre,
+//     releaseDate,
+//     developer,
+//     publishedby,
+//     image,
+//     video,
+//     size,
+//     price,
+//   } = await request.json();
+//   const newGame = await prisma.games.create({
+//     data: {
+//       title,
+//       platform,
+//       description,
+//       genre,
+//       releaseDate,
+//       developer,
+//       publishedby,
+//       image,
+//       video,
+//       size,
+//       price,
+//     },
+//   });
+//   return NextResponse.json(newGame);
+// }
