@@ -18,7 +18,6 @@ export async function GET() {
 
 export async function POST (request) {
   const {name, active, date } = await request.json();
-  console.log("Solicitud recibida:", req.body);
       const createLicense = await prisma.license.create({
         data: {
           name,
