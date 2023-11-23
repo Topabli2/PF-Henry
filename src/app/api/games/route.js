@@ -1,19 +1,40 @@
 import { NextResponse } from "next/server";
+import { prisma } from "@/libs/prisma";
 
-export function GET() {
-  return NextResponse.json("Obteniendo datos!");
+export async function GET() {
+  const games = await prisma.games.findMany();
+
+  return NextResponse.json(games);
 }
 
 export async function POST(request) {
-  const data = await request.json();
-  console.log(data);
-  return NextResponse.json(data);
-}
-
-export function PUT() {
-  return NextResponse.json("Actualizando datos!");
-}
-
-export function DELETE() {
-  return NextResponse.json("Borrando datos!");
+  const {
+    title,
+    platform,
+    description,
+    genre,
+    releaseDate,
+    developer,
+    publishedby,
+    image,
+    video,
+    size,
+    price,
+  } = await request.json();
+  const newGame = await prisma.games.create({
+    data: {
+      title,
+      platform,
+      description,
+      genre,
+      releaseDate,
+      developer,
+      publishedby,
+      image,
+      video,
+      size,
+      price,
+    },
+  });
+  return NextResponse.json(newGame);
 }
