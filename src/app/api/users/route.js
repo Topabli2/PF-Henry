@@ -8,7 +8,7 @@ export async function GET() {
 }
 
 export async function POST(request) {
-  const {username, lastName, email, country, phone } = await request.json()
+  const {username, lastName, email, country, phone, profile } = await request.json()
   const newUser = await prisma.user.create({
     data:{
       username,
@@ -16,6 +16,9 @@ export async function POST(request) {
       email,
       country,
       phone,
+      profile: {
+        create: profile
+      }// creo el perfil cuando creo el usuario
     },
 });
   return NextResponse.json(newUser);
