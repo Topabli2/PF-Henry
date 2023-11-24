@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
+import data from '.././data.json';
 
 export async function GET() {
   const games = await prisma.games.findMany();
-
-  return NextResponse.json(games);
+  const allData = [...games, ...data];
+  return NextResponse.json(allData);
 }
 
 export async function POST(request) {
