@@ -1,10 +1,10 @@
-import { games } from '../api.js';
+import { data } from '../api/data';
 
 const filter = (types) => {
 
-    if(types.includes('all')) return games;
+    if(types.includes('all')) return data;
 
-    const gamesFiltered = games.filter(game => types.some(type => game.genero.includes(type)));
+    const gamesFiltered = data.filter(game => types.some(type => game.genre.includes(type)));
     return gamesFiltered;
 };
 

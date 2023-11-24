@@ -5,7 +5,7 @@ import './Card.css'
 const Card = ({ data }) => {
 
   return (
-    <div>
+    <div className="gridCards">
     {
       data.map(games => (
         <section key={games.id} className='sectionCard'>

@@ -1,21 +1,20 @@
 import './offerts.css';
-import { games } from '@/app/api';
+import { data } from '@/app/api/data';
 
 const Offerts = () => {
 
-    const gamesInOffert = games.filter(game => game.offert);
+    const gamesInOffert = data.filter(game => game.price > 55.98);
     const img = 'imgOffert';
 
     return (
         <div className='offertsGrid'>
             {
                 gamesInOffert.map(game => (
-                    <div key={game.id} className={`${img} ${game.desarrollador.split(' ')[0]}`}>
-                        <p className='offertDetail'>
-                            <span className='offert' >-{game.offert[1]}%</span>
-                            <span className='price'>${game.precio}</span>
-                            <span className='priceOffert'>${game.precio * (1 - game.offert[1] / 100)}</span>
-                        </p>
+                    <div key={game.id} className={`${img} ${game.developer.split(' ')[0]}`}>
+                        <img src={game.image}/> {/* Movido fuera del div .offertDetail */}
+                        <div className='offertDetail'>
+                            <span className='offert' >{game?.price}</span>
+                        </div>
                     </div>
                 ))
             }
