@@ -13,6 +13,16 @@ export async function POST(request) {
   return NextResponse.json(newGame);
 }
 
+export async function PUT(request) {
+  const data = await request.json();
+  const updateGame = await prisma.games.update({
+    where: { id: data.id },
+    data,
+  });
+  return NextResponse.json(updateGame);
+}
+
+//VERSION ANTIGUA DE POST
 // export async function POST(request) {
 //   const {
 //     title,
@@ -43,4 +53,24 @@ export async function POST(request) {
 //     },
 //   });
 //   return NextResponse.json(newGame);
+// }
+
+// export async function PUT(request) {
+//   const data = await request.json();
+//   const updateGame = await prisma.games.update({ data });
+//   return NextResponse.json(updateGame);
+// }
+
+//VERSION ANTIGUA DE PUT
+// export async function PUT(request) {
+//   const data = await request.json();
+//   const updateGame = await prisma.games.update({
+//     where: {
+//       id: data.id,
+//     },
+//     data: {
+//       title: data.title,
+//     },
+//   });
+//   return NextResponse.json(updateGame);
 // }

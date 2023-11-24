@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
 
+// FUNCION QUE NO FILTRA MAYUS Y MINUS
 // export async function GET(request) {
 //   const url = new URL(request.url);
 //   const name = url.searchParams.get("username");
@@ -36,6 +37,5 @@ export async function GET(request) {
     user.username.toLowerCase().includes(name)
   );
 
-  //return new Response(JSON.stringify({ name, result }), { status: 200 })
   return NextResponse.json(filteredResult);
 }
