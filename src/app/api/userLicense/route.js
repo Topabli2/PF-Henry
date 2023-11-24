@@ -22,29 +22,26 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/libs/prisma';
 export async function PUT(request) {
-  const { userId, gameName } = await request.json();
-  // Buscar la licencia existente para el juego
+  const { userId, id } = await request.json();
+ 
   const existingLicense = await prisma.license.findFirst({
-      where: {
-          game: {
-              title: gameName,
-            },
+      where: { 
+              id: id,
         },
     });
    
     if (!existingLicense) {
         return NextResponse.json({ error: 'Licencia no encontrada' });
     } else if (existingLicense){
-        const { name, id } = existingLicense
-        const userLicense = await prisma.user.update({
+        console.log(existingLicense)
+        const { id, name } = existingLicense
+        const userLicense = await prisma.license.update({
             where: {
-                id: userId
+                id: id
             },
-            connect: {
-                license: {
-                    id: id
-                }
-            }   
+            data: {
+                userId: userId
+            } 
         })
         return NextResponse.json(userLicense)
     }

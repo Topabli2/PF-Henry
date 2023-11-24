@@ -34,7 +34,8 @@ model User {
   email     String
   country   String
   phone     String?
-  userGames UserGames[]  
+  userGames UserGames[]
+  licenses  License[]  
   profile   Profile?
 }
 
@@ -50,10 +51,13 @@ model License {
   id        Int      @id @default(autoincrement())
   name      String
   active    Boolean
-  gameId    Int     
+  gameId    Int
+  userId    Int? 
   game      Games    @relation(fields: [gameId], references: [id])
+  user      User?     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
 }
+
 
 model userGames {
   id Int @id @default(autoincrement())
