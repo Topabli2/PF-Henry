@@ -1,0 +1,144 @@
+.aside {
+    margin-left: 90px;
+    border-radius: 4px;
+    height: 100px;
+}
+
+.cardsAndAside {
+    display: grid;
+    grid-template-columns: 70% 25% 5%;
+    margin-left: 130px;
+    justify-content: center;
+}
+
+.list {
+    border-radius: 4px;
+    width: 82.7%;
+    height: 800px;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.listItem {
+    list-style: none;
+    margin-left: -42px;
+    width: 123%;
+    text-align: left;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.listItem--click {
+    cursor: pointer;
+}
+
+.listButton {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.listIcon {
+    margin-left: auto;
+}
+
+.listLink {
+    display: block;
+    text-decoration: none;
+    list-style: none;
+    width: 400px;
+    color: #ccc;
+    padding-top: 25px;
+}
+
+.listLink--inside {
+    padding-left: 40px;
+    transition: .1s;
+}
+
+.listInside {
+    list-style-type: none;
+    width: 233px;
+    margin-left: -80px;
+}
+
+.listLink--inside:hover {
+    color: white;
+    background-color:#444 ;
+}
+
+.listShow {
+    width: 100%;
+    list-style: none;
+    transition: height .4s;
+    height: 0;
+}
+
+
+.listIcon {
+    transition: .3s;
+}
+
+.arrow .listIcon {
+    transform: rotate(-180deg);
+}
+
+.listInside {
+    padding-left: 20px;
+}
+
+.listButton {
+    font-size: 25px;
+}
+
+
+.listInside p {
+    padding: 10px 0px;
+    padding-left: 55px;
+    margin: 0px;
+}
+
+.list {
+    margin-top: 30px;
+}
+
+.listShow {
+    margin-top: 30px;
+}
+
+.list .apply[disabled] {
+    margin-left: 26px;
+    background-color: #444;
+    border: none;
+    padding: 8px 30px;
+    color: #888;
+    border: solid 1px #888;
+    margin-top:10px;
+    cursor: no-drop;
+    border-radius: 2px;
+    transition: .3s;
+}
+
+.list .apply {
+    margin-left: 26px;
+    background-color: #00abb8;
+    cursor: pointer;
+    border: none;
+    padding: 8px 30px;
+    color: white;
+    margin-top:10px;
+    border: solid 1px transparent;
+    border-radius: 2px;
+    transition: .3s;
+    margin-bottom: 30px;
+}
+
+.list .apply:hover {
+    background-color: #00747c;
+}
+
+.list .apply[disabled]:hover {
+    background-color: #444;
+}
