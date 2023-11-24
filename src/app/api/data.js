@@ -1,5 +1,5 @@
-{
-    "games": [
+
+   export const data = [
         {
             "title": "Son of the forest22w32313",
             "id": 1,
@@ -142,4 +142,4 @@
         }
         
     ]
-}
+

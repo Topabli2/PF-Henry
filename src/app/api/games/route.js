@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
-import data from '.././data.json';
+import {data} from '.././data';
 
 export async function GET() {
   const games = await prisma.games.findMany();
