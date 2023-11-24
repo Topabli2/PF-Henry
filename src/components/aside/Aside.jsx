@@ -88,7 +88,7 @@ const Aside = ({ types, onChange }) => {
                 if (type === "BattleRoyale") type = 'Battle Royale';
                 return (
                   < li className='listInside' key={type} >
-                    <p className='listLink listLink--inside'>{type}<span> ({cantidades[index]})</span><input type='checkbox' onChange={() => handleCheckboxChange(type)}
+                    <p className='listLink listLink--inside'>{type}<span> ({cantidades[index]})</span><input className='checkbox' type='checkbox' onChange={() => handleCheckboxChange(type)}
                       checked={typesToSend.includes(type)} /></p>
                   </li>
                 )

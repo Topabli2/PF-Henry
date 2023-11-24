@@ -143,3 +143,7 @@
 .list .apply[disabled]:hover {
     background-color: #444;
 }
+
+.checkbox {
+    margin-left: 10px;
+}
