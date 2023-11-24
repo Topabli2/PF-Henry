@@ -1,8 +1,8 @@
-import { games } from '../api.js';
+import { data } from '../api/data';
 
 const order = (op) => {
-    if(op === "All") return games;
-    const gamesCopy = [...games];
+    if(op === "All") return data;
+    const gamesCopy = [...data];
     let gamesOrdereds;
 
     if (op === 'Higher price') gamesOrdereds = gamesCopy.sort((a, b) => b.precio - a.precio);

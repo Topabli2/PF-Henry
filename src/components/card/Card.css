@@ -9,7 +9,7 @@
     position: relative;
     margin-top:5%;
     margin-left: 5%;
-   width: 90%;  
+   width: 100%;  
    transition: all 0.5s ease;
 
 }
@@ -53,4 +53,9 @@
     width: 100%;
     opacity: 1;
 
+}
+.gridCards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
 }

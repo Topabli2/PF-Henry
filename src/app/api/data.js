@@ -138,7 +138,7 @@
             "image":"https://imgs.search.brave.com/g5ZWAF1dU8HIyOPQtEbcMT7OXAx0WYghO_He3ZvYKNo/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50eWNzcG9ydHMu/Y29tL2ZpbGVzLzIw/MjIvMDkvMDIvNDcz/MTk0L2dvZC1vZi13/YXItcmFnbmFyb2st/Z2FtZXBsYXlfdzQx/Ni53ZWJw",
             "video":"https://www.youtube.com/watch?v=EE-4GvjKcfs",
             "size":"N/A",
-            "price":59.99
+            "price":55.99
         }
         
     ]

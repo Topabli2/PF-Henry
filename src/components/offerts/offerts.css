@@ -13,54 +13,27 @@
     border-radius: 1px;
     cursor: pointer;
     transition: .3s;
+    position: relative; /* Agregado para permitir el posicionamiento absoluto de los hijos */
 }
 
-.offertsGrid .CD {
-    background: url(gta.jpg);
+.offertsGrid img {
     opacity: .7;
-    background-size: cover;
-    background-position: center center;
     transition: .3s;
+    width: 350px;
+    height: 400px;
 }
 
-.offertsGrid .Rockstar {
-    background: url(creed.jpg);
-    opacity: .7;
-    background-size: cover;
-    background-position: center center;
-    transition: .3s;
-}
-
-.offertsGrid .Mojang {
-    background: url(fifa.jpg);
-    opacity: .7;
-    background-size: cover;
-    background-position: center center;
-    transition: .3s;
-}
-
-.CD:hover {
+.offertsGrid img:hover {
     transform: scale(1.01);
     opacity: 1;
 }
-
-.Rockstar:hover {
-    transform: scale(1.01);
-    opacity: 1;
-}
-
-.Mojang:hover {
-    transform: scale(1.01);
-    opacity: 1;
-}
-
 
 .offertDetail {
     display: flex;
     background-color: #333;
-    width: 50%;
-    margin-left: 50%;
-    margin-top: 105%;
+    width: 100%; /* Cambiado a 100% para que ocupe todo el ancho del contenedor padre */
+    position: absolute; /* Agregado para permitir el posicionamiento en la parte superior de la imagen */
+    top: 0; /* Agregado para posicionar en la parte superior de la imagen */
     justify-content: space-between;
 }
 
