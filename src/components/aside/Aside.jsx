@@ -1,4 +1,4 @@
-import { games } from '@/app/api';
+import { data } from '@/app/api/data';
 import './aside.css';
 import { faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,10 +23,8 @@ const Aside = ({ types, onChange }) => {
     BattleRoyale: 0,
     Multijugador: 0
   };
-  games.forEach(game => (
-    game.genero.forEach(genero => (
-      quantitiesTypes[genero]++
-    ))
+  data.forEach(game => (
+    game.genero
   ))
 
   const cantidades = Object.values(quantitiesTypes);
