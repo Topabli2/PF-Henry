@@ -1,15 +1,15 @@
-import { NextResponse } from 'next/server';
-import  {prisma } from '@/libs/prisma';
+import { NextResponse } from "next/server";
+import { prisma } from "@/libs/prisma";
 
 export async function GET() {
   const findLicense = await prisma.license.findMany({
     include: {
       game: {
         select: {
-          title: true
-        }
-      }
-    }
+          title: true,
+        },
+      },
+    },
   });
 
   return NextResponse.json(findLicense);
@@ -24,10 +24,10 @@ export async function POST(request) {
       active,
       game: {
         connect: {
-          title: game
-        }
-      }
-    }
+          title: game,
+        },
+      },
+    },
   });
 
   return NextResponse.json(createLicense);
@@ -38,11 +38,11 @@ export async function PUT(request) {
 
   const updatedLicense = await prisma.license.update({
     where: {
-      id: id
+      id: id,
     },
     data: {
-      active: active
-    }
+      active: active,
+    },
   });
 
   return NextResponse.json(updatedLicense);
