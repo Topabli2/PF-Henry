@@ -1,0 +1,86 @@
+.offertsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    justify-content: center;
+    margin-top: 150px;
+    gap: 60px;
+    margin-bottom: 150px;
+}
+
+.offertsGrid .imgOffert {
+    width: 350px;
+    height: 430px;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.offertsGrid .CD {
+    background: url(gta.jpg);
+    opacity: .7;
+    background-size: cover;
+    background-position: center center;
+    transition: .3s;
+}
+
+.offertsGrid .Rockstar {
+    background: url(creed.jpg);
+    opacity: .7;
+    background-size: cover;
+    background-position: center center;
+    transition: .3s;
+}
+
+.offertsGrid .Mojang {
+    background: url(fifa.jpg);
+    opacity: .7;
+    background-size: cover;
+    background-position: center center;
+    transition: .3s;
+}
+
+.CD:hover {
+    transform: scale(1.01);
+    opacity: 1;
+}
+
+.Rockstar:hover {
+    transform: scale(1.01);
+    opacity: 1;
+}
+
+.Mojang:hover {
+    transform: scale(1.01);
+    opacity: 1;
+}
+
+
+.offertDetail {
+    display: flex;
+    background-color: #333;
+    width: 50%;
+    margin-left: 50%;
+    margin-top: 105%;
+    justify-content: space-between;
+}
+
+.offertDetail span {
+    padding: 3px 0px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.offertDetail .offert {
+    background-color: #3ddbe6;
+    padding: 3px 7px;
+    color: black;
+}
+
+.offertDetail .price {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.offertDetail .priceOffert {
+    padding-right: 10px;
+}
