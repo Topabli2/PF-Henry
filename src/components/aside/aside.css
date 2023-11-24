@@ -17,6 +17,7 @@
     height: 800px;
     justify-content: center;
     margin-top: 0px;
+    margin-left: 50px;
 }
 
 .listItem {
@@ -61,7 +62,7 @@
 .listInside {
     list-style-type: none;
     width: 233px;
-    margin-left: -80px;
+    margin-left: -50px;
 }
 
 .listLink--inside:hover {
