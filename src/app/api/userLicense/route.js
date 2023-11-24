@@ -36,7 +36,7 @@ export async function PUT(request) {
         return NextResponse.json({ error: 'Licencia no encontrada' });
     } else if (existingLicense){
         const { name, id } = existingLicense
-        const userLicense = await prisma.license.update({
+        const userLicense = await prisma.user.update({
             where: {
                 id: userId
             },
