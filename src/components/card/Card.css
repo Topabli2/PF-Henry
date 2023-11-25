@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
 .sectionCard{
     position: relative;
     border-radius: 2.5%;
@@ -58,4 +58,58 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 20px;
+} */
+
+.gridCards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-left: -50px;
+    margin-bottom: 100px;
 }
+
+.cardGame {
+    width: 220px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    opacity: .7;
+    transition: .3s;
+}
+
+.cardGame:hover {
+    transform: perspective(1000px) rotateY(-8deg);
+    opacity: 1;
+}
+
+.cardGame img {
+    width: 218px;
+    height: 218px;
+    border-radius: 2px;
+}
+
+.cardGame .spans {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.cardGame .spans .precio {
+    color: #00b502;
+}
+
+/* .cardGame button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    background-color: #0399b7;
+    color: white;
+    transition: .3s;
+}
+
+.cardGame button:hover {
+    background-color: #005b6d;
+} */

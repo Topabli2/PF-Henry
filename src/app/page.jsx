@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { data } from '../app/api/data';
 import filter from './utils/filter.js';
 import order from './utils/order.js';
@@ -22,31 +22,27 @@ const HomePage = () => {
         .map(game => (game.precio >= 49.99 ? game : null))
         .filter(game => game !== null);
 
-    const arrTypesdata = data.map(game => game.genero).flat();
+    const arrTypesdata = data.map(game => game.genre).flat();
     const uniqueArrTypesGames = arrTypesdata.filter((type, index, array) => {
         return array.indexOf(type) === index;
     });
 
     const handleFilter = (types) => {
-
-        for(let i = 0; i < types.length; i++){
-            if(types[i] === 'Ciencia Ficción') types[i] = 'CienciaFicción';
-            if(types[i] === 'Battle Royale') types[i] = 'BattleRoyale';
-        }
-
         setFiltrados(filter(types));
         setOrdenado(false);
         setFiltrado(true)
     }
 
-    const handleOrder = (event) => {
-        setOrdenados(order(event.target.value))
+    const handleOrder = (op) => {
+        setOrdenados(order(op, dataToRender))
         setFiltrado(false);
         setOrdenado(true)
     }
 
     if (filtrado) dataToRender = filtrados;
     if (ordenado) dataToRender = ordenados;
+
+
     return (
         <div>
             <MostPrice mostPrice={mostPrice} />
@@ -54,7 +50,7 @@ const HomePage = () => {
             <Genders types={uniqueArrTypesGames} />
             <div className='cardsAndAside'>
                 <Card data={dataToRender} />
-                <Aside types={uniqueArrTypesGames} onChange={handleFilter} />
+                <Aside types={uniqueArrTypesGames} onChange={[handleFilter, handleOrder]} />
             </div>
         </div>
     )

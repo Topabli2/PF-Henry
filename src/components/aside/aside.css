@@ -14,7 +14,7 @@
 .list {
     border-radius: 4px;
     width: 82.7%;
-    height: 800px;
+    height: 700px;
     justify-content: center;
     margin-top: 0px;
     margin-left: 50px;
@@ -26,6 +26,7 @@
     width: 123%;
     text-align: left;
     overflow: hidden;
+    border-radius: 2px;
     background-color: #333;
 }
 
@@ -43,6 +44,7 @@
 
 .listIcon {
     margin-left: auto;
+    margin-top: 10px;
 }
 
 .listLink {
@@ -99,6 +101,8 @@
     padding: 10px 0px;
     padding-left: 55px;
     margin: 0px;
+    font-size: 12px;
+    width: 130%;
 }
 
 .list {
@@ -146,4 +150,51 @@
 
 .checkbox {
     margin-left: 10px;
+}
+
+.listInside .all {
+    font-size: 18px;
+}
+
+.ordenarAside {
+    background-color: #333;
+    margin-left: 100px;
+    width: 233px;
+    border-radius: 2px;
+    color: #ccc;
+}
+
+.ordenarAside a {
+    font-size: 25px;
+    padding: 10px 0px;
+    display: block;
+    width: 233px;
+    background-color: #222;
+    padding-left: 35px;
+}
+
+.ordenarAside p {
+    font-size: 12px;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: .2s;
+    padding-left: 15px;
+}
+
+.ordenarAside p:hover {
+    background-color: #444;
+    color: white;
+}
+
+.ordenarAside .broom {
+    text-align: center;
+    padding: 5px 0;
+    background-color: #176900;
+    transition: .3s;
+    color: white;
+    font-size: 25px;
+}
+
+.ordenarAside .broom:hover {
+    background-color: #229c00;
 }
