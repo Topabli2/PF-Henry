@@ -1,19 +1,19 @@
 import React from "react";
 import Galery from "./components_details/Galery/Galery";
-import Trailer from "./components_details/Trailer/Trailer";
-import Advertising from "./components_details/Advertising/Advertising" 
+import Advertising from "./components_details/Advertising/Advertising";
 import Buy from "./components_details/Buy/Buy";
 import AdvertisingHandler from "./components_details/AdvertisingHandler/AdvertisingHandler";
 
-
 import "./Details.css";
 import { Fake } from "@/fakeDB";
+import Trailer from "./components_details/Trailer/Trailer";
 
 const Details = () => {
-  const game = Fake();
+  const game = Fake(); // Supongamos que Fake() devuelve una cadena JSON válida
+
 
   const detailsStyle = {
-    backgroundImage: `url('${game.wallpeaper}')`,
+    backgroundImage: `url("https://images2.alphacoders.com/133/1330770.png")`,
   };
 
   return (
@@ -25,9 +25,9 @@ const Details = () => {
           src="https://github.com/zuoki/imagenesPF/blob/main/ofertaDetails.png?raw=true"
         />
         <Galery className="GaleryDC" game={game} />
-        <AdvertisingHandler/>
-        <Advertising  game={game} />
-        <Buy game={game}/>
+        <Trailer game={game} />
+        <Advertising game={game} />
+        <Buy game={game} />
       </section>
     </>
   );
