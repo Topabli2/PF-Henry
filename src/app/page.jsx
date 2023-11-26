@@ -9,14 +9,18 @@ import Select from '@/components/select/Select.jsx';
 import Offerts from '@/components/offerts/Offerts.jsx';
 import Aside from '@/components/aside/Aside.jsx';
 import Genders from '@/components/generos/Genders.jsx';
-
+import { SearchBar } from '@/components/searchbar/Searchbar';
+import search from './utils/search';
 
 const HomePage = () => {
     let dataToRender = data;
+
     const [filtrado, setFiltrado] = useState(false);
     const [filtrados, setFiltrados] = useState([]);
     const [ordenado, setOrdenado] = useState(false);
     const [ordenados, setOrdenados] = useState([]);
+    const [find, setFind] = useState(false);
+    const [finds, setFinds] = useState([]);
 
     const mostPrice = data
         .map(game => (game.precio >= 49.99 ? game : null))
@@ -30,17 +34,31 @@ const HomePage = () => {
     const handleFilter = (types) => {
         setFiltrados(filter(types));
         setOrdenado(false);
+        setFind(false);
         setFiltrado(true)
     }
 
     const handleOrder = (op) => {
         setOrdenados(order(op, dataToRender))
         setFiltrado(false);
+        setFind(false);
         setOrdenado(true)
     }
 
+    const handleSearch = (letters) => {
+        if(letters.length < 3){
+            setFinds(data);
+            return
+        };
+        setFinds(search(letters));
+        setFiltrado(false);
+        setOrdenado(false);
+        setFind(true);
+    };
+
     if (filtrado) dataToRender = filtrados;
     if (ordenado) dataToRender = ordenados;
+    if (find) dataToRender = finds;
 
 
     return (
@@ -48,6 +66,7 @@ const HomePage = () => {
             <MostPrice mostPrice={mostPrice} />
             <Offerts />
             <Genders types={uniqueArrTypesGames} />
+            <SearchBar handleSearch={handleSearch} />
             <div className='cardsAndAside'>
                 <Card data={dataToRender} />
                 <Aside types={uniqueArrTypesGames} onChange={[handleFilter, handleOrder]} />

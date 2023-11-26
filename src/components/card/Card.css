@@ -113,3 +113,9 @@
 .cardGame button:hover {
     background-color: #005b6d;
 } */
+
+.default {
+    width: 100%;
+    position: relative;
+    overflow: visible;
+}
