@@ -13,6 +13,8 @@ import { SearchBar } from '@/components/searchbar/Searchbar';
 import search from './utils/search';
 
 const HomePage = () => {
+    const initialGames = [data[0], data[2], data[9]];
+    const [mostPriceGames, setMostPriceGames] = useState(initialGames);
     let dataToRender = data;
 
     const [filtrado, setFiltrado] = useState(false);
@@ -21,6 +23,25 @@ const HomePage = () => {
     const [ordenados, setOrdenados] = useState([]);
     const [find, setFind] = useState(false);
     const [finds, setFinds] = useState([]);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            let randomGameIndexes = [];
+            while (randomGameIndexes.length < 3) {
+                const randomIndex = Math.floor(Math.random() * 10);
+                if (!randomGameIndexes.includes(randomIndex)) {
+                    randomGameIndexes.push(randomIndex);
+                }
+            }
+
+            const randomGames = randomGameIndexes.map(index => data[index]);
+
+            setMostPriceGames(randomGames);
+        }, 10000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
 
     const mostPrice = data
         .map(game => (game.precio >= 49.99 ? game : null))
@@ -46,8 +67,16 @@ const HomePage = () => {
     }
 
     const handleSearch = (letters) => {
-        if(letters.length < 3){
+        if (letters.length < 3) {
             setFinds(data);
+            if (filtrados.length > 0) {
+                setFinds(filtrados);
+                return;
+            };
+            if (ordenados.length > 0) {
+                setFinds(ordenados);
+                return;
+            };
             return
         };
         setFinds(search(letters));
@@ -60,11 +89,10 @@ const HomePage = () => {
     if (ordenado) dataToRender = ordenados;
     if (find) dataToRender = finds;
 
-
     return (
         <div>
-            <MostPrice mostPrice={mostPrice} />
-            <Offerts />
+            <MostPrice mostPrice={mostPriceGames} />
+            <Offerts games={mostPriceGames} />
             <Genders types={uniqueArrTypesGames} />
             <SearchBar handleSearch={handleSearch} />
             <div className='cardsAndAside'>

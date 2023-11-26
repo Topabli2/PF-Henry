@@ -119,3 +119,22 @@
     position: relative;
     overflow: visible;
 }
+
+.notFound {
+    background-image: url(gifTest.gif);
+    background-position: center;
+    background-size: cover;
+    width: 200px;
+    border-radius: 3px;
+    height: 200px;
+    margin: auto;
+    margin-left: 245%;
+    margin-top: 20%;
+}
+
+.notFound h1 {
+    text-align: center;
+    margin-top: -30%;
+    width: 300%;
+    margin-left: -100%;
+}

@@ -30,6 +30,9 @@
     background-color: rgb(255, 255, 255);
     margin-bottom: 1px;
     font-size: 14px;
+    outline: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .SearchIconContainer{

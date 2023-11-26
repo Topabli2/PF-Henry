@@ -1,7 +1,7 @@
 
 export const data = [
     {
-        "title": "Son of the forest22w32313",
+        "title": "Son of the forest",
         "id": 1,
         "platform": "Steam",
         "description": "  Survival FPS by Activision. Uncover the secrets of a mysterious forest in this intense survival game. Encounter hostile creatures, craft tools, and strive to survive against the backdrop of stunning visuals and gripping gameplay. ",

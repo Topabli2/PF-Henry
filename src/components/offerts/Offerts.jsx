@@ -1,21 +1,24 @@
 import './offerts.css';
 import { data } from '@/app/api/data';
 
-const Offerts = () => {
+const Offerts = ({ games }) => {
 
     const gamesInOffert = data.filter(game => game.price > 55.98);
     const img = 'imgOffert';
+    const imgClass = ["allImg primerImagen", "allImg segundaImagen", "allImg tercerImagen"]
 
     return (
         <div className='offertsGrid'>
             {
-                gamesInOffert.map(game => (
+                games.map((game, index) => (
                     <div key={game.id} className={`${img} ${game.developer.split(' ')[0]} hola`}>
-                        <img src={game.image} /> {/* Movido fuera del div .offertDetail */}
+                        <img src={game.image} className={imgClass[index]} /> {/* Movido fuera del div .offertDetail */}
                         <div className='offertDetail'>
                             <p className='offert' >${game?.price}</p>
                         </div>
-                        <h4 className='titleGame'>{game.title}</h4>
+                        <div className='hoverDetails'>
+                            <h4 className='titleGame'>{game.title}</h4>
+                        </div>
                     </div>
                 ))
             }
