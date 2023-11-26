@@ -12,6 +12,7 @@ export async function GET(request, { params }) {
   } catch (error) {
     if (error.code === "P2025") {
       console.log("Id del juego no encontrado");
+      return NextResponse.json({ error: "Id del juego no encontrado" });
     }
   }
 }
