@@ -48,6 +48,7 @@
 
 .capturaD {
   position: relative;
+  top: 20%;
   margin-top: 1%;
   transform: scale(0.9);
 }
@@ -58,6 +59,7 @@
 
 .textG {
   position: relative;
+  top: 22%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,6 +67,17 @@
   font-family: "Kdam Thmor Pro", sans-serif;
 }
 .caratulaD1 {
+  position: relative;
   transform: scale(0.92);
+  image-resolution: 300dpi; /* Puedes ajustar el valor según sea necesario */
   pointer-events: none;
+  height: 50%;
 }
+
+.contIMG{
+  height: 40%; /* Establecer la altura deseada */
+  width: 90%; /* Establecer el ancho deseado */
+  padding-left: 10%;
+
+}
+

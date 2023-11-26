@@ -7,16 +7,13 @@ const Buy = ({game}) => {
     <section className='Dbuy'>
         
          <div className='Dbuy2'>
-        <h2 className='DBof'> OFERTA ACTUAL</h2>
+        <h2 className='DBof'> CURRENT OFFER</h2>
         <div className='priceContainerD'>
-          <h1 className='DBPRC'>COMPRAR POR : ${game.precio}</h1>
+          <h1 className='DBPRC'>BUY FOR : ${game.price}</h1>
         </div>
         <div className='butonDBJContainer'>
-          <button type='button'className='ADC'>  AGREGAR AL CARRITO</button>
-          <button type='button' className='IAC'>IR AL CARRITO</button> 
-          <div className='cB'>
-          <ButtonComponent value={"button"}/>
-          </div>
+          <button type='button'className='ADC'>  ADD TO CART</button>
+          <button type='button' className='IAC'>GO TO CART</button> 
         </div>
         </div>
             

@@ -5,13 +5,7 @@ const Advertising = ({ game }) => {
   return (
     <section className="ss">
       <div className="tituloCDJ">
-        <h1 className="tituloDJ">{game.titulo}</h1>
-      </div>
-      <div>
-        <p>{game.descrpcion}</p>
-      </div>
-      <div>
-        <p>{game.requisitos_minimos}</p>
+        <h1 className="tituloDJ">{game.title}</h1>
       </div>
     </section>
   );

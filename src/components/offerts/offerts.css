@@ -5,6 +5,8 @@
     margin-top: 150px;
     gap: 60px;
     margin-bottom: 150px;
+    position: relative;
+    transition: all .3s ease;
 }
 
 .offertsGrid .imgOffert {
@@ -13,67 +15,51 @@
     border-radius: 1px;
     cursor: pointer;
     transition: .3s;
+    position: relative;
 }
 
-.offertsGrid .CD {
-    background: url(gta.jpg);
-    opacity: .7;
-    background-size: cover;
-    background-position: center center;
+.offertsGrid img {
+    transition: .3s;
+    width: 350px;
+    opacity: .8;
+    height: 430px;
+}
+
+
+.offertsGrid .hola {
     transition: .3s;
 }
 
-.offertsGrid .Rockstar {
-    background: url(creed.jpg);
-    opacity: .7;
-    background-size: cover;
-    background-position: center center;
-    transition: .3s;
-}
 
-.offertsGrid .Mojang {
-    background: url(fifa.jpg);
-    opacity: .7;
-    background-size: cover;
-    background-position: center center;
-    transition: .3s;
-}
-
-.CD:hover {
+.offertsGrid .hola:hover {
     transform: scale(1.01);
     opacity: 1;
 }
 
-.Rockstar:hover {
-    transform: scale(1.01);
-    opacity: 1;
+.offertsGrid .hola:hover .offert{
+    opacity: 0;
 }
-
-.Mojang:hover {
-    transform: scale(1.01);
-    opacity: 1;
-}
-
 
 .offertDetail {
     display: flex;
-    background-color: #333;
-    width: 50%;
-    margin-left: 50%;
-    margin-top: 105%;
+    width: 20%;
+    position: absolute;
+    top: 0;
     justify-content: space-between;
+    margin-left: 76.2%;
+    margin-top: 100%;
 }
 
-.offertDetail span {
-    padding: 3px 0px;
+.offertDetail p {
+    padding: 10px 20px;
     font-size: 13px;
     text-align: center;
 }
 
 .offertDetail .offert {
-    background-color: #3ddbe6;
-    padding: 3px 7px;
-    color: black;
+    background: linear-gradient(#0c7e86, #04c2cf);
+    padding: 10px 20px;
+    color: white;
 }
 
 .offertDetail .price {
@@ -83,4 +69,61 @@
 
 .offertDetail .priceOffert {
     padding-right: 10px;
+}
+
+.offertsGrid .hoverDetails {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+    transform: translateY(25%);
+    transition: .3s ease;
+        height: 40%;
+    margin-top: -62%;
+    opacity: 0;
+}
+
+.offertsGrid .hola:hover .hoverDetails {
+    opacity: 1;
+}
+
+.offertsGrid .hoverDetails::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-image: linear-gradient(to bottom, transparent 10%, rgba(0,0,0,0.5 ) 50%, rgba(0,0,0) 95%);
+    transition: all .3s ease;
+}
+
+.offertsGrid:hover .hoverDetails::before {
+    opacity: 1;
+}
+
+.offertsGrid .hoverDetails h4 {
+    font-size: 30px;
+    margin-top: 20%;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.offertsGrid .allImg {
+    transition: .3s;
+}
+
+.offertsGrid .primerImagen:hover {
+    opacity: 1;
+}
+
+.offertsGrid .segundaImagen:hover {
+    opacity: 1;
+}
+
+.offertsGrid .tercerImagen:hover {
+    opacity: 1;
 }

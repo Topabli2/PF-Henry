@@ -1,60 +1,103 @@
 'use client';
-import { useState } from 'react';
-import { games } from './api.js';
+import { useEffect, useState } from 'react';
+import { data } from '../app/api/data';
 import filter from './utils/filter.js';
 import order from './utils/order.js';
-import Cards from '@/components/cards/Cards.jsx';
+import Card from '@/components/card/Card.jsx';
 import MostPrice from '@/components/mostPrice/MostPrice.jsx';
 import Select from '@/components/select/Select.jsx';
 import Offerts from '@/components/offerts/Offerts.jsx';
 import Aside from '@/components/aside/Aside.jsx';
 import Genders from '@/components/generos/Genders.jsx';
-
+import { SearchBar } from '@/components/searchbar/Searchbar';
+import search from './utils/search';
 
 const HomePage = () => {
-    let dataToRender = games;
+    const initialGames = [data[0], data[2], data[9]];
+    const [mostPriceGames, setMostPriceGames] = useState(initialGames);
+    let dataToRender = data;
+
     const [filtrado, setFiltrado] = useState(false);
     const [filtrados, setFiltrados] = useState([]);
     const [ordenado, setOrdenado] = useState(false);
     const [ordenados, setOrdenados] = useState([]);
+    const [find, setFind] = useState(false);
+    const [finds, setFinds] = useState([]);
 
-    const mostPrice = games
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            let randomGameIndexes = [];
+            while (randomGameIndexes.length < 3) {
+                const randomIndex = Math.floor(Math.random() * 10);
+                if (!randomGameIndexes.includes(randomIndex)) {
+                    randomGameIndexes.push(randomIndex);
+                }
+            }
+
+            const randomGames = randomGameIndexes.map(index => data[index]);
+
+            setMostPriceGames(randomGames);
+        }, 10000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+
+    const mostPrice = data
         .map(game => (game.precio >= 49.99 ? game : null))
         .filter(game => game !== null);
 
-    const arrTypesGames = games.map(game => game.genero).flat();
-    const uniqueArrTypesGames = arrTypesGames.filter((type, index, array) => {
+    const arrTypesdata = data.map(game => game.genre).flat();
+    const uniqueArrTypesGames = arrTypesdata.filter((type, index, array) => {
         return array.indexOf(type) === index;
     });
 
     const handleFilter = (types) => {
-
-        for(let i = 0; i < types.length; i++){
-            if(types[i] === 'Ciencia Ficción') types[i] = 'CienciaFicción';
-            if(types[i] === 'Battle Royale') types[i] = 'BattleRoyale';
-        }
-
         setFiltrados(filter(types));
         setOrdenado(false);
+        setFind(false);
         setFiltrado(true)
     }
 
-    const handleOrder = (event) => {
-        setOrdenados(order(event.target.value))
+    const handleOrder = (op) => {
+        setOrdenados(order(op, dataToRender))
         setFiltrado(false);
+        setFind(false);
         setOrdenado(true)
     }
 
+    const handleSearch = (letters) => {
+        if (letters.length < 3) {
+            setFinds(data);
+            if (filtrados.length > 0) {
+                setFinds(filtrados);
+                return;
+            };
+            if (ordenados.length > 0) {
+                setFinds(ordenados);
+                return;
+            };
+            return
+        };
+        setFinds(search(letters));
+        setFiltrado(false);
+        setOrdenado(false);
+        setFind(true);
+    };
+
     if (filtrado) dataToRender = filtrados;
     if (ordenado) dataToRender = ordenados;
+    if (find) dataToRender = finds;
+
     return (
         <div>
-            <MostPrice mostPrice={mostPrice} />
-            <Offerts />
+            <MostPrice mostPrice={mostPriceGames} />
+            <Offerts games={mostPriceGames} />
             <Genders types={uniqueArrTypesGames} />
+            <SearchBar handleSearch={handleSearch} />
             <div className='cardsAndAside'>
-                <Cards dataToRender={dataToRender} />
-                <Aside types={uniqueArrTypesGames} onChange={handleFilter} />
+                <Card data={dataToRender} />
+                <Aside types={uniqueArrTypesGames} onChange={[handleFilter, handleOrder]} />
             </div>
         </div>
     )

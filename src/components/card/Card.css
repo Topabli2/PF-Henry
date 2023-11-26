@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
 .sectionCard{
     position: relative;
     border-radius: 2.5%;
@@ -9,7 +9,7 @@
     position: relative;
     margin-top:5%;
     margin-left: 5%;
-   width: 90%;  
+   width: 100%;  
    transition: all 0.5s ease;
 
 }
@@ -53,4 +53,88 @@
     width: 100%;
     opacity: 1;
 
+}
+.gridCards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+} */
+
+.gridCards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-left: -50px;
+    margin-bottom: 100px;
+}
+
+.cardGame {
+    width: 220px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    opacity: .7;
+    transition: .3s;
+}
+
+.cardGame:hover {
+    transform: perspective(1000px) rotateY(-8deg);
+    opacity: 1;
+}
+
+.cardGame img {
+    width: 218px;
+    height: 218px;
+    border-radius: 2px;
+}
+
+.cardGame .spans {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.cardGame .spans .precio {
+    color: #00b502;
+}
+
+/* .cardGame button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    background-color: #0399b7;
+    color: white;
+    transition: .3s;
+}
+
+.cardGame button:hover {
+    background-color: #005b6d;
+} */
+
+.default {
+    width: 100%;
+    position: relative;
+    overflow: visible;
+}
+
+.notFound {
+    background-image: url(gifTest.gif);
+    background-position: center;
+    background-size: cover;
+    width: 200px;
+    border-radius: 3px;
+    height: 200px;
+    margin: auto;
+    margin-left: 245%;
+    margin-top: 20%;
+}
+
+.notFound h1 {
+    text-align: center;
+    margin-top: -30%;
+    width: 300%;
+    margin-left: -100%;
 }
