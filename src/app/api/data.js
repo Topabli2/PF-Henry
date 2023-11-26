@@ -10,7 +10,7 @@ export const data = [
         "developer": "Activision",
         "publishedby": "Activision",
         "image": "https://i.3djuegos.com/juegos/17036/sons_of_the_forest/fotos/ficha/sons_of_the_forest-5790645.jpg",
-        "video": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/ModernWarfare3Logo.svg/375px-ModernWarfare3Logo.svg.png",
+        "video": "https://www.youtube.com/embed/8sghWJKPWno?si=QoEhY7gEAyXXg7A5",
         "size": "80GB",
         "price": 70.99
     },
@@ -24,7 +24,7 @@ export const data = [
         "developer": "Starbreeze Studios",
         "publishedby": "Deep Silver",
         "image": "https://imgs.search.brave.com/XNnrBRw35CF2RGu6ubcPYGyUo_-mG3s14AwWcmM7aRk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmJs/b2dzLmVzL2MwZGJm/MS9zY3JlZW5zaG90/XzM1NjQvMTM2Nl8y/MDAwLndlYnA",
-        "video": "https://www.ign.com/videos/payday-3-official-gameplay-trailer[^7^][29]",
+        "video": "https://www.youtube.com/embed/TlkwDNirzF8?si=6P17kcYy4CCqIWKk",
         "size": "65GB",
         "price": 39.99
     },
@@ -38,7 +38,7 @@ export const data = [
         "developer": "Playground Games",
         "publishedby": "Microsoft Studios",
         "image": "https://store-images.s-microsoft.com/image/apps.49800.13718773309227929.bebdcc0e-1ed5-4778-8732-f4ef65a2f445.9ac09d39-064d-466c-81ca-2f1b6f0b95c5",
-        "video": "https://www.youtube.com/watch?v=_YK7v2phBPA",
+        "video": "https://www.youtube.com/embed/Rv7xLt5yNsM?si=dhLvaQnsmfsvEqnh",
         "size": "103GB",
         "price": 59.99
     },
@@ -52,8 +52,8 @@ export const data = [
         "developer": "EA Sports",
         "publishedby": "EA Swiss Sarl",
         "image": "https://imgs.search.brave.com/HiIivhEoEub5mwhLjG0mEh9qj2QGeC8pUPhGrqFfOZg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmJs/b2dzLmVzLzFiZjEx/My9lYXNwb3J0cy1w/b3J0YWRhLzQ1MF8x/MDAwLmpwZWc",
-        "video": "https://www.ea.com/games/fifa/fifa-24",
-        "size": "2GB",
+        "video": "https://www.youtube.com/embed/L30zvMbVJlM?si=BhKHJ7PcK5PJMkpw",
+        "size": "24GB",
         "price": 24.99
     },
     {
@@ -66,8 +66,8 @@ export const data = [
         "developer": "Sledgehammer Games",
         "publishedby": "Activision",
         "image": "https://imgs.search.brave.com/GcEfTg8zOacxOCgqti7QjBevv272GSBvK-THuBQ5fjg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZS5hcGkucGxheXN0/YXRpb24uY29tL3Z1/bGNhbi9hcC9ybmQv/MjAyMzA4LzE0MTUv/YTQzZjdhOWUyOGIw/ZmY4MWQ4MmY5YTgz/YmM4NWQ1ZDVmZTU5/YjZmN2JkZDY4Mjhm/LmpwZw",
-        "video": "https://www.callofduty.com/",
-        "size": "6GB",
+        "video": "https://www.youtube.com/embed/CEeVm-dGVKQ?si=cJMPSfqydbQjFK4s",
+        "size": "64GB",
         "price": 12.99
     },
     {
@@ -80,7 +80,7 @@ export const data = [
         "developer": "Ubisoft Toronto",
         "publishedby": "Ubisoft",
         "image": "https://imgs.search.brave.com/2cs7wF5HAsstpXNO1gS0q2sI6dMKs6Tj9WJSHLtTnbc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXIuZG9nL2xh/cmdlLzIwNDU4NjA1/LmpwZw",
-        "video": "https://www.ubisoft.com/es-es/game/far-cry/far-cry-6",
+        "video": "https://www.youtube.com/embed/IYoya-4DCbs?si=gKyCoAueiwCOEge4",
         "size": "30GB",
         "price": 25.99
     },
@@ -94,7 +94,7 @@ export const data = [
         "developer": "Rockstar North",
         "publishedby": "Rockstar Games",
         "image": "https://imgs.search.brave.com/MYlp5k5JdRKlqtGduBNfaC_cSjlxjtVLL7iIVtT-Wdg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZS5hcGkucGxheXN0/YXRpb24uY29tL2Nk/bi9VUDEwMDQvQ1VT/QTAwNDE5XzAwL2JU/TlNlN29rOGVGVkdl/UUJ5QTVxU3pCUW9L/QUFZMzJSLnBuZw",
-        "video": "https://www.youtube.com/watch?v=QkkoHAzjnUs",
+        "video": "https://www.youtube.com/embed/hvoD7ehZPcM?si=CipCrwZ-mtiGo3mV",
         "size": "72GB",
         "price": 30.99
     },
@@ -108,8 +108,8 @@ export const data = [
         "developer": "Kunos Simulazioni",
         "publishedby": "Kunos Simulazioni",
         "image": "https://imgs.search.brave.com/WkKDiplktVAa_N-ndiJE7SlunsZpFF6YBunTbDEQiMs/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9nYW1p/bmctY2RuLmNvbS9p/bWFnZXMvcHJvZHVj/dHMvMTI2My8zODB4/MjE4L2Fzc2V0dG8t/Y29yc2EtcGMtanVl/Z28tc3RlYW0tY292/ZXIuanBnP3Y9MTY5/MzUxMTA2MA",
-        "video": "https://www.youtube.com/watch?v=QkkoHAzjnUs",
-        "size": "5GB",
+        "video": "https://www.youtube.com/embed/2naR61zAD-Q?si=F5ggnP_w8CLaHVZQ",
+        "size": "54GB",
         "price": 19.99
     },
     {
@@ -122,7 +122,7 @@ export const data = [
         "developer": "Relic Entertainment",
         "publishedby": "Xbox Game Studios",
         "image": "https://imgs.search.brave.com/Z6r4usNxLzsF1gXHZ8iyVTvNBVr9oji7566p9I8a0Sk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMueGJveHNlcnZp/Y2VzLmNvbS9hc3Nl/dHMvZjYvYzEvZjZj/MWI2MjUtZTQ2Zi00/MjliLTk3MjctOWEy/NGMzMTExNzM3Lmpw/Zz9uPTcyMTE1NjZf/R0xQLVBhZ2UtSGVy/by0wXzEwODN4NjA5/LmpwZw",
-        "video": "https://www.youtube.com/watch?v=QkkoHAzjnUs",
+        "video": "https://www.youtube.com/embed/_j-uv3lN3B4?si=hj_2uUBSfjadxMu4",
         "size": "N/A",
         "price": 19.99
     },
@@ -136,7 +136,7 @@ export const data = [
         "developer": "Sony Santa Monica",
         "publishedby": "Sony Interactive Entertainment",
         "image": "https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png",
-        "video": "https://www.youtube.com/watch?v=EE-4GvjKcfs",
+        "video": "https://www.youtube.com/embed/F3jePdO9_jc?si=SYpbJTjedAfpwNK-",
         "size": "N/A",
         "price": 55.99
     }
