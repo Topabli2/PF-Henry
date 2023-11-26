@@ -5,12 +5,9 @@ import Buy from "./components_details/Buy/Buy";
 import AdvertisingHandler from "./components_details/AdvertisingHandler/AdvertisingHandler";
 
 import "./Details.css";
-import { Fake } from "@/fakeDB";
 import Trailer from "./components_details/Trailer/Trailer";
 
-const Details = () => {
-  const game = Fake(); // Supongamos que Fake() devuelve una cadena JSON válida
-
+const Details = ({ game }) => {
 
   const detailsStyle = {
     backgroundImage: `url("https://images2.alphacoders.com/133/1330770.png")`,
