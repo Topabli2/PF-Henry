@@ -6,7 +6,7 @@ import { isArray } from 'lodash';
 const Card = ({ data }) => {
   return (
     <div className='default'>
-      <div className="gridCards">
+      <div className="gridCards" id='cards'>
 
         {data.length > 0 ? (
           data.map((game) => (
