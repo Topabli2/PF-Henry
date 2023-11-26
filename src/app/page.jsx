@@ -102,7 +102,6 @@ const HomePage = () => {
 
     return (
         <div>
-            <navBar />  
             <MostPrice mostPrice={mostPriceGames} />
             <Offerts games={mostPriceGames} />
             <Genders types={uniqueArrTypesGames} />
