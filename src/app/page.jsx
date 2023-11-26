@@ -11,6 +11,8 @@ import Aside from '@/components/aside/Aside.jsx';
 import Genders from '@/components/generos/Genders.jsx';
 import { SearchBar } from '@/components/searchbar/Searchbar';
 import search from './utils/search';
+import Paginado from '@/components/paginado/paginado';
+import NavBar from '@/components/navbar/navbar';
 
 const HomePage = () => {
     const initialGames = [data[0], data[2], data[9]];
@@ -23,6 +25,9 @@ const HomePage = () => {
     const [ordenados, setOrdenados] = useState([]);
     const [find, setFind] = useState(false);
     const [finds, setFinds] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const juegosPorPag = 3;
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -85,12 +90,19 @@ const HomePage = () => {
         setFind(true);
     };
 
+    const cambiarPag = () => {
+        setCurrentPage(currentPage + 1);
+    }
+
     if (filtrado) dataToRender = filtrados;
     if (ordenado) dataToRender = ordenados;
     if (find) dataToRender = finds;
+    const totalJuegos = dataToRender.length;
+    dataToRender = dataToRender.slice(0,3)
 
     return (
         <div>
+            <navBar />  
             <MostPrice mostPrice={mostPriceGames} />
             <Offerts games={mostPriceGames} />
             <Genders types={uniqueArrTypesGames} />
@@ -99,6 +111,7 @@ const HomePage = () => {
                 <Card data={dataToRender} />
                 <Aside types={uniqueArrTypesGames} onChange={[handleFilter, handleOrder]} />
             </div>
+            <Paginado juegosPorPag={juegosPorPag} totalJuegos={totalJuegos} cambiarPag={cambiarPag} />
         </div>
     )
 }

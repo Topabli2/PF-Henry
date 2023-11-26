@@ -65,7 +65,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-left: -50px;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
 }
 
 .cardGame {
