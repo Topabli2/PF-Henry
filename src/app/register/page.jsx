@@ -65,7 +65,7 @@ const Register = () => {
 					setMsjToRender('Usuario creado con éxito');
 					setErr('');
 					setTimeout(() => {
-						window.location.href = '/';
+						window.location.href = '/login';
 					}, 3000);
 				} else {
 					const errorData = await response.json();

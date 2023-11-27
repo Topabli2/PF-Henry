@@ -35,15 +35,15 @@ const validation = (user) => {
 			'The country must be between 6 and 25 alphanumeric characters';
 	}
 
-	if (!userNameRegex.test(user.profile.profileName)) {
-		errors.profileName =
-			'The profile name must be between 6 and 25 alphanumeric characters';
-	}
+	// if (!userNameRegex.test(user.profile.profileName)) {
+	// 	errors.profileName =
+	// 		'The profile name must be between 6 and 25 alphanumeric characters';
+	// }
 
-	if (!userNameRegex.test(user.profile.profile_type)) {
-		errors.profile_type =
-			'The profile type must be between 6 and 25 alphanumeric characters';
-	}
+	// if (!userNameRegex.test(user.profile.profile_type)) {
+	// 	errors.profile_type =
+	// 		'The profile type must be between 6 and 25 alphanumeric characters';
+	// }
 
 	return errors;
 };
