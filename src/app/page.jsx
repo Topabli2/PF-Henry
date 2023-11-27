@@ -28,8 +28,8 @@ const HomePage = () => {
     const [find, setFind] = useState(false);
     const [finds, setFinds] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-  
-     
+
+
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -96,9 +96,9 @@ const HomePage = () => {
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
-      };
+    };
 
-   
+
     if (filtrado) dataToRender = filtrados;
     if (ordenado) dataToRender = ordenados;
     if (find) dataToRender = finds;
@@ -117,21 +117,21 @@ const HomePage = () => {
             <SearchBar handleSearch={handleSearch} />
             <div className='cardsAndAside'>
 
-            
 
-            <Card data={currentGames}  />
 
-           
+                <Card data={currentGames} />
 
-                
+
+
+
                 <Aside types={uniqueArrTypesGames} onChange={[handleFilter, handleOrder]} />
             </div>
-            
+
             <Paginado
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
         </div>
     )
 }
