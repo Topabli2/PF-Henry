@@ -16,15 +16,15 @@ const Galery = ({ game }) => {
   return (
     <div className="GaleryContainer">
       <div className='contIMG'>
-      <img src={game.image} alt="caratula"  className='caratulaD1'/>
+        <img src={game.image} alt="caratula" className='caratulaD1' />
       </div>
       <h3 className='textG'>CAPTURE</h3>
-      <img className='capturaD' src="https://github.com/zuoki/imagenesPF/blob/main/the%20witcher%203/captura.png?raw=true" alt="captura" onClick={handleImageClick} />
+      <img className='capturaD' src={game.capture} alt="captura" onClick={handleImageClick} />
 
       {expanded && (
         <div className="fullscreen-overlay" onClick={handleCloseClick}>
           <span className="close-button">&times;</span>
-          <img className="expanded-image" src="https://github.com/zuoki/imagenesPF/blob/main/the%20witcher%203/captura.png?raw=true" alt="captura" />
+          <img className="expanded-image"src={game.capture} alt="captura" />
         </div>
       )}
     </div>
