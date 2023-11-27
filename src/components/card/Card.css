@@ -68,9 +68,9 @@
 
 .gridCards {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 2fr);
     gap: 30px;
-    margin-left: 20%;
+    margin-left: 0%;
     margin-bottom: 20px;
 }
 
