@@ -1,19 +1,22 @@
 /// Register.js
 'use client';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import './register.css';
 import Link from 'next/link';
 import { createUserStore } from '@/store/createUserStore';
 import validation from './validation';
 
 const Register = () => {
-	const { user, setUser, msjToRender, err, setMsjToRender, setErr } =createUserStore();
-  const [isValid, setIsValid] = React.useState(false);
+	const { user, setUser, msjToRender, err, setMsjToRender, setErr } =
+		createUserStore();
+	const [errors, setErrors] = useState({});
+	const [isValid, setIsValid] = useState(false);
 
-  React.useEffect(() => {
-    setIsValid(validation(user) === "");
-  }, [user]);
-
+	const validateForm = () => {
+		const formErrors = validation(user);
+		setErrors(formErrors);
+		setIsValid(Object.keys(formErrors).length === 0);
+	};
 
 	const handleUser = (e) => {
 		const value =
@@ -21,6 +24,13 @@ const Register = () => {
 				? parseInt(e.target.value, 10)
 				: e.target.value;
 		const name = e.target.name.split('.');
+		const fieldName = name.length > 1 ? name[1] : e.target.name;
+
+		const newErrors = { ...errors };
+		delete newErrors[fieldName];
+
+		setErrors(newErrors);
+
 		if (name.length > 1) {
 			setUser({
 				...user,
@@ -35,28 +45,36 @@ const Register = () => {
 				[e.target.name]: value,
 			});
 		}
+
+		validateForm(); // Validar el formulario en tiempo real
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			// Envío de datos al backend
-			const response = await fetch('/api/users', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(user),
-			});
-			if (response.ok) {
-				setMsjToRender('Usuario creado con éxito');
-				setErr('');
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 3000);
+			if (isValid) {
+				const response = await fetch('/api/users', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(user),
+				});
+
+				if (response.ok) {
+					setMsjToRender('Usuario creado con éxito');
+					setErr('');
+					setTimeout(() => {
+						window.location.href = '/';
+					}, 3000);
+				} else {
+					const errorData = await response.json();
+					setErr(errorData.message || 'Error al crear el usuario');
+				}
 			} else {
-				const errorData = await response.json();
-				setErr(errorData.message || 'Error al crear el usuario');
+				setErr(
+					'Por favor, corrige los errores en el formulario antes de enviar.'
+				);
 			}
 		} catch (error) {
 			setErr('Error al comunicarse con el servidor');
@@ -66,7 +84,7 @@ const Register = () => {
 	return (
 		<div className="formRegister">
 			<form onSubmit={handleSubmit}>
-				<p>Sing in</p>
+				<p>Sign in</p>
 				<div className="containerform">
 					<div className="camposUno">
 						<input
@@ -75,37 +93,48 @@ const Register = () => {
 							value={user.username}
 							name="username"
 							placeholder="Username"
-              maxLength="25"
+							maxLength="25"
 						/>
 						<br />
+						{errors['username'] && (
+							<p className="error" style={{ color: 'red', fontSize: '8px' }}>
+								{errors['username']}{' '}
+							</p>
+						)}
 						<input
 							autoComplete="off"
 							onChange={handleUser}
 							value={user.lastName}
 							name="lastName"
-							placeholder="Last Name"
-              maxLength="25"
+							placeholder="LastName"
+							maxLength="25"
 						/>
 						<br />
+						{errors['lastName'] && (
+							<p className="error">{errors['lastName']}</p>
+						)}
 						<input
 							autoComplete="off"
 							onChange={handleUser}
 							value={user.password}
 							name="password"
-							type="password"
 							placeholder="Password"
-              maxLength="15"
+							maxLength="25"
 						/>
 						<br />
+						{errors['password'] && (
+							<p className="error">{errors['password']}</p>
+						)}
 						<input
 							autoComplete="off"
 							onChange={handleUser}
 							value={user.email}
 							name="email"
 							placeholder="Email"
-              maxLength="25"
+							maxLength="25"
 						/>
 						<br />
+						{errors['email'] && <p className="error">{errors['email']}</p>}
 					</div>
 					<div className="camposDos">
 						<input
@@ -114,43 +143,51 @@ const Register = () => {
 							value={user.country}
 							name="country"
 							placeholder="Country"
-              maxLength="20"
+							maxLength="25"
 						/>
 						<br />
+						{errors['country'] && <p className="error">{errors['country']}</p>}
 						<input
 							autoComplete="off"
 							onChange={handleUser}
 							value={user.phone}
 							name="phone"
 							placeholder="Phone"
-              maxLength="12"
+							maxLength="25"
 						/>
 						<br />
+						{errors['phone'] && <p className="error">{errors['phone']}</p>}
 						<input
 							autoComplete="off"
 							onChange={handleUser}
-							value={user.profile.profileName}
-							name="profile.profileName"
+							value={user.profileName}
+							name="profileName"
 							placeholder="ProfileName"
-              maxLength="20"
+							maxLength="25"
 						/>
 						<br />
+						{errors['profileName'] && (
+							<p className="error">{errors['profileName']}</p>
+						)}
 						<input
 							autoComplete="off"
 							onChange={handleUser}
-							value={user.profile.profile_type}
-							name="profile.profile_type"
-							placeholder="profile_type"
-              maxLength="20"
+							value={user.profile_type}
+							name="profile_type"
+							placeholder="Profile_type"
+							maxLength="25"
 						/>
 						<br />
+						{errors['profile_type'] && (
+							<p className="error">{errors['profile_type']}</p>
+						)}
 					</div>
 				</div>
 
 				<button disabled={!isValid}>Submit</button>
 
 				<p className="msjToRender">{err.length > 0 && err}</p>
-				{msjToRender.length > 0 && (<p className="msjToRender">{msjToRender}</p>)}
+				{msjToRender.length > 0 && <p className="msjToRender">{msjToRender}</p>}
 			</form>
 		</div>
 	);

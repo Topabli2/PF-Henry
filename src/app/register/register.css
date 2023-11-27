@@ -103,6 +103,10 @@
 .camposUno input::placeholder {
     color: #eee;
 }
+.error {
+    color: red;
+    font-size: 14px;
+  }
 
 .camposDos {
     width: 80%;
