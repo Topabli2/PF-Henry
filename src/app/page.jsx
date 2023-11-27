@@ -12,6 +12,7 @@ import Genders from '@/components/generos/Genders.jsx';
 import { SearchBar } from '@/components/searchbar/Searchbar';
 import search from './utils/search';
 import Paginado from '@/components/paginado/paginado';
+import Footer from '@/components/footer/footer';
 
 
 const gamesPerPage = 3;
@@ -132,6 +133,7 @@ const HomePage = () => {
           totalPages={totalPages}
           onPageChange={handlePageChange}
         />
+        <Footer />
         </div>
     )
 }
