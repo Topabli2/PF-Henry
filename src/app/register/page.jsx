@@ -2,31 +2,23 @@
 'use client';
 import React from 'react';
 import './register.css';
-import validation from './validation';
 import Link from 'next/link';
 import { createUserStore } from '@/store/createUserStore';
 
 const Register = () => {
-	const { user, setUser, msjToRender, err, setMsjToRender, setErr } =
-		createUserStore();
+	const { user, setUser, msjToRender, err, setMsjToRender, setErr } =createUserStore();
 
-	console.log(user);
+    console.log("User Object:", user);
 	const handleUser = (e) => {
+    const value = e.target.name === 'profile_type' ? parseInt(e.target.value, 10) : e.target.value;
 		setUser({
-			[e.target.name]: e.target.value,
+      ...user,
+        [e.target.name]: value,
 		});
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
-		// // Validación
-		// const validationError = validation(user);
-		// if (validationError) {
-		// 	setErr(validationError);
-		// 	return;
-		// }
-
 		try {
 			// Envío de datos al backend
 			const response = await fetch('/api/users', {
@@ -36,7 +28,6 @@ const Register = () => {
 				},
 				body: JSON.stringify(user),
 			});
-
 			if (response.ok) {
 				setMsjToRender('Usuario creado con éxito');
 				setErr('');
@@ -50,18 +41,12 @@ const Register = () => {
 		}
 	};
 
-	// const handleDisabled = () => {
-	// 	return (
-	// 		err.length > 0 || Object.values(user).some((value) => value.length === 0)
-	// 	);
-	// };
 
 	return (
 		<div className="formRegister">
 			<form onSubmit={handleSubmit}>
 				<p>Registrarse</p>
 				<div className="campos">
-					{/* Añadir campos adicionales según las props */}
 					<input
 						autoComplete="off"
 						onChange={handleUser}
@@ -128,9 +113,9 @@ const Register = () => {
 					/>
 					<br />
 				</div>
-				<Link href={'/'}>
+				
 					<button>Submit</button>
-				</Link>
+				
 				<p className="msjToRender">{err.length > 0 && err}</p>
 				{msjToRender.length > 0 && <p className="msjToRender">{msjToRender}</p>}
 			</form>

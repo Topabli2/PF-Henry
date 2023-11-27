@@ -12,7 +12,7 @@ export const createUserStore = create((set) => ({
 		userGames: [],
 		profile: {
 			profileName: '',
-			profile_type: '',
+			profile_type: 0,
 		},
 	},
 	msjToRender: '',
