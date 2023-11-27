@@ -103,9 +103,9 @@
 .camposUno input::placeholder {
     color: #eee;
 }
-.error {
-    color: red;
-    font-size: 14px;
+.formRegister p.error {
+    color: #eee;
+    font-size: 12px;
   }
 
 .camposDos {

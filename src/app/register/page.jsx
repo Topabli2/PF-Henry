@@ -97,9 +97,7 @@ const Register = () => {
 						/>
 						<br />
 						{errors['username'] && (
-							<p className="error" style={{ color: 'red', fontSize: '8px' }}>
-								{errors['username']}{' '}
-							</p>
+							<p className="error">{errors['username']} </p>
 						)}
 						<input
 							autoComplete="off"
@@ -153,7 +151,7 @@ const Register = () => {
 							value={user.phone}
 							name="phone"
 							placeholder="Phone"
-							maxLength="25"
+							maxLength="15"
 						/>
 						<br />
 						{errors['phone'] && <p className="error">{errors['phone']}</p>}
@@ -175,7 +173,6 @@ const Register = () => {
 							value={user.profile_type}
 							name="profile_type"
 							placeholder="Profile_type"
-							maxLength="25"
 						/>
 						<br />
 						{errors['profile_type'] && (
@@ -184,7 +181,7 @@ const Register = () => {
 					</div>
 				</div>
 
-				<button disabled={!isValid}>Submit</button>
+				<button disabled={!isValid}>Register</button>
 
 				<p className="msjToRender">{err.length > 0 && err}</p>
 				{msjToRender.length > 0 && <p className="msjToRender">{msjToRender}</p>}

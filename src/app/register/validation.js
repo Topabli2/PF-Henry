@@ -2,8 +2,8 @@
 const validation = (user) => {
 	const userNameRegex = /^[a-zA-Z0-9]{6,25}$/;
 	const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-	const passwordRegex = /^[a-zA-Z0-9]{6,15}$/;
-	const phoneRegex = /^[0-9]{1,10}$/;
+	const passwordRegex = /^[a-zA-Z0-9]{6,25}$/;
+	const phoneRegex = /^[0-9]{4,14}$/;
 
 	const errors = {};
 
@@ -23,11 +23,11 @@ const validation = (user) => {
 
 	if (!passwordRegex.test(user.password)) {
 		errors.password =
-			'The password must be between 6 and 15 alphanumeric characters';
+			'The password must be between 6 and 25 alphanumeric characters';
 	}
 
 	if (!phoneRegex.test(user.phone)) {
-		errors.phone = 'Invalid phone number';
+		errors.phone = 'The phone must be between 5 and 15 numbers';
 	}
 
 	if (!userNameRegex.test(user.country)) {
