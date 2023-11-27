@@ -15,7 +15,7 @@ const Advertising = ({ game }) => {
 
 
         <h2 className="destaco"> Genre  :  {game.genre} </h2>
-        <h2 className="PlatformD">  Platform : {game.platform}</h2>
+        <h2 className="PlatformD">  Store : {game.platform}</h2>
         <h2 className="SizeD">  Size : {game.size}</h2>
 
 
