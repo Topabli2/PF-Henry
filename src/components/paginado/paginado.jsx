@@ -1,24 +1,36 @@
+import React from 'react';
 import style from './paginado.module.css'
 
-const Paginado = ({ juegosPorPag, totalJuegos, cambiarPag }) => {
+const Paginado = ({ currentPage, totalPages, onPageChange }) => {
+   
+  const renderPageNumbers = () => {
 
-    const totalPaginas = Math.ceil(totalJuegos / juegosPorPag);
+    const pageNumbers = [];
 
-    const paginas = []
+    for (let i = 1; i <= totalPages; i++) {
 
-    for (let pagina = 1; pagina <= totalPaginas; pagina++) {
-        paginas.push(
-            <button className={style.buttonPage} key={pagina} onClick={() => cambiarPag(pagina)} >
-                {pagina}
-            </button>
-        )
+      pageNumbers.push(
+
+        <li key={i} className={i === currentPage ? 'active' : ''}>
+          <button className={style.buttonPage} onClick={() => onPageChange(i)}>{i}</button>
+        </li>
+
+      );
     }
 
-    return (
-        <div className={style.containButPage}>
-            {paginas}
-        </div>
-    )
-}
+    return pageNumbers;
+  };
 
-export default Paginado
+  return (
+    <div className={style.containButPage} >
+
+        <ul className="pagination">
+      {renderPageNumbers()}
+    </ul>
+
+    </div>
+    
+  );
+};
+
+export default Paginado;

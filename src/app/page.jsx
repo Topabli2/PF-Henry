@@ -12,7 +12,9 @@ import Genders from '@/components/generos/Genders.jsx';
 import { SearchBar } from '@/components/searchbar/Searchbar';
 import search from './utils/search';
 import Paginado from '@/components/paginado/paginado';
-import NavBar from '@/components/navbar/navbar';
+
+
+const gamesPerPage = 3;
 
 const HomePage = () => {
     const initialGames = [data[0], data[2], data[9]];
@@ -26,8 +28,8 @@ const HomePage = () => {
     const [find, setFind] = useState(false);
     const [finds, setFinds] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-
-    const juegosPorPag = 3;
+  
+     
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -62,6 +64,7 @@ const HomePage = () => {
         setOrdenado(false);
         setFind(false);
         setFiltrado(true)
+        setCurrentPage(1)
     }
 
     const handleOrder = (op) => {
@@ -69,6 +72,7 @@ const HomePage = () => {
         setFiltrado(false);
         setFind(false);
         setOrdenado(true)
+        setCurrentPage(1)
     }
 
     const handleSearch = (letters) => {
@@ -90,15 +94,20 @@ const HomePage = () => {
         setFind(true);
     };
 
-    const cambiarPag = () => {
-        setCurrentPage(currentPage + 1);
-    }
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+      };
 
+   
     if (filtrado) dataToRender = filtrados;
     if (ordenado) dataToRender = ordenados;
     if (find) dataToRender = finds;
-    const totalJuegos = dataToRender.length;
-    dataToRender = dataToRender.slice(0,3)
+
+    const indexOfLastGame = currentPage * gamesPerPage;
+    const indexOfFirstGame = indexOfLastGame - gamesPerPage;
+    const currentGames = dataToRender.slice(indexOfFirstGame, indexOfLastGame);
+
+    const totalPages = Math.ceil(dataToRender.length / gamesPerPage);
 
     return (
         <div>
@@ -107,10 +116,22 @@ const HomePage = () => {
             <Genders types={uniqueArrTypesGames} />
             <SearchBar handleSearch={handleSearch} />
             <div className='cardsAndAside'>
-                <Card data={dataToRender} />
+
+            
+
+            <Card data={currentGames}  />
+
+           
+
+                
                 <Aside types={uniqueArrTypesGames} onChange={[handleFilter, handleOrder]} />
             </div>
-            <Paginado juegosPorPag={juegosPorPag} totalJuegos={totalJuegos} cambiarPag={cambiarPag} />
+            
+            <Paginado
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
         </div>
     )
 }
