@@ -11,9 +11,9 @@ const Paginado = ({ currentPage, totalPages, onPageChange }) => {
 
       pageNumbers.push(
 
-        <li key={i} className={i === currentPage ? 'active' : ''}>
+        <button key={i} className={i === currentPage ? 'active' : ''}>
           <button className={style.buttonPage} onClick={() => onPageChange(i)}>{i}</button>
-        </li>
+        </button>
 
       );
     }

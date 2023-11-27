@@ -14,7 +14,7 @@ import search from './utils/search';
 import Paginado from '@/components/paginado/paginado';
 
 
-const gamesPerPage = 3;
+const gamesPerPage = 8;
 
 const HomePage = () => {
     const initialGames = [data[0], data[2], data[9]];

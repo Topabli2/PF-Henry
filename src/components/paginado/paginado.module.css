@@ -6,6 +6,15 @@
 }
 
 .buttonPage{
-    border: 1px solid;
+    background-color:#333333;
+    color: aliceblue;
     padding: 10px;
+}
+
+.buttonPage:hover{
+    background-color:#219900;   
+}
+.active{
+    transform: scale(1.2);
+    background-color: #219900;
 }

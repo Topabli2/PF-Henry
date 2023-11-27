@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+
 .Dbuy {
   position: relative;
   top: -154%;
@@ -7,6 +9,7 @@
   background-color: #0e3c5d;
   border-radius: 2%;
   transition: all .3s;
+  font-family: "Kdam Thmor Pro", sans-serif;
 }
 .Dbuy2 {
   position: relative;
@@ -38,6 +41,7 @@
 }
 
 .IAC {
+  font-family: "Kdam Thmor Pro", sans-serif;
   width: 70%;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -62,6 +66,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   z-index: 1;
+  background-color: #0e3c5d;
 }
 
 .IAC::after {
@@ -75,6 +80,7 @@
   background-color: #06b0ff;
   transition: all.3s ease-in-out;
   border-radius: 5px;
+  background-color: ;
 }
 .IAC::before {
   content: "";
@@ -103,6 +109,7 @@
 /* boton add carito*/
 
 .ADC {
+  font-family: "Kdam Thmor Pro", sans-serif;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 70%;
@@ -128,6 +135,7 @@
   background-position: left -154%;
   transform: skew(5deg, 0deg);
   z-index: 1;
+  background-color: #0e3c5d;
 }
 
 .ADC::after {
