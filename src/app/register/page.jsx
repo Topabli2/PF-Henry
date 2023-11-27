@@ -6,19 +6,18 @@ import Link from 'next/link';
 import { createUserStore } from '@/store/createUserStore';
 
 const Register = () => {
-	const userprueba = createUserStore((state) => state.userprueba);
+	const { user, setUser } = createUserStore((state) => state);
 
 	const [msjToRender, setMsjToRender] = useState('');
 	const [err, setErr] = useState('');
 
-	const [user, setUser] = useState({
-		userName: '',
-		email: '',
-		password: '',
-		repeatPassword: '',
-	});
+	// const [user, setUser] = useState({
+	// 	userName: '',
+	// 	email: '',
+	// 	password: '',
+	// 	repeatPassword: '',
+	// });
 
-	console.log(userprueba);
 	const handleUser = (e) => {
 		setUser((prevUser) => {
 			const updatedUser = {

@@ -1,15 +1,18 @@
 import { create } from 'zustand';
 
-export const createUserStore = create(() => ({
-	userprueba: {
-		username: '',
-		lastName: '',
+export const createUserStore = create((set) => ({
+	user: {
+		userName: '',
 		email: '',
-		country: '',
-		phone: '',
-		profile: {
-			profileName: '',
-			profileType: '',
-		},
+		password: '',
+		repeatPassword: '',
 	},
+	setUser: (user) =>
+		set({
+			...user,
+			userName: user.userName,
+			email: user.email,
+			password: user.password,
+			repeatPassword: user.repeatPassword,
+		}),
 }));
