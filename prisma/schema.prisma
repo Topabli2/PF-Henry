@@ -8,6 +8,8 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+
+  // directUrl = env("DIRECT_URL")
 }
 
 model Games {
@@ -19,62 +21,41 @@ model Games {
   releaseDate String
   developer   String
   publishedby String
-  image       String
   video       String
+  image       String
+  wallpaper   String
+  capture     String
   size        String
   price       Float
-  userGames   UserGames[] // Campo para almacenar el id de la clave asociada, Relación opuesta para la tabla intermedia UserGames
-  licenseId   Int?
-  license     License?     @relation(fields: [licenseId], references: [id]) // Cambio de nombre del campo "game" a "licenses"
+  license     License[]
 }
 
 model User {
   id        Int         @id @default(autoincrement())
   username  String
   lastName  String
-  email     String
+  email     String      @unique
   country   String
   phone     String?
-  userGames UserGames[]
+  licenses  License[]
   profile   Profile?
 }
 
 model Profile {
   id           Int    @id @default(autoincrement())
-  profileName  String
+  profileName  String @unique
   profile_type Int
   userId       Int?   @unique
   user         User?  @relation(fields: [userId], references: [id])
 }
 
 model License {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   name      String
   active    Boolean
-  game      Games[]
-  createdAt DateTime @default(now())
-}
-
-model userGames {
-  id Int @id @default(autoincrement())
-}
-
-model UserGames {
-  id     Int @id @default(autoincrement())
-  userId Int
-  gameId Int
-  // gameLicenceId Int
-
-  user User  @relation(fields: [userId], references: [id]) // Llaves foráneas
-  game Games @relation(fields: [gameId], references: [id]) // Llaves foráneas
-  // gameLicence gameLicence @relation(fields: [gameLicenceId], references: [id]) // Llaves foráneas
-
-  @@unique([userId, gameId]) // Restricción única para evitar duplicados
-}
-
-// model usedLicense{
-//   id        Int    @id @default(autoincrement())
-//   gameKey   String @unique
-//   Date      DateTime
-//   game      String
-// }
+  gameId    Int?      
+  game      Games?    @relation(fields: [gameId], references: [id]) 
+  userId    Int? 
+  user      User?     @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+} 
