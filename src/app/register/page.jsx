@@ -6,28 +6,31 @@ import Link from 'next/link';
 import { createUserStore } from '@/store/createUserStore';
 
 const Register = () => {
-	const { user, setUser, msjToRender, err, setMsjToRender, setErr } =createUserStore();
+	const { user, setUser, msjToRender, err, setMsjToRender, setErr } =
+		createUserStore();
 
-    console.log("User Object:", user);
-    const handleUser = (e) => {
-      const value = e.target.name === 'profile.profile_type' ? parseInt(e.target.value, 10) : e.target.value;
-      const name = e.target.name.split('.');
-      if (name.length > 1) {
-        setUser({
-          ...user,
-          [name[0]]: {
-            ...user[name[0]],
-            [name[1]]: value,
-          },
-        });
-      } else {
-        setUser({
-          ...user,
-          [e.target.name]: value,
-        });
-      }
-    };
-    
+	console.log('User Object:', user);
+	const handleUser = (e) => {
+		const value =
+			e.target.name === 'profile.profile_type'
+				? parseInt(e.target.value, 10)
+				: e.target.value;
+		const name = e.target.name.split('.');
+		if (name.length > 1) {
+			setUser({
+				...user,
+				[name[0]]: {
+					...user[name[0]],
+					[name[1]]: value,
+				},
+			});
+		} else {
+			setUser({
+				...user,
+				[e.target.name]: value,
+			});
+		}
+	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -53,83 +56,93 @@ const Register = () => {
 		}
 	};
 
-
 	return (
 		<div className="formRegister">
 			<form onSubmit={handleSubmit}>
-				<p>Registrarse</p>
-				<div className="campos">
-					<input
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.username}
-						name="username"
-						placeholder="Username"
-					/>
-					<br />
-					<input
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.lastName}
-						name="lastName"
-						placeholder="Last Name"
-					/>
-					<br />
-					<input
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.password}
-						name="password"
-						type="password"
-						placeholder="Password"
-					/>
-					<br />
-					<input
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.email}
-						name="email"
-						placeholder="Email"
-					/>
-					<br />
-					<input
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.country}
-						name="country"
-						placeholder="Country"
-					/>
-					<br />
-					<input
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.phone}
-						name="phone"
-						placeholder="Phone"
-					/>
-					<br />
-					<input
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.profile.profileName}
-						name="profile.profileName"
-						placeholder="ProfileName"
-					/>
-					<br />
-					<input
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.profile.profile_type}
-						name="profile.profile_type"
-						placeholder="profile_type"
-					/>
-					<br />
+				<p>Sing in</p>
+				<div className="containerform">
+					<div className="camposUno">
+						<input
+							autoComplete="off"
+							onChange={handleUser}
+							value={user.username}
+							name="username"
+							placeholder="Username"
+						/>
+						<br />
+						<input
+							autoComplete="off"
+							onChange={handleUser}
+							value={user.lastName}
+							name="lastName"
+							placeholder="Last Name"
+						/>
+						<br />
+						<input
+							autoComplete="off"
+							onChange={handleUser}
+							value={user.password}
+							name="password"
+							type="password"
+							placeholder="Password"
+						/>
+						<br />
+						<input
+							autoComplete="off"
+							onChange={handleUser}
+							value={user.email}
+							name="email"
+							placeholder="Email"
+						/>
+						<br />
+					</div>
+					<div className="camposDos">
+						<input
+							autoComplete="off"
+							onChange={handleUser}
+							value={user.country}
+							name="country"
+							placeholder="Country"
+						/>
+						<br />
+						<input
+							autoComplete="off"
+							onChange={handleUser}
+							value={user.phone}
+							name="phone"
+							placeholder="Phone"
+						/>
+						<br />
+						<input
+							autoComplete="off"
+							onChange={handleUser}
+							value={user.profile.profileName}
+							name="profile.profileName"
+							placeholder="ProfileName"
+						/>
+						<br />
+						<input
+							autoComplete="off"
+							onChange={handleUser}
+							value={user.profile.profile_type}
+							name="profile.profile_type"
+							placeholder="profile_type"
+						/>
+						<br />
+					</div>
 				</div>
-				
-					<button>Submit</button>
-				
+
+				<button>Submit</button>
+
 				<p className="msjToRender">{err.length > 0 && err}</p>
-				{msjToRender.length > 0 && <p className="msjToRender">{msjToRender}</p>}
+				{msjToRender.length > 0 && (
+					<div>
+						<p className="msjToRender">{msjToRender}</p>
+						<Link href="/">
+							<button>Back Home</button>
+						</Link>
+					</div>
+				)}
 			</form>
 		</div>
 	);

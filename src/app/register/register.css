@@ -10,23 +10,26 @@
     background-position: center;
     margin: 0 auto;
     position: relative;
-    width: 27%;
-    height: 40vw;
+    width: 40%;
+    height: auto;
     border-radius: 2px;
     margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 
 .formRegister p {
     font-size: 35px;
-    padding: 40px 0;
+    padding: 20px 0;
     text-align: center;
     color: white;
     cursor: pointer;
 }
 
 .formRegister .msjToRender {
-    color: red;
+    color:#229c00;
     margin-top: -5%;
     letter-spacing: 1.5px;
     height: 10px;
@@ -35,7 +38,10 @@
     text-align: center;
     font-size: 12px;
 }
-
+.formRegister .msjToRender :hover{
+    
+    color: #229c00;
+}
 .formRegister button {
     background-color: #174a62;
     border: none;
@@ -43,6 +49,7 @@
     width: 30%;
     margin-left: 35%;    
     margin-top: 5%;
+    margin-bottom: 5%;
     color: white;
     cursor: pointer;
     border-radius: 2px;
@@ -67,13 +74,15 @@
     border: solid 1px #888;
     cursor: no-drop;
 }
-
-.campos {
-    width: 100%;
+.containerform{
+    display: flex;
+}
+.camposUno {
+    width: 80%;
     margin: 0 auto;
 }
 
-.campos input {
+.camposUno input {
     width: 70%;
     margin: 0 auto;
     margin-left: 14.85%;
@@ -87,10 +96,49 @@
     transition: .3s;
 }
 
-.campos input:focus {
+.camposUno input:focus {
     border-bottom: solid 1px #24c7ec;
 }
 
-.campos input::placeholder {
+.camposUno input::placeholder {
     color: #eee;
+}
+
+.camposDos {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.camposDos input {
+    width: 70%;
+    margin: 0 auto;
+    margin-left: 14.85%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 10px 20px;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #174a62;
+    transition: .3s;
+}
+
+.camposDos input:focus {
+    border-bottom: solid 1px #24c7ec;
+}
+
+.camposDos input::placeholder {
+    color: #eee;
+}
+.containernsjToRender{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    width: 100%;
+}
+
+.containerCreateUser{
+    margin: 20px;
 }
