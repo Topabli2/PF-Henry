@@ -46,7 +46,9 @@ const Register = () => {
 			if (response.ok) {
 				setMsjToRender('Usuario creado con éxito');
 				setErr('');
-				// Puedes hacer otras cosas aquí, como redirigir al usuario a otra página.
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 3000);
 			} else {
 				const errorData = await response.json();
 				setErr(errorData.message || 'Error al crear el usuario');
@@ -135,14 +137,7 @@ const Register = () => {
 				<button>Submit</button>
 
 				<p className="msjToRender">{err.length > 0 && err}</p>
-				{msjToRender.length > 0 && (
-					<div>
-						<p className="msjToRender">{msjToRender}</p>
-						<Link href="/">
-							<button>Back Home</button>
-						</Link>
-					</div>
-				)}
+				{msjToRender.length > 0 && (<p className="msjToRender">{msjToRender}</p>)}
 			</form>
 		</div>
 	);
