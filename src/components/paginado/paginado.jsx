@@ -2,7 +2,7 @@ import React from 'react';
 import style from './paginado.module.css'
 
 const Paginado = ({ currentPage, totalPages, onPageChange }) => {
-   
+
   const renderPageNumbers = () => {
 
     const pageNumbers = [];
@@ -11,9 +11,9 @@ const Paginado = ({ currentPage, totalPages, onPageChange }) => {
 
       pageNumbers.push(
 
-        <li key={i} className={i === currentPage ? 'active' : ''}>
-          <button className={style.buttonPage} onClick={() => onPageChange(i)}>{i}</button>
-        </li>
+        <button key={i} className={i === currentPage ? 'active' : ''}>
+          <span className={style.buttonPage} onClick={() => onPageChange(i)}>{i}</span>
+        </button>
 
       );
     }
@@ -24,12 +24,12 @@ const Paginado = ({ currentPage, totalPages, onPageChange }) => {
   return (
     <div className={style.containButPage} >
 
-        <ul className="pagination">
-      {renderPageNumbers()}
-    </ul>
+      <ul className="pagination">
+        {renderPageNumbers()}
+      </ul>
 
     </div>
-    
+
   );
 };
 

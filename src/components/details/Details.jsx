@@ -9,13 +9,13 @@ import Trailer from "./components_details/Trailer/Trailer";
 
 const Details = ({ game }) => {
 
-/*   const detailsStyle = {
-    backgroundImage: `url("https://images2.alphacoders.com/133/1330770.png")`,
-  }; */
+  const detailsStyle = {
+    backgroundImage: `url(${game.wallpeaper})`,
+  };
 
   return (
     <>
-      <section className="Details" /* style={detailsStyle} */>
+      <section className="Details" style={detailsStyle}>
         <div className="Overlay"></div>
         <img
           className="OfertaD"

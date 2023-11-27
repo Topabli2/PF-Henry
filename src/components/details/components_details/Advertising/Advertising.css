@@ -43,3 +43,43 @@
   height: 70%;
   background-color: #ff9500;
 }
+
+
+.destaco{
+  width: 33%; 
+  position: relative;
+  left: 3%;
+  top: 5%;
+}
+
+.PlatformD{
+  width: 33%; 
+  position: relative;
+  top: -1.5%;
+  left: 37%;
+}
+.SizeD{
+
+  width: 33%; 
+  position: relative;
+  top: -8%;
+  left: 69%;
+
+}
+
+.imgD2{
+  border-radius: 2%;
+  position: relative;
+  top: 1%;
+ left: 10%;
+  width: 80%;
+
+}
+
+.odetails{
+  width: 90%;
+  background-color: #181817;
+  position: relative;
+  top: 2.5%;
+  left: 5%;
+}
