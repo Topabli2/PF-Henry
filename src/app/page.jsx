@@ -89,6 +89,7 @@ const HomePage = () => {
     setFiltrado(false);
     setOrdenado(false);
     setFind(true);
+    setCurrentPage(1)
   };
 
   const handlePageChange = (page) => {
