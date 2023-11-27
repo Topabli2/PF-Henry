@@ -9,13 +9,25 @@ const Register = () => {
 	const { user, setUser, msjToRender, err, setMsjToRender, setErr } =createUserStore();
 
     console.log("User Object:", user);
-	const handleUser = (e) => {
-    const value = e.target.name === 'profile_type' ? parseInt(e.target.value, 10) : e.target.value;
-		setUser({
-      ...user,
-        [e.target.name]: value,
-		});
-	};
+    const handleUser = (e) => {
+      const value = e.target.name === 'profile.profile_type' ? parseInt(e.target.value, 10) : e.target.value;
+      const name = e.target.name.split('.');
+      if (name.length > 1) {
+        setUser({
+          ...user,
+          [name[0]]: {
+            ...user[name[0]],
+            [name[1]]: value,
+          },
+        });
+      } else {
+        setUser({
+          ...user,
+          [e.target.name]: value,
+        });
+      }
+    };
+    
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -99,16 +111,16 @@ const Register = () => {
 					<input
 						autoComplete="off"
 						onChange={handleUser}
-						value={user.profileName}
-						name="profileName"
+						value={user.profile.profileName}
+						name="profile.profileName"
 						placeholder="ProfileName"
 					/>
 					<br />
 					<input
 						autoComplete="off"
 						onChange={handleUser}
-						value={user.profile_type}
-						name="profile_type"
+						value={user.profile.profile_type}
+						name="profile.profile_type"
 						placeholder="profile_type"
 					/>
 					<br />
