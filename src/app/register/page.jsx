@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './register.css';
 import validation from './validation';
 import Link from 'next/link';
+import Footer from '@/components/footer/footer';
 
 const Register = () => {
 
