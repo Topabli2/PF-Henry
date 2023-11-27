@@ -19,7 +19,7 @@ import { prisma } from "@/libs/prisma";
 //   return NextResponse.json(result);
 // }
 
-export async function GET(request) {
+/*export async function GET(request) {
   const url = new URL(request.url);
   const name = url.searchParams.get("username").toLowerCase();
 
@@ -38,4 +38,25 @@ export async function GET(request) {
   );
 
   return NextResponse.json(filteredResult);
+}*/
+
+
+//ruta nameuser arreglada
+
+
+export async function GET(request) {
+  const url = new URL(request.url);
+  const name = url.searchParams.get("username");
+
+  // Buscar en la base de datos cualquier coincidencia
+  const result = await prisma.user.findMany({
+    where: {
+      username: {
+        contains: name,
+        mode: 'insensitive', // Esto hace que la búsqueda sea insensible a mayúsculas y minúsculas
+      },
+    },
+  });
+
+  return NextResponse.json(result);
 }
