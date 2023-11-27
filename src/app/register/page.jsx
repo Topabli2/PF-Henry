@@ -4,12 +4,17 @@ import React from 'react';
 import './register.css';
 import Link from 'next/link';
 import { createUserStore } from '@/store/createUserStore';
+import validation from './validation';
 
 const Register = () => {
-	const { user, setUser, msjToRender, err, setMsjToRender, setErr } =
-		createUserStore();
+	const { user, setUser, msjToRender, err, setMsjToRender, setErr } =createUserStore();
+  const [isValid, setIsValid] = React.useState(false);
 
-	console.log('User Object:', user);
+  React.useEffect(() => {
+    setIsValid(validation(user) === "");
+  }, [user]);
+
+
 	const handleUser = (e) => {
 		const value =
 			e.target.name === 'profile.profile_type'
@@ -70,6 +75,7 @@ const Register = () => {
 							value={user.username}
 							name="username"
 							placeholder="Username"
+              maxLength="25"
 						/>
 						<br />
 						<input
@@ -78,6 +84,7 @@ const Register = () => {
 							value={user.lastName}
 							name="lastName"
 							placeholder="Last Name"
+              maxLength="25"
 						/>
 						<br />
 						<input
@@ -87,6 +94,7 @@ const Register = () => {
 							name="password"
 							type="password"
 							placeholder="Password"
+              maxLength="15"
 						/>
 						<br />
 						<input
@@ -95,6 +103,7 @@ const Register = () => {
 							value={user.email}
 							name="email"
 							placeholder="Email"
+              maxLength="25"
 						/>
 						<br />
 					</div>
@@ -105,6 +114,7 @@ const Register = () => {
 							value={user.country}
 							name="country"
 							placeholder="Country"
+              maxLength="20"
 						/>
 						<br />
 						<input
@@ -113,6 +123,7 @@ const Register = () => {
 							value={user.phone}
 							name="phone"
 							placeholder="Phone"
+              maxLength="12"
 						/>
 						<br />
 						<input
@@ -121,6 +132,7 @@ const Register = () => {
 							value={user.profile.profileName}
 							name="profile.profileName"
 							placeholder="ProfileName"
+              maxLength="20"
 						/>
 						<br />
 						<input
@@ -129,12 +141,13 @@ const Register = () => {
 							value={user.profile.profile_type}
 							name="profile.profile_type"
 							placeholder="profile_type"
+              maxLength="20"
 						/>
 						<br />
 					</div>
 				</div>
 
-				<button>Submit</button>
+				<button disabled={!isValid}>Submit</button>
 
 				<p className="msjToRender">{err.length > 0 && err}</p>
 				{msjToRender.length > 0 && (<p className="msjToRender">{msjToRender}</p>)}
