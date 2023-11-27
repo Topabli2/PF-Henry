@@ -12,7 +12,7 @@
     color: white;
     width: 315px;
     margin-left: 100px;
-    padding-top: 25px;
+    padding-top: 80px;
     text-align: justify;
 }
 
@@ -28,10 +28,10 @@
 .section .sectionDetails p {
     margin-top: 0px;
     padding-top: 0px;
-    font-size: 26px;
-    font-weight: 100;
+    margin-top: -10px;
+    font-size: 26.5px;
+    font-weight: 400;
     letter-spacing: 1px;
-    line-height: 1;
     color: #d1fbfc;
 }
 
@@ -46,6 +46,7 @@
     transition: .7s;
     line-height: 1;
     letter-spacing: 2px;
+    margin-top: 10px;
 }
 
 .section .sectionDetails button:hover {

@@ -1,0 +1,28 @@
+.modal-profile{
+    text-align: center;
+    margin-top: 10%;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .iconos-nav{
+        position: absolute;
+        right: 12%;
+    }
+
+    .modal-profile{
+        position: absolute;
+        top: 32px;
+        right: -40px;
+    }
+}
+
+
+/* Estilos para tablets */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    
+    
+
+  }

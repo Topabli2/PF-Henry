@@ -3,6 +3,7 @@ import './aside.css';
 import { faSortDown, faBroom } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import { fn } from '../searchbar/Searchbar';
 
 const Aside = ({ types, onChange }) => {
 
