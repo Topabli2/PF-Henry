@@ -1,20 +1,32 @@
 import React from 'react'
-
 import './Card.css'
+import { isArray } from 'lodash';
+import Link from 'next/link';
 
-const Card = ({game}) => {    
+const Card = ({ data }) => {
   return (
+    <div className='default'>
+      <div className="gridCards" id='cards'>
 
-    <section key={game.id} className='sectionCard'>
-    <img className='imgCard' src={game.caratula} alt=""/>
-    <img className='imgCardOro' src="https://github.com/zuoki/imagenesPF/blob/main/CarfdP.png?raw=true" alt="card" />
-    <div className='cardTex'>
-    <h1>{game.titulo}</h1>
-    <h2>${game.precio}</h2>
-    <div className='cosito'>DETALLES</div>
+        {data.length > 0 ? (
+          data.map((game) => (
+            <Link href={`/details/${game.id}`}>
+              <div className='cardGame' key={game.id}>
+                <img src={game.image} alt={game.title} />
+                <h5>{game.title}</h5>
+                <div className='spans'>
+                  <span className='generos'>{game.genre}</span>
+                  <span className='precio'>${game.price}</span>
+                </div>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <div className='notFound'><h1>Lo siento, no tenemos ese juego</h1></div>
+        )}
+
+      </div>
     </div>
-    </section>
-
   )
 }
 export default Card

@@ -15,14 +15,16 @@ const Galery = ({ game }) => {
 
   return (
     <div className="GaleryContainer">
-      <img src={game.caratula} alt="caratula"  className='caratulaD1'/>
-      <h3 className='textG'>CAPTURA</h3>
-      <img className='capturaD' src={game.captura} alt="captura" onClick={handleImageClick} />
+      <div className='contIMG'>
+        <img src={game.image} alt="caratula" className='caratulaD1' />
+      </div>
+      <h3 className='textG'>CAPTURE</h3>
+      <img className='capturaD' src={game.capture} alt="captura" onClick={handleImageClick} />
 
       {expanded && (
         <div className="fullscreen-overlay" onClick={handleCloseClick}>
           <span className="close-button">&times;</span>
-          <img className="expanded-image" src={game.captura} alt="captura" />
+          <img className="expanded-image"src={game.capture} alt="captura" />
         </div>
       )}
     </div>

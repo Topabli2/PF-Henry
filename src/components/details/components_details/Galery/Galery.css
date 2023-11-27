@@ -9,6 +9,8 @@
   margin-left: 5%;
   top: 4%;
   border-radius: 2%;
+  font-family: "Kdam Thmor Pro", sans-serif;
+
 }
 
 .GaleryContainer img {
@@ -48,8 +50,11 @@
 
 .capturaD {
   position: relative;
+  top: 24%;
   margin-top: 1%;
   transform: scale(0.9);
+  font-family: "Kdam Thmor Pro", sans-serif;
+
 }
 .capturaD:hover {
   transform: scale(0.95);
@@ -57,7 +62,10 @@
 }
 
 .textG {
+  font-family: "Kdam Thmor Pro", sans-serif;
+
   position: relative;
+  top: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,6 +73,22 @@
   font-family: "Kdam Thmor Pro", sans-serif;
 }
 .caratulaD1 {
-  transform: scale(0.92);
+  top: 15%;
+  position: relative;
+  transform: scale(1.14);
+  image-resolution: 300dpi; /* Puedes ajustar el valor según sea necesario */
   pointer-events: none;
+  height: 50%;
+  font-family: "Kdam Thmor Pro", sans-serif;
+
 }
+
+.contIMG{
+  height: 40%; /* Establecer la altura deseada */
+  width: 90%; /* Establecer el ancho deseado */
+  padding-left: 10%;
+  font-family: "Kdam Thmor Pro", sans-serif;
+
+
+}
+
