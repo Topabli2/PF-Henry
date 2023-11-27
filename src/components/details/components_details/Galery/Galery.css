@@ -50,7 +50,7 @@
 
 .capturaD {
   position: relative;
-  top: 20%;
+  top: 24%;
   margin-top: 1%;
   transform: scale(0.9);
   font-family: "Kdam Thmor Pro", sans-serif;
@@ -65,7 +65,7 @@
   font-family: "Kdam Thmor Pro", sans-serif;
 
   position: relative;
-  top: 22%;
+  top: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
