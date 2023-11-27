@@ -8,13 +8,11 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-
-  // directUrl = env("DIRECT_URL")
 }
 
 model Games {
-  id          Int         @id @default(autoincrement())
-  title       String      @unique
+  id          Int       @id @default(autoincrement())
+  title       String    @unique
   platform    String
   description String
   genre       String
@@ -31,14 +29,14 @@ model Games {
 }
 
 model User {
-  id        Int         @id @default(autoincrement())
-  username  String
-  lastName  String
-  email     String      @unique
-  country   String
-  phone     String?
-  licenses  License[]
-  profile   Profile?
+  id       Int       @id @default(autoincrement())
+  username String
+  lastName String
+  email    String    @unique
+  country  String
+  phone    String?
+  licenses License[]
+  profile  Profile?
 }
 
 model Profile {
@@ -50,12 +48,12 @@ model Profile {
 }
 
 model License {
-  id        Int       @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   name      String
   active    Boolean
-  gameId    Int?      
-  game      Games?    @relation(fields: [gameId], references: [id]) 
-  userId    Int? 
-  user      User?     @relation(fields: [userId], references: [id])
-  createdAt DateTime  @default(now())
-} 
+  gameId    Int?
+  game      Games?   @relation(fields: [gameId], references: [id])
+  userId    Int?
+  user      User?    @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}

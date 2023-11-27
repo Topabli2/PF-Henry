@@ -8,11 +8,12 @@ CREATE TABLE "Games" (
     "releaseDate" TEXT NOT NULL,
     "developer" TEXT NOT NULL,
     "publishedby" TEXT NOT NULL,
-    "image" TEXT NOT NULL,
     "video" TEXT NOT NULL,
+    "image" TEXT NOT NULL,
+    "wallpaper" TEXT NOT NULL,
+    "capture" TEXT NOT NULL,
     "size" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
-    "licenseId" INTEGER,
 
     CONSTRAINT "Games_pkey" PRIMARY KEY ("id")
 );
@@ -44,44 +45,30 @@ CREATE TABLE "License" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "active" BOOLEAN NOT NULL,
+    "gameId" INTEGER,
+    "userId" INTEGER,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "License_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "userGames" (
-    "id" SERIAL NOT NULL,
-
-    CONSTRAINT "userGames_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "UserGames" (
-    "id" SERIAL NOT NULL,
-    "userId" INTEGER NOT NULL,
-    "gameId" INTEGER NOT NULL,
-
-    CONSTRAINT "UserGames_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Games_title_key" ON "Games"("title");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Profile_userId_key" ON "Profile"("userId");
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "UserGames_userId_gameId_key" ON "UserGames"("userId", "gameId");
+CREATE UNIQUE INDEX "Profile_profileName_key" ON "Profile"("profileName");
 
--- AddForeignKey
-ALTER TABLE "Games" ADD CONSTRAINT "Games_licenseId_fkey" FOREIGN KEY ("licenseId") REFERENCES "License"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+-- CreateIndex
+CREATE UNIQUE INDEX "Profile_userId_key" ON "Profile"("userId");
 
 -- AddForeignKey
 ALTER TABLE "Profile" ADD CONSTRAINT "Profile_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "UserGames" ADD CONSTRAINT "UserGames_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "License" ADD CONSTRAINT "License_gameId_fkey" FOREIGN KEY ("gameId") REFERENCES "Games"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "UserGames" ADD CONSTRAINT "UserGames_gameId_fkey" FOREIGN KEY ("gameId") REFERENCES "Games"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "License" ADD CONSTRAINT "License_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
