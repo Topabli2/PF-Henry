@@ -1,99 +1,110 @@
-'use client';
-import React, { useState } from 'react';
+// Register.js
+"use client"
+import React from 'react';
 import './register.css';
 import validation from './validation';
 import Link from 'next/link';
 import { createUserStore } from '@/store/createUserStore';
 
 const Register = () => {
-	const { user, setUser } = createUserStore((state) => state);
+  const { user, setUser, msjToRender, err, setMsjToRender, setErr } = createUserStore();
 
-	const [msjToRender, setMsjToRender] = useState('');
-	const [err, setErr] = useState('');
+  const handleUser = (e) => {
+    setUser({
+      [e.target.name]: e.target.value,
+    });
+  };
 
-	// const [user, setUser] = useState({
-	// 	userName: '',
-	// 	email: '',
-	// 	password: '',
-	// 	repeatPassword: '',
-	// });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-	const handleUser = (e) => {
-		setUser((prevUser) => {
-			const updatedUser = {
-				...prevUser,
-				[e.target.name]: e.target.value,
-			};
-			setErr(validation(updatedUser));
-			return updatedUser;
-		});
-	};
+    // Validación
+    const validationError = validation(user);
+    if (validationError) {
+      setErr(validationError);
+      return;
+    }
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		setMsjToRender('Usuario creado con éxito');
-	};
+    try {
+      // Envío de datos al backend
+      const response = await fetch('/api/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      });
 
-	const handleDisabled = () => {
-		if (
-			err.length > 0 ||
-			user.userName.length === 0 ||
-			user.email.length === 0 ||
-			user.password.length === 0 ||
-			user.repeatPassword.length === 0
-		)
-			return true;
-		return false;
-	};
+      if (response.ok) {
+        setMsjToRender('Usuario creado con éxito');
+        setErr('');
+        // Puedes hacer otras cosas aquí, como redirigir al usuario a otra página.
+      } else {
+        const errorData = await response.json();
+        setErr(errorData.message || 'Error al crear el usuario');
+      }
+    } catch (error) {
+      setErr('Error al comunicarse con el servidor');
+    }
+  };
 
-	return (
-		<div className="formRegister">
-			<form onSubmit={handleSubmit}>
-				<p>Registrarse</p>
-				<div className="campos">
-					<input
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.userName}
-						name="userName"
-						placeholder="Username"
-					/>
-					<br />
-					<input
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.email}
-						name="email"
-						placeholder="email"
-					/>
-					<br />
-					<input
-						type="password"
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.password}
-						name="password"
-						placeholder="password"
-					/>
-					<br />
-					<input
-						type="password"
-						autoComplete="off"
-						onChange={handleUser}
-						value={user.repeatPassword}
-						name="repeatPassword"
-						placeholder="Repeat password"
-					/>
-					<br />
-				</div>
-				<Link href={'/'}>
-					<button disabled={handleDisabled()}>Submit</button>
-				</Link>
-				<p className="msjToRender">{err.length > 0 && err}</p>
-				{msjToRender.length > 0 && <p className="msjToRender">{msjToRender}</p>}
-			</form>
-		</div>
-	);
+  const handleDisabled = () => {
+    return (
+      err.length > 0 ||
+      Object.values(user).some((value) => value.length === 0)
+    );
+  };
+
+  return (
+    <div className="formRegister">
+      <form onSubmit={handleSubmit}>
+	  <p>Registrarse</p>
+                <div className="campos">
+                    <input
+                        autoComplete="off"
+                        onChange={handleUser}
+                        value={user.userName}
+                        name="userName"
+                        placeholder="Username"
+                    />
+                    <br />
+                    <input
+                        autoComplete="off"
+                        onChange={handleUser}
+                        value={user.email}
+                        name="email"
+                        placeholder="email"
+                    />
+                    <br />
+                    <input
+                        type="password"
+                        autoComplete="off"
+                        onChange={handleUser}
+                        value={user.password}
+                        name="password"
+                        placeholder="password"
+                    />
+                    <br />
+                    <input
+                        type="password"
+                        autoComplete="off"
+                        onChange={handleUser}
+                        value={user.repeatPassword}
+                        name="repeatPassword"
+                        placeholder="Repeat password"
+                    />
+                    <br />
+                </div>
+                <Link href={'/'}>
+                    <button disabled={handleDisabled()}>Submit</button>
+                </Link>
+                <p className="msjToRender">{err.length > 0 && err}</p>
+                {msjToRender.length > 0 && <p className="msjToRender">{msjToRender}</p>}
+           
+
+      </form>
+    </div>
+  );
 };
 
 export default Register;
