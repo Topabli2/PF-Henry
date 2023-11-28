@@ -26,9 +26,9 @@
 import { prisma } from '@/libs/prisma';
 import { NextResponse } from 'next/server';
 
-export const autenticacionHandler = async (request) => {
-	if (req.method === 'POST') {
-		const { username, password } = request.json();
+export const POST = async (request) => {
+	if (request.method === 'POST') {
+		const { username, password } = request.body;
 		console.log(username, password);
 
 		const user = await prisma.user.findFirst({
@@ -43,15 +43,9 @@ export const autenticacionHandler = async (request) => {
 		if (user) {
 			return NextResponse.json({ message: 'Login successful' });
 		}
-		// 		} else {
-		// 			return NextResponse.json(
-		// 				{ error: 'Invalid credentials' },
-		// 				{ status: 401 }
-		// 			);
-		// 		}
-		// 	} else {
-		// 		return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
-		// 	}
-		// };
+
+		return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
 	}
+
+	return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
 };
