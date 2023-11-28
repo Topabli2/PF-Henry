@@ -70,6 +70,15 @@ CREATE TABLE "UserGames" (
 CREATE UNIQUE INDEX "Games_title_key" ON "Games"("title");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_phone_key" ON "User"("phone");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Profile_userId_key" ON "Profile"("userId");
 
 -- CreateIndex

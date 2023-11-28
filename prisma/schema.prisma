@@ -25,17 +25,17 @@ model Games {
   price       Float
   userGames   UserGames[] // Campo para almacenar el id de la clave asociada, Relación opuesta para la tabla intermedia UserGames
   licenseId   Int?
-  license     License?     @relation(fields: [licenseId], references: [id]) // Cambio de nombre del campo "game" a "licenses"
+  license     License?    @relation(fields: [licenseId], references: [id]) // Cambio de nombre del campo "game" a "licenses"
 }
 
 model User {
   id        Int         @id @default(autoincrement())
-  username  String
+  username  String      @unique
   lastName  String
   password  String
-  email     String
+  email     String      @unique
   country   String
-  phone     String?
+  phone     String?     @unique
   userGames UserGames[]
   profile   Profile?
 }
