@@ -84,7 +84,9 @@ const Register = () => {
 	return (
 		<div className="formRegister">
 			<form onSubmit={handleSubmit}>
-				<p>Sign in</p>
+				<p>Register</p>
+				<p className="descriptionp">It is fast and easy.</p>
+				<hr />
 				<div className="containerform">
 					<div className="camposUno">
 						<input
@@ -181,7 +183,7 @@ const Register = () => {
 					</div>
 				</div>
 
-				<button disabled={!isValid}>Register</button>
+				<button disabled={!isValid}>Sing up</button>
 
 				<p className="msjToRender">{err.length > 0 && err}</p>
 				{msjToRender.length > 0 && <p className="msjToRender">{msjToRender}</p>}

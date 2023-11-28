@@ -9,7 +9,6 @@ const Login = () => {
 		username: '',
 		password: '',
 	});
-
 	const handlerChange = (e) => {
 		setUserData({
 			...userData,
@@ -20,15 +19,15 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			if (isValid) {
-				const response = await fetch('/api/users', {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify(user),
-				});
-			}
+			const response = await fetch('/api/users', {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(userData),
+			});
+			console.log(response);
+
 			if (response.ok) {
 				setTimeout(() => {
 					window.location.href = '/';
@@ -39,7 +38,6 @@ const Login = () => {
 				icon: 'error',
 				title: 'Oops...',
 				text: 'Username or password incorrect!',
-				footer: 'Do you want to change your password?',
 			});
 		}
 	};
@@ -47,6 +45,7 @@ const Login = () => {
 	return (
 		<div className="formRegister">
 			<form action="" onSubmit={handleSubmit}>
+				<p>Log in</p>
 				<div className="camposUno">
 					<input
 						type="text"
@@ -65,10 +64,14 @@ const Login = () => {
 						maxLength="25"
 					/>
 				</div>
-				<button>Log in</button>
-				<Link href="/register">
-					<button>Sing in</button>
-				</Link>
+
+				<div className="ContainerLogin">
+					<button>Log in</button>
+					<Link href="/register">
+						<button className="createAccount">Create new account</button>
+					</Link>
+					<span>Did you forget your password?</span>
+				</div>
 			</form>
 		</div>
 	);

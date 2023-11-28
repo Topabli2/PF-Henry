@@ -19,7 +19,14 @@
     
 }
 
-
+.formRegister p.descriptionp{
+    font-size: 10px;
+    padding: 5px;
+}
+.formRegister hr{
+    border: 1px solid #143c50;
+    
+}
 .formRegister p {
     font-size: 35px;
     padding: 20px 0;
@@ -27,7 +34,6 @@
     color: white;
     cursor: pointer;
 }
-
 .formRegister .msjToRender {
     color:#229c00;
     margin-top: -5%;
@@ -45,11 +51,11 @@
 .formRegister button {
     background-color: #174a62;
     border: none;
-    padding: 8px 25px;
+    padding: 8px 15px;
     width: 30%;
     margin-left: 35%;    
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
     color: white;
     cursor: pointer;
     border-radius: 2px;
@@ -133,4 +139,12 @@
 
 .camposDos input::placeholder {
     color: #eee;
+}
+
+span{
+    display: flex;
+    justify-content:center;
+    font-size: 12px;
+    position: relative;
+    top:-15px
 }
