@@ -118,6 +118,7 @@ const Register = () => {
 							onChange={handleUser}
 							value={user.password}
 							name="password"
+							type="password"
 							placeholder="Password"
 							maxLength="25"
 						/>

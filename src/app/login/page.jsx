@@ -15,12 +15,12 @@ const Login = () => {
 			[e.target.name]: e.target.value,
 		});
 	};
-
+	console.log(userData);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
 			const response = await fetch('/api/users/autotenticacion', {
-				method: 'GET',
+				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
@@ -29,9 +29,9 @@ const Login = () => {
 
 			if (response.status === 200) {
 				setTimeout(() => {
-				  window.location.href = '/';
+					window.location.href = '/';
 				}, 3000);
-			  }
+			}
 		} catch (error) {
 			Swal.fire({
 				icon: 'error',

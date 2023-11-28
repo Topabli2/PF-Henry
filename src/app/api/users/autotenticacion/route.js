@@ -23,28 +23,35 @@
 //         return NextResponse.json({ error: "Credenciales inválidas" }, { status: 401 });
 //     }
 // }
-import { NextResponse } from 'next/server';
 import { prisma } from '@/libs/prisma';
+import { NextResponse } from 'next/server';
 
-export default async function handler(req, res) {
-  if (req.method === 'GET') {
-    const { username, password } = req.body;
-console.log(username, password);
-    const user = await prisma.user.findFirst({
-      where: {
-        AND: {
-          username: username,
-          password: password,
-        },
-      },
-    });
+export const autenticacionHandler = async (request) => {
+	if (req.method === 'POST') {
+		const { username, password } = request.json();
+		console.log(username, password);
 
-    if (user) {
-      return NextResponse.json({ message: 'Login successful' });
-    } else {
-      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
-    }
-  } else {
-    return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
-  }
-}
+		const user = await prisma.user.findFirst({
+			where: {
+				AND: {
+					username: username,
+					password: password,
+				},
+			},
+		});
+
+		if (user) {
+			return NextResponse.json({ message: 'Login successful' });
+		}
+		// 		} else {
+		// 			return NextResponse.json(
+		// 				{ error: 'Invalid credentials' },
+		// 				{ status: 401 }
+		// 			);
+		// 		}
+		// 	} else {
+		// 		return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
+		// 	}
+		// };
+	}
+};
