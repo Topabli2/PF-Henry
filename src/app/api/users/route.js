@@ -1,29 +1,28 @@
-import { NextResponse } from 'next/server';
-import  {prisma } from '@/libs/prisma';
-
+import { NextResponse } from "next/server";
+import { prisma } from "@/libs/prisma";
 
 export async function GET() {
-  const Allusers = await prisma.user.findMany()
-  return NextResponse.json(Allusers)
+  const Allusers = await prisma.user.findMany();
+  return NextResponse.json(Allusers);
 }
 
 export async function POST(request) {
-  const {username, lastName, email, country, phone, profile } = await request.json()
+  const { username, lastName, email, country, phone, profile } =
+    await request.json();
   const newUser = await prisma.user.create({
-    data:{
+    data: {
       username,
       lastName,
       email,
       country,
       phone,
       profile: {
-        create: profile
-      }// creo el perfil cuando creo el usuario
+        create: profile,
+      }, // creo el perfil cuando creo el usuario
     },
-});
+  });
   return NextResponse.json(newUser);
-};
-
+}
 
 export async function PUT(request) {
   const { id, username, lastName, country, phone } = await request.json();
@@ -39,9 +38,4 @@ export async function PUT(request) {
     },
   });
   return NextResponse.json(updatedUser);
-};
-
-
-
-
-
+}
