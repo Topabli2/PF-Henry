@@ -4,7 +4,9 @@ import React from "react";
 import Footer from "@/components/footer/footer";
 
 const Page = async ({ params }) => {
-  const response = await axios(`https://localhost:3000/api/games/${params.id}`);
+  const response = await axios(
+    `https://vorttex-gaming-o5z01iokx-topablis-projects.vercel.app/api/games/${params.id}`
+  );
   return (
     <div>
       <Details game={response.data[0]} />
