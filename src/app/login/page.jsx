@@ -19,7 +19,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await fetch('/api/users', {
+			const response = await fetch('/api/users/autenticacion', {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
