@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import "./SearchBar.css";
+import "./Searchbar.css";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { data as games } from "@/app/api/data";
