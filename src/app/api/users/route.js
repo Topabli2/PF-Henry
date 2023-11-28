@@ -13,6 +13,7 @@ export async function POST(request) {
     data: {
       username,
       lastName,
+      password,
       email,
       country,
       phone,
