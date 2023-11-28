@@ -25,7 +25,7 @@ export async function GET(request, { params }) {
     // Buscar en los datos importados cualquier coincidencia
     const resultData = data.filter((game) => game.id === id);
 
-    const result = [...resultData];
+    const result = [...resultData, ...games];
 
     if (result.length === 0) {
       console.log("Id del juego no encontrado");
