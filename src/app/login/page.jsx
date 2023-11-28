@@ -31,11 +31,18 @@ const Login = () => {
 					window.location.href = '/';
 				}, 3000);
 			}
+			else {
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Username or password incorrect!',
+				});
+			}
 		} catch (error) {
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
-				text: 'Username or password incorrect!',
+				text: 'An error occurred during login. Please try again later.',
 			});
 		}
 	};
