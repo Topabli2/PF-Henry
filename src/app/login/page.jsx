@@ -19,20 +19,19 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await fetch('/api/users/autenticacion', {
+			const response = await fetch('/api/users/autotenticacion', {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify(userData),
 			});
-			console.log(response);
 
-			if (response.ok) {
+			if (response.status === 200) {
 				setTimeout(() => {
-					window.location.href = '/';
+				  window.location.href = '/';
 				}, 3000);
-			}
+			  }
 		} catch (error) {
 			Swal.fire({
 				icon: 'error',
