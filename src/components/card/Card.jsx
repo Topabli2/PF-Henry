@@ -10,7 +10,7 @@ const Card = ({ data }) => {
 
         {data.length > 0 ? (
           data.map((game) => (
-            <Link href={`/details/${game.id}`}>
+            <Link key={game.id} href={`/details/${game.id}`}>
               <div className='cardGame' key={game.id}>
                 <img src={game.image} alt={game.title} />
                 <h5>{game.title}</h5>
