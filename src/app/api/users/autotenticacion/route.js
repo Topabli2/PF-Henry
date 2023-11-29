@@ -18,10 +18,10 @@ export async function GET(request) {
       where: {
         AND: {
           username: {
-            equals: username, // Cambiado de "contains" a "equals"
+            equals: username,
           },
           password: {
-            equals: password, // Cambiado de "contains" a "equals"
+            equals: password,
           },
         },
       },
