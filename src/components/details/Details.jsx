@@ -1,14 +1,13 @@
 import React from "react";
 import Galery from "./components_details/Galery/Galery";
-import Advertising from "./components_details/Advertising/Advertising";
+import Advertising from "./components_details/Advertising/Advertising.jsx";
 import Buy from "./components_details/Buy/Buy";
-import AdvertisingHandler from "./components_details/AdvertisingHandler/AdvertisingHandler";
+import AdvertisingHandler from "./components_details/AdvertisingHandler/AdvertisingHandler.jsx";
 
 import "./Details.css";
 import Trailer from "./components_details/Trailer/Trailer";
 
 const Details = ({ game }) => {
-
   const detailsStyle = {
     backgroundImage: `url(${game.wallpeaper})`,
   };

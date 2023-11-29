@@ -8,19 +8,13 @@ const Advertising = ({ game }) => {
         <h1 className="tituloDJ">{game.title}</h1>
       </div>
 
-         <img className="imgD2" src={game.wallpeaper} alt={game} />
-        
-       <p className="odetails">{game.description}</p>
+      <img className="imgD2" src={game.wallpeaper} alt={game} />
 
+      <p className="odetails">{game.description}</p>
 
-
-        <h2 className="destaco"> Genre  :  {game.genre} </h2>
-        <h2 className="PlatformD">  Store : {game.platform}</h2>
-        <h2 className="SizeD">  Size : {game.size}</h2>
-
-
-
-
+      <h2 className="destaco"> Genre : {game.genre} </h2>
+      <h2 className="PlatformD"> Store : {game.platform}</h2>
+      <h2 className="SizeD"> Size : {game.size}</h2>
     </section>
   );
 };

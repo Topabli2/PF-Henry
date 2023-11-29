@@ -1,16 +1,18 @@
-import axios from 'axios';
-import Details from '@/components/details/Details';
-import { useRouter } from 'next/navigation';
-import React from 'react';
+import axios from "axios";
+import Details from "@/components/details/Details";
+import React from "react";
+import Footer from "@/components/footer/footer";
 
 const Page = async ({ params }) => {
-    const response = await axios(`http://localhost:3000/api/games/${params.id}`);
-    return (
-        <div>
-            <Details game={response.data[0]} />
-        </div>
-    );
+  const response = await axios(
+    `https://vorttex-gaming-o5z01iokx-topablis-projects.vercel.app/api/games/${params.id}`
+  );
+  return (
+    <div>
+      <Details game={response.data[0]} />
+      <Footer />
+    </div>
+  );
 };
 
 export default Page;
-

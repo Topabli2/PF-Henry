@@ -12,7 +12,7 @@ const Offerts = ({ games }) => {
         <div className='offertsGrid'>
             {
                 games.map((game, index) => (
-                    <Link href={`/details/${game.id}`}>
+                    <Link  key={game.id}  href={`/details/${game.id}`}>
                         <div key={game.id} className={`${img} ${game.developer.split(' ')[0]} hola`}>
                             <img src={game.image} className={imgClass[index]} /> {/* Movido fuera del div .offertDetail */}
                             <div className='offertDetail'>
