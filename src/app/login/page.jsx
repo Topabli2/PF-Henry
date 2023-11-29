@@ -18,34 +18,38 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await fetch('/api/users/autotenticacion', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(userData),
-			});
-
-			if (response.status === 200) {
-				setTimeout(() => {
-					window.location.href = '/';
-				}, 3000);
-			}
-			else {
-				Swal.fire({
-					icon: 'error',
-					title: 'Oops...',
-					text: 'Username or password incorrect!',
-				});
-			}
-		} catch (error) {
+		  const response = await fetch('/api/users/autotenticacion', {
+			method: 'POST',
+			headers: {
+			  'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(userData),
+		  });
+	  
+		  const data = await response.json(); // Parsear la respuesta como JSON
+	  
+		  if (response.ok) {
+			// Éxito
+			setTimeout(() => {
+			  window.location.href = '/';
+			}, 3000);
+		  } else {
+			// Error
 			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: 'An error occurred during login. Please try again later.',
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: data.error || 'An error occurred during login. Please try again later.',
 			});
+		  }
+		} catch (error) {
+		  Swal.fire({
+			icon: 'error',
+			title: 'Oops...',
+			text: 'An error occurred during login. Please try again later.',
+		  });
 		}
-	};
+	  };
+	  
 
 	return (
 		<div className="formRegister">
