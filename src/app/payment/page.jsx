@@ -1,11 +1,21 @@
 "use client";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import "./payment.css";
+import { useState } from "react";
 
 const page = () => {
+
+   const [statebuy,setStateBuy]= useState(" COMPRA EN PROGRESO ");
+   const [css,setCss]= useState("progress");
+
   return (
     <div className="paypal">
       <div className="visualP">
+
+
+
+
+        <h1 className={css}>{statebuy}</h1>
         <PayPalScriptProvider
           options={{
             clientId:
@@ -17,11 +27,24 @@ const page = () => {
               label: "pay",
             }}
             createOrder={async () => {
-              const res = await fetch("/api/chekout", {
+              const res = await fetch("/api/checkout", {
                 method: "POST",
               });
-              const data = await res.json(); // Corrected this line
+              const order = await res.json();
+              return order.id;
+            }}
+            onApprove={(data, actions) => {
+              actions.order.capture();
+              setStateBuy("COMPRA REALIZADA CON EXITO")
+              setCss("finish")
+              
+              //poner aqui el envio de gmail 
+
+            }}
+            onCancel={(data) => {
               console.log(data);
+              setStateBuy("COMPRA CANCELADA")
+              setCss("cancel")
             }}
           />
         </PayPalScriptProvider>
@@ -30,7 +53,7 @@ const page = () => {
   );
 };
 
-//onCancel={()=>{}}
-//onApprove={()=>{}}
+//
+//
 
 export default page;

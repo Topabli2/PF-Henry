@@ -11,3 +11,12 @@
     width: 30%;
     
 }
+.progress{
+    color: yellow;
+}
+.finish{
+    color: green;
+}
+.cancel{
+    color: red;
+}
