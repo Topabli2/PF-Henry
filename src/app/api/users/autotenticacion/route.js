@@ -1,27 +1,41 @@
-import { prisma } from '@/libs/prisma';
+import { NextResponse } from "next/server";
+import { prisma } from "@/libs/prisma";
 
+export async function GET(request) {
+  if (request.method === 'GET') {
+    const url = new URL(request.url);
+    const username = url.searchParams.get("username");
+    const password = url.searchParams.get("password");
 
-export async function GET(req, res) {
-	if (req.method === 'GET') {
-	  const { username, password } =  req.body || req.params || {};
-	  console.log(username, password);
-	  console.log(req.query);
-  
-	  const user = await prisma.user.findFirst({
-		where: {
-		  AND: {
-			username: username,
-			password: password,
-		  },
-		},
-	  });
-  
-	  if (user) {
-		res.status(200).json({ message: 'Login successful' });
-	  } else {
-		res.status(401).json({ error: 'Invalid credentials' });
-	  }
-	} else {
-	  res.status(405).json({ error: 'Method not allowed'});
+    console.log(username, password);
+
+    // Verificar que ambos campos estén presentes
+    if (!username || !password) {
+      return NextResponse.json({ error: 'Username and password are required' }, { status: 400 });
+    }
+
+    const user = await prisma.user.findFirst({
+      where: {
+        AND: {
+          username: {
+            equals: username, // Cambiado de "contains" a "equals"
+          },
+          password: {
+            equals: password, // Cambiado de "contains" a "equals"
+          },
+        },
+      },
+    });
+
+    if (user) {
+      // Usuario autenticado con éxito
+      return NextResponse.json(user);
+    } else {
+      // Usuario no encontrado o credenciales incorrectas
+      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
+    }
+  } else {
+    // Método no permitido
+    return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
   }
-};
+}
