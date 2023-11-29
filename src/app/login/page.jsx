@@ -15,26 +15,24 @@ const Login = () => {
 			[e.target.name]: e.target.value,
 		});
 	};
+	console.log(userData);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-		  const response = await fetch('/api/users/autotenticacion', {
-			method: 'POST',
+		  const response = await fetch(`/api/users/login?username=${userData.username}&password=${userData.password}`, {
+			method: 'GET',
 			headers: {
 			  'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(userData),
 		  });
 	  
-		  const data = await response.json(); // Parsear la respuesta como JSON
+		  const data = await response.json();
 	  
 		  if (response.ok) {
-			// Éxito
 			setTimeout(() => {
-			  window.location.href = '/';
+			  window.location.href = '/'; 
 			}, 3000);
 		  } else {
-			// Error
 			Swal.fire({
 			  icon: 'error',
 			  title: 'Oops...',
@@ -49,6 +47,7 @@ const Login = () => {
 		  });
 		}
 	  };
+	  
 	  
 
 	return (
