@@ -1,11 +1,13 @@
 'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
 import { FaShoppingCart, FaUser, FaBars } from 'react-icons/fa';
 import './navbar.css';
+import { UserButton, useUser } from '@clerk/nextjs';
 
 const NavBar = () => {
+	const user = useUser();
+	const isLogin = user?.isSignedIn;
+
 	return (
 		<div className="navBar">
 			<Link href={'/'}>
@@ -22,11 +24,17 @@ const NavBar = () => {
 							<FaShoppingCart />
 						</li>
 					</Link>
-					<Link href={'/login'}>
+					{isLogin ? (
 						<li>
-							<FaUser />
+							<UserButton afterSignOutUrl="/" />
 						</li>
-					</Link>
+					) : (
+						<Link href={'/login'}>
+							<li>
+								<FaUser />
+							</li>
+						</Link>
+					)}
 					<Link href={'/'}>
 						<li>
 							<FaBars />
