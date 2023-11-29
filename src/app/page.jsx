@@ -14,6 +14,7 @@ import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
 import Footer from "@/components/footer/footer";
 
+
 const gamesPerPage = 8;
 
 const HomePage = () => {
