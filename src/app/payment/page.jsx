@@ -2,6 +2,7 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import "./payment.css";
 import { useState } from "react";
+import { sendEmail } from "@/app/api/sendEmail/route";
 
 const page = () => {
   const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
@@ -61,7 +62,7 @@ const page = () => {
                 },
                 body: JSON.stringify({
                   status: "cancel",
-                  email: "correo_del_cliente@example.com",
+                  email: "riosdeborasabrina@gmail.com",
                 }),
               });
             }}
