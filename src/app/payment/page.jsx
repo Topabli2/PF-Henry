@@ -4,17 +4,12 @@ import "./payment.css";
 import { useState } from "react";
 
 const page = () => {
-
-   const [statebuy,setStateBuy]= useState(" COMPRA EN PROGRESO ");
-   const [css,setCss]= useState("progress");
+  const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
+  const [css, setCss] = useState("progress");
 
   return (
     <div className="paypal">
       <div className="visualP">
-
-
-
-
         <h1 className={css}>{statebuy}</h1>
         <PayPalScriptProvider
           options={{
@@ -33,18 +28,42 @@ const page = () => {
               const order = await res.json();
               return order.id;
             }}
-            onApprove={(data, actions) => {
-              actions.order.capture();
-              setStateBuy("COMPRA REALIZADA CON EXITO")
-              setCss("finish")
-              
-              //poner aqui el envio de gmail 
+            onApprove={async (data, actions) => {
+              // agregamos async
+              await actions.order.capture(); // agregamos await *Debbb
+              setStateBuy("COMPRA REALIZADA CON EXITO");
+              setCss("finish");
 
+              //poner aqui el envio de gmail
+              // Hacer una solicitud al back-end para enviar un correo electrónico
+              await fetch("/api/sendEmail", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  status: "success",
+                  email: "riosdeborasabrina@gmail.com",
+                }),
+              });
             }}
-            onCancel={(data) => {
+            // fin bloque backend
+            onCancel={async (data) => {
               console.log(data);
-              setStateBuy("COMPRA CANCELADA")
-              setCss("cancel")
+              setStateBuy("COMPRA CANCELADA");
+              setCss("cancel");
+
+              // Hacer una solicitud al back-end para enviar un correo electrónico
+              await fetch("/api/sendEmail", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  status: "cancel",
+                  email: "correo_del_cliente@example.com",
+                }),
+              });
             }}
           />
         </PayPalScriptProvider>
