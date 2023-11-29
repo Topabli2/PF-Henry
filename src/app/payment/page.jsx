@@ -44,7 +44,7 @@ const page = () => {
                 },
                 body: JSON.stringify({
                   status: "success",
-                  email: "riosdeborasabrina@gmail.com",
+                  email: "pabloverat2@gmail.com",
                 }),
               });
             }}
@@ -62,7 +62,7 @@ const page = () => {
                 },
                 body: JSON.stringify({
                   status: "cancel",
-                  email: "riosdeborasabrina@gmail.com",
+                  email: "pabloverat2@gmail.com",
                 }),
               });
             }}
