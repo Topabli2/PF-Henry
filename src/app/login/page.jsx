@@ -64,7 +64,7 @@ const Login = () => {
 						maxLength="25"
 					/>
 					<input
-						type="text"
+						type="password"
 						name="password"
 						placeholder="Password"
 						value={userData.password}
