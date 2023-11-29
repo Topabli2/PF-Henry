@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.27.2",
+    "@clerk/themes": "^1.7.9",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
