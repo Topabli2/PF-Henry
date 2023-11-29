@@ -1,5 +1,9 @@
 import { SignIn } from '@clerk/nextjs';
-
+import './SignIn.css';
 export default function Page() {
-	return <SignIn />;
+	return (
+		<div className="signin">
+			<SignIn />
+		</div>
+	);
 }

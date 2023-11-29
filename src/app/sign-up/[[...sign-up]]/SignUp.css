@@ -1,9 +1,7 @@
-div{
+.aca{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.cl-internal-phfxlr {
-
+    margin-top: 8%;
 }
