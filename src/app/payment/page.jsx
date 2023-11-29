@@ -2,6 +2,7 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import "./payment.css";
 import { useState } from "react";
+import { sendEmail } from "@/app/api/sendEmail/route";
 
 const page = () => {
   const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
@@ -28,17 +29,42 @@ const page = () => {
               const order = await res.json();
               return order.id;
             }}
-            onApprove={(data, actions) => {
-              actions.order.capture();
+            onApprove={async (data, actions) => {
+              // agregamos async
+              await actions.order.capture(); // agregamos await *Debbb
               setStateBuy("COMPRA REALIZADA CON EXITO");
               setCss("finish");
 
               //poner aqui el envio de gmail
+              // Hacer una solicitud al back-end para enviar un correo electrónico
+              await fetch("/api/sendEmail", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  status: "success",
+                  email: "pabloverat2@gmail.com",
+                }),
+              });
             }}
-            onCancel={(data) => {
+            // fin bloque backend
+            onCancel={async (data) => {
               console.log(data);
               setStateBuy("COMPRA CANCELADA");
               setCss("cancel");
+
+              // Hacer una solicitud al back-end para enviar un correo electrónico
+              await fetch("/api/sendEmail", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  status: "cancel",
+                  email: "pabloverat2@gmail.com",
+                }),
+              });
             }}
           />
         </PayPalScriptProvider>

@@ -1,17 +1,24 @@
-import { NextResponse } from "next/server";
+// import { NextResponse } from "next/server";
+// import { prisma } from "@/libs/prisma";
+// import { data } from "../../data";
 
-export function GET() {
-  return NextResponse.json("Obteniendo userId!");
-}
+// export async function GET(request, { params }) {
+//   try {
+//     const id = Number(params.id); // El number es para que lea el id ya que se ingresa como STR y se necesita en INT
 
-export function POST() {
-  return NextResponse.json("Creando userId!");
-}
+//     // Buscar en los datos importados cualquier coincidencia
+//     const resultData = data.filter((game) => game.id === id);
 
-export function PUT() {
-  return NextResponse.json("Editando userId!");
-}
+//     const result = [...resultData];
 
-export function DELETE() {
-  return NextResponse.json("Borrando userId!");
-}
+//     if (result.length === 0) {
+//       console.log("Id del juego no encontrado");
+//       return NextResponse.json({ error: "Id del juego no encontrado" });
+//     }
+
+//     return NextResponse.json(result);
+//   } catch (error) {
+//     console.log(error);
+//     return NextResponse.json({ error: "Ocurrió un error al buscar el juego" });
+//   }
+// }
