@@ -30,22 +30,9 @@ model Games {
 
 model User {
   id        Int         @id @default(autoincrement())
-  username  String      @unique
-  lastName  String
-  password  String
-  email     String      @unique
-  country   String
-  phone     String?     @unique
+  email String @unique
+  name  String?
   userGames UserGames[]
-  profile   Profile?
-}
-
-model Profile {
-  id           Int    @id @default(autoincrement())
-  profileName  String
-  profile_type Int
-  userId       Int?   @unique
-  user         User?  @relation(fields: [userId], references: [id])
 }
 
 model License {
@@ -56,9 +43,9 @@ model License {
   createdAt DateTime @default(now())
 }
 
-model userGames {
-  id Int @id @default(autoincrement())
-}
+// model userGames {
+//   id Int @id @default(autoincrement())
+// }
 
 model UserGames {
   id     Int @id @default(autoincrement())
