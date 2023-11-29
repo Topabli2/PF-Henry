@@ -3,9 +3,11 @@ import Details from "@/components/details/Details";
 import React from "react";
 import Footer from "@/components/footer/footer";
 
+const URL_REQUESTS_GAMES = process.env.URL_REQUESTS_GAMES;
+
 const Page = async ({ params }) => {
   const response = await axios(
-    `https://vorttex-gaming-o5z01iokx-topablis-projects.vercel.app/api/games/${params.id}`
+    `${URL_REQUESTS_GAMES}/${params.id}`
   );
   return (
     <div>
