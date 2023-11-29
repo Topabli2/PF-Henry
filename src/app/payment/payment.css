@@ -1,0 +1,22 @@
+.paypal {
+     margin-top: 20%;
+    display: flex;
+    flex-direction: column; /* Puedes cambiar a row si es necesario */
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Usar viewport height para que ocupe el 100% de la altura visible del dispositivo */
+}
+.visualP{
+
+    width: 30%;
+    
+}
+.progress{
+    color: yellow;
+}
+.finish{
+    color: green;
+}
+.cancel{
+    color: red;
+}
