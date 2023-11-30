@@ -14,14 +14,14 @@ const About = () => {
                 <div className='card' >
 
                     <div className='img-div' >
-                        <img src="/cv_image.jpeg" alt="aboutSanti" />
+                        <img src="/dami.jpeg" alt="aboutSanti" />
                     </div>
 
-                    <h2>Santiago Friedrich</h2>
+                    <h2>Dami</h2>
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>View More</button>
+                    <button>Ver mas</button>
 
                     <div className='icons' >
 
@@ -37,14 +37,14 @@ const About = () => {
                 <div className='card' >
 
                     <div className='img-div' >
-                        <img src="/cv_image.jpeg" alt="aboutSanti" />
+                        <img src="/debo.jpeg" alt="aboutSanti" />
                     </div>
 
-                    <h2>Santiago Friedrich</h2>
+                    <h2>Debo</h2>
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>View More</button>
+                    <button>Ver mas</button>
 
                     <div className='icons' >
 
@@ -60,14 +60,14 @@ const About = () => {
                 <div className='card' >
 
                     <div className='img-div' >
-                        <img src="/cv_image.jpeg" alt="aboutSanti" />
+                        <img src="/pablo.jpeg" alt="aboutSanti" />
                     </div>
 
-                    <h2>Santiago Friedrich</h2>
+                    <h2>Pablo</h2>
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>View More</button>
+                    <button>Ver mas</button>
 
                     <div className='icons' >
 
@@ -83,10 +83,10 @@ const About = () => {
                 <div className='card' >
 
                     <div className='img-div' >
-                        <img src="/cv_image.jpeg" alt="aboutSanti" />
+                        <img src="/andres.jpeg" alt="aboutSanti" />
                     </div>
 
-                    <h2>Santiago Friedrich</h2>
+                    <h2>Andres</h2>
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
@@ -106,10 +106,10 @@ const About = () => {
                 <div className='card' >
 
                     <div className='img-div' >
-                        <img src="/cv_image.jpeg" alt="aboutSanti" />
+                        <img src="/jona.png" alt="aboutSanti" />
                     </div>
 
-                    <h2>Santiago Friedrich</h2>
+                    <h2>Jonathan</h2>
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
@@ -153,10 +153,10 @@ const About = () => {
                 <div className='card' >
 
                     <div className='img-div' >
-                        <img src="/cv_image.jpeg" alt="aboutSanti" />
+                        <img src="/nata.jpeg" alt="aboutSanti" />
                     </div>
 
-                    <h2>Santiago Friedrich</h2>
+                    <h2>Nata</h2>
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
@@ -176,10 +176,10 @@ const About = () => {
                 <div className='card' >
 
                     <div className='img-div' >
-                        <img src="/cv_image.jpeg" alt="aboutSanti" />
+                        <img src="/diego.jpeg" alt="aboutSanti" />
                     </div>
 
-                    <h2>Santiago Friedrich</h2>
+                    <h2>Diego</h2>
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
