@@ -29,23 +29,12 @@ model Games {
 }
 
 model User {
-  id       Int       @id @default(autoincrement())
-  username String
-  lastName String
-  password String
-  email    String    @unique
-  country  String
-  phone    String?   @unique
-  licenses License[]
-  profile  Profile?
-}
-
-model Profile {
-  id           Int    @id @default(autoincrement())
-  profileName  String @unique
-  profile_type Int
-  userId       Int?   @unique
-  user         User?  @relation(fields: [userId], references: [id])
+  id         Int       @id @default(autoincrement())
+  user_id    String
+  attributes Json
+  createAt   DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  licenses   License[]
 }
 
 model License {

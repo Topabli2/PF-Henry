@@ -1,0 +1,38 @@
+.signin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+.cl-internal-uy11u8{
+    background-color: #222;
+}
+.cl-internal-uy11u8 input{
+    background-color: #222
+}
+.cl-internal-uy11u8 input:focus{
+border-color: #24c7ec;
+}
+.cl-internal-1fsg6zy{
+    background-color: #174a62;
+}
+.cl-internal-1fsg6zy:hover{
+    background-color: #143c50;
+}
+.cl-internal-b3fm6y {
+    display: none;
+}
+
+.cl-internal-1acel4c{
+    background-color: #174a62;
+}
+.cl-internal-15amzqo{
+    color: #fff
+}
+.cl-internal-15amzqo:hover{
+    color:#0077b6;
+}
+.cl-internal-1ui5z3q{
+   color: rgb(255 255 255 / 25%)
+}
