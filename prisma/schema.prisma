@@ -29,12 +29,12 @@ model Games {
 }
 
 model User {
-  id         Int       @id @default(autoincrement())
-  user_id    String
-  attributes Json
-  createAt   DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
-  licenses   License[]
+  id        Int       @id @default(autoincrement())
+  user_id   String
+  email     String
+  createAt  DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  licenses  License[]
 }
 
 model License {
