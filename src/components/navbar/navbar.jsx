@@ -7,7 +7,6 @@ import { UserButton, useUser } from '@clerk/nextjs';
 const NavBar = () => {
 	const user = useUser();
 	const isLogin = user?.isSignedIn;
-	console.log(user);
 
 	return (
 		<div className="navBar">

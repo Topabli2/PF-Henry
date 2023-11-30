@@ -11,58 +11,39 @@ datasource db {
 }
 
 model Games {
-  id          Int         @id @default(autoincrement())
-  title       String      @unique
+  id          Int       @id @default(autoincrement())
+  title       String    @unique
   platform    String
   description String
   genre       String
   releaseDate String
   developer   String
   publishedby String
-  image       String
   video       String
+  image       String
+  wallpaper   String
+  capture     String
   size        String
   price       Float
-  userGames   UserGames[] // Campo para almacenar el id de la clave asociada, Relación opuesta para la tabla intermedia UserGames
-  licenseId   Int?
-  license     License?    @relation(fields: [licenseId], references: [id]) // Cambio de nombre del campo "game" a "licenses"
+  license     License[]
 }
 
 model User {
-  id        Int         @id @default(autoincrement())
-  email String @unique
-  name  String?
-  userGames UserGames[]
+  id         Int       @id @default(autoincrement())
+  user_id    String
+  attributes Json
+  createAt   DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  licenses   License[]
 }
 
 model License {
   id        Int      @id @default(autoincrement())
-  name      String
+  name      String   @unique
   active    Boolean
-  game      Games[]
+  gameId    Int?
+  game      Games?   @relation(fields: [gameId], references: [id])
+  userId    Int?
+  user      User?    @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
 }
-
-// model userGames {
-//   id Int @id @default(autoincrement())
-// }
-
-model UserGames {
-  id     Int @id @default(autoincrement())
-  userId Int
-  gameId Int
-  // gameLicenceId Int
-
-  user User  @relation(fields: [userId], references: [id]) // Llaves foráneas
-  game Games @relation(fields: [gameId], references: [id]) // Llaves foráneas
-  // gameLicence gameLicence @relation(fields: [gameLicenceId], references: [id]) // Llaves foráneas
-
-  @@unique([userId, gameId]) // Restricción única para evitar duplicados
-}
-
-// model usedLicense{
-//   id        Int    @id @default(autoincrement())
-//   gameKey   String @unique
-//   Date      DateTime
-//   game      String
-// }
