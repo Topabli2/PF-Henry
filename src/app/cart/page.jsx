@@ -1,12 +1,14 @@
-'use client';
+ 'use client';
 import { useStoreCart } from '@/zustand/store';
 import './cart.css';
 import Link from 'next/link';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import EmptyCart from '@/components/emptyCartt/EmptyCart';
+import { useUser } from "@clerk/nextjs";
+import axios from 'axios';
 
-const Page = () => {
+const Page = async () => {
     const { gamesInCart, removeGameFromCart, emptyCart } = useStoreCart();
 
     let subtotal = 0;
@@ -22,6 +24,25 @@ const Page = () => {
         event.preventDefault();
         emptyCart();
     }
+
+    const user = useUser();
+
+  if (user) {
+    const user_id = user.user.id;
+    const email = user.user.primaryEmailAddress.emailAddress;
+
+    // Hacer una solicitud POST a tu API de back-end con los datos del usuario
+    try {
+      const response = await axios.post('/api/users', { user_id, email });
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+
+  } else {
+    console.log("No user is authenticated");
+  }
+
 
     return (
         <div className='cartContainer' >
