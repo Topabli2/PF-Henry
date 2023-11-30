@@ -19,7 +19,7 @@ const NavBar = () => {
 				</Link>
 				<div className="pointerNone"></div>
 				<ul>
-					<Link href={'/'}>
+					<Link href={'/cart'}>
 						<li>
 							<FaShoppingCart />
 						</li>
