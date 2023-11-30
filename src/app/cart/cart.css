@@ -1,3 +1,112 @@
 .cartContainer {
-    margin-top: 10%;
+    background-color: #222;
+    width: 90%;
+    height: 70vh;
+    margin: 0 auto;
+    margin-top: 8%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.cartContainerGames {
+    width: 70%;
+    height: 90%;
+    margin-left: 3%;
+}
+
+.cartGame {
+    background-color: black;
+    width: 90%;
+    height: 20%;
+    margin-left: 5%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 1px transparent;
+    transition: .3s;
+    margin: 2%;
+}
+
+.cartGame:hover {
+    transform: scale(1.02);
+    border: solid 1px #888;
+}
+
+.cartGame img {
+    height: 100%;
+    width: 12%;
+    transform: scale(.9);
+    border-radius: 5px;
+    margin-left: 4%;
+}
+
+.cartGame .subtotal {
+    margin-right: 5%;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.cartGame .subtotal:hover {
+    color: red;
+}
+
+.cartContainerDetails {
+    height: 80%;
+    width: 30%;
+    margin-right: 3%;
+    background-color: black;
+    border-radius: 5px;
+    margin-top: -4%;
+    text-align: center;
+    padding: 40px 30px;
+}
+
+.cartContainerDetails h4 {
+    font-size: 35px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.cartContainerDetails p {
+    font-weight: 300;
+    margin-top: 5%;
+}
+
+.cartContainerDetails button {
+    padding: 10px 0;
+    border-radius: 1px;
+    border: none;
+    transition: .3s;
+    cursor: pointer;
+    width: 80%;
+    margin: 0;
+    margin: 5%;
+}
+
+.cartContainerDetails button:hover {
+    background-color: #555;
+}
+
+.cartContainerDetails .firstButton {
+    margin-top: 20%;
+}
+
+.cartContainerDetails .lastButton {
+    background-color: transparent;
+    border: solid 1px #555;
+    border-radius: 1px;
+    transition: .3s;
+}
+
+.cartContainerDetails .lastButton:hover {
+    background-color: transparent;
+}
+
+.cartContainerDetails  .firstButton[disabled] {
+    background-color: #888;
+    color: #bbb;
+    border: solid 1px #888;
+    cursor: no-drop;
 }

@@ -1,0 +1,30 @@
+.emptyCartContainer {
+    width: 40%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+.bagFill {
+    font-size: 170px;
+    color: #ccc;
+}
+
+.emptyCartContainer p {
+    margin-top: -10%;
+}
+
+.emptyCartButton {
+    width: 80%;
+    border: none;
+    padding: 15px 0;
+    background-color: #176900;
+    border-radius: 2px;
+    margin-top: 5%;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.emptyCartButton:hover {
+    background-color: #229c00;
+}

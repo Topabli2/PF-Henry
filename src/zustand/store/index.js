@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
 export const useStoreCart = create((set) => ({
     gamesInCart: [],
@@ -12,6 +12,11 @@ export const useStoreCart = create((set) => ({
             gamesInCart: state.gamesInCart.filter((game) => game.id !== gameID),
         }));
     },
+    emptyCart: () => {
+        set(() => ({
+            gamesInCart: []
+        }));
+    }
 }));
 
 export const useStoreGame = create((set) => ({
