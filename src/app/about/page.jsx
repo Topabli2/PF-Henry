@@ -25,12 +25,12 @@ const About = () => {
 
                     <div className='icons' >
 
-                    <Link href={`https://github.com/diaz027`}>
+                    <Link href={`https://github.com/diaz027`} className="linkgit" >
                         <FaGithub className="icon" />
                     </Link>
                     
 
-                    <Link href={`https://www.linkedin.com/in/damian-diaz-6a7537258/`} >
+                    <Link href={`https://www.linkedin.com/in/damian-diaz-6a7537258/`} className="linklinke" >
                         <FaLinkedin className="icon" />
                     </Link>
                     
@@ -54,11 +54,11 @@ const About = () => {
 
                     <div className='icons' >
 
-                    <Link href={`https://github.com/RiosDeboraS`}>
+                    <Link href={`https://github.com/RiosDeboraS`} className="linkgit">
                         <FaGithub className="icon" />
                     </Link>
 
-                    <Link href={`https://www.linkedin.com/in/debora-sabrina-rios-307467284/`} >
+                    <Link href={`https://www.linkedin.com/in/debora-sabrina-rios-307467284/`} className="linklinke" >
                         <FaLinkedin className="icon" />
                     </Link>
 
@@ -81,11 +81,11 @@ const About = () => {
 
                     <div className='icons' >
 
-                    <Link href={`https://github.com/Topabli2`}>
+                    <Link href={`https://github.com/Topabli2`} className="linkgit">
                         <FaGithub className="icon" />
                     </Link>
                     
-                    <Link href={`https://www.linkedin.com/in/pablo-vera-744676161/`}>
+                    <Link href={`https://www.linkedin.com/in/pablo-vera-744676161/`} className="linklinke" >
                         <FaLinkedin className="icon" />
                     </Link>
                     
@@ -109,12 +109,12 @@ const About = () => {
 
                     <div className='icons' >
 
-                    <Link href={`https://github.com/afradenburg`}>
+                    <Link href={`https://github.com/afradenburg`} className="linkgit" >
                         <FaGithub className="icon" />
                     </Link>
                     
 
-                    <Link href={`https://www.linkedin.com/in/andres-castro-flechas-39a0ba186/`}>
+                    <Link href={`https://www.linkedin.com/in/andres-castro-flechas-39a0ba186/`} className="linklinke" >
                         <FaLinkedin className="icon" />
                     </Link>
                     
@@ -138,12 +138,12 @@ const About = () => {
 
                     <div className='icons' >
 
-                    <Link href={`https://github.com/zuoki`}>
+                    <Link href={`https://github.com/zuoki`} className="linkgit" >
                         <FaGithub className="icon" />
                     </Link>
                     
 
-                    <Link href={`https://www.linkedin.com/in/gabriel-juarez-720998240/`}>
+                    <Link href={`https://www.linkedin.com/in/gabriel-juarez-720998240/`} className="linklinke" >
                         <FaLinkedin className="icon" />
                     </Link>
 
@@ -166,12 +166,12 @@ const About = () => {
 
                     <div className='icons' >
 
-                    <Link href={`https://github.com/santiclfriedrich`}>
+                    <Link href={`https://github.com/santiclfriedrich`} className="linkgit">
                         <FaGithub className="icon" />
                     </Link>
                     
 
-                    <Link href={`https://www.linkedin.com/in/santiago-martin-claros-friedrich-122323223/`}>
+                    <Link href={`https://www.linkedin.com/in/santiago-martin-claros-friedrich-122323223/`} className="linklinke" >
                         <FaLinkedin className="icon" />
                     </Link>
 
@@ -195,12 +195,12 @@ const About = () => {
 
                     <div className='icons' >
 
-                    <Link href={`https://github.com/Chrisnatalx`}>
+                    <Link href={`https://github.com/Chrisnatalx`} className="linkgit" >
                         <FaGithub className="icon" />
                     </Link>
                     
 
-                    <Link href={`https://www.linkedin.com/in/christian-natale-/`}>
+                    <Link href={`https://www.linkedin.com/in/christian-natale-/`} className="linklinke" >
                         <FaLinkedin className="icon" />
                     </Link>
 
@@ -224,12 +224,12 @@ const About = () => {
 
                     <div className='icons' >
 
-                    <Link href={`https://www.linkedin.com/in/diego-martins-563954278/`}>
+                    <Link href={`https://www.linkedin.com/in/diego-martins-563954278/`} className="linkgit" >
                         <FaGithub className="icon" />
                     </Link>
                     
 
-                    <Link href={`https://github.com/MartinsDiego17`}>
+                    <Link href={`https://github.com/MartinsDiego17`} className="linklinke" >
                         <FaLinkedin className="icon" />
                     </Link>
 

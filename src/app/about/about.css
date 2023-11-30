@@ -25,13 +25,16 @@
   background-color: black;
   text-align: center;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .img-div img {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  margin-top: 20px;
+  margin-top: 25px;
   object-fit: cover;
 }
 
@@ -41,11 +44,15 @@
   border-radius: 10px;
 }
 
+.card h2{
+  margin-bottom: 15px ;
+}
+
 .card p {
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 13px;
   color: white;
-  padding: 5%;
+  padding: 0 20px;
 }
 
 .card button {
@@ -61,9 +68,17 @@
 
 .icons {
   font-size: 25px;
-  margin: 5px;
+  margin-top: 25px;
 }
 
 .icon {
   margin: 20px;
+}
+
+.linkgit{
+  color: violet;
+}
+
+.linklinke{
+  color: rgb(10, 102, 194);
 }
