@@ -1,19 +1,33 @@
 'use client';
 import { useStoreCart } from '@/zustand/store'
-import './cart.css'
+import './cart.css';
+import Card from '@/components/card/Card';
 
 const page = () => {
-    const { gamesInCart } = useStoreCart();
-    console.log(gamesInCart)
-  return (
-    <div className='cartContainer'>
-      {gamesInCart.length > 0 &&
-        gamesInCart.map(game => (
-            <h1>{game.title}</h1>
-        ))
-      }
-    </div>
-  )
+
+    const store = useStoreCart();
+    const gamesInCart = store.gamesInCart;
+
+    console.log(gamesInCart);
+
+    return (
+        <div className='cartAndDetail'>
+            
+            <div className='cartsContainer'>
+                {
+                    gamesInCart.map(game => (
+                        <div className='cartContainer'>
+                            <img src={game.image} />
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div className='detailsCart'>
+
+            </div>
+        </div>
+    )
 }
 
 export default page

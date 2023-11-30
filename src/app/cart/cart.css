@@ -1,3 +1,29 @@
-.cartContainer {
+.cartAndDetail {
+    display: flex;
     margin-top: 10%;
+    background-color: #333;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 75vh;
+}
+
+.cartsContainer {
+    display: block;
+}
+
+.cartContainer {
+    width: 250%;
+    margin-left: 20%;
+    margin-top: 10%;
+    border-radius: 3%;
+    flex-direction: row;
+    background-color: #222;
+}
+
+.cartContainer img {
+    width: 10%;
+    border-radius: 10%;
+    height: 15%;
+    margin-top: 1%;
+    margin-left: 3%;
 }

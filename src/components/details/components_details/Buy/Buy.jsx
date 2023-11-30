@@ -8,10 +8,6 @@ import Link from 'next/link';
 const Buy = ({ game }) => {
   const { gamesInCart, addGamesToCart } = useStoreCart();
 
-  const handleCart = (game) => {
-    addGamesToCart(game);
-  }
-
   return (
     <section className='Dbuy'>
 
@@ -21,7 +17,7 @@ const Buy = ({ game }) => {
           <h1 className='DBPRC'>BUY FOR : ${game.price}</h1>
         </div>
         <div className='butonDBJContainer'>
-          <button type='button' className='ADC' onClick={() => handleCart(game)} >  ADD TO CART</button>
+          <button type='button' className='ADC' onClick={() => addGamesToCart(game)} >  ADD TO CART</button>
           <Link href={'/cart'}><button type='button' className='IAC'>GO TO CART</button></Link>
         </div>
       </div>
