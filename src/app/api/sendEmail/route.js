@@ -3,21 +3,19 @@ import { Resend } from 'resend';
 const resend = new Resend('re_A58K1LkF_JUmBLeDpdWPyWHKtCPJ1p8Bc');
 export async function POST(request) {
   const { status, email } = request.body;
-  console.log(request.body, "requestjasjsa", status,)
+  console.log(request.body, "requestjasjsa", status, email);
   let subject, html;
-
   try {
     subject = 'Confirmacion de compra';
     html = 'Tu compra ha sido realizada con éxito. Gracias por tu compra. vortex gaming te ama';
     await resend.emails.send({
       from: 'vorttexgaming <onboarding@resend.dev>',
-      to: "pabloverat2@gmail.com",
+      to: email,
       subject,
       html,
     });
-    return NextResponse.json({ message: 'Correo electrónico enviado con éxito.' }); 
+    return NextResponse.json({ message: 'Correo electrónico enviado con éxito.' });
   } catch (error) {
     return NextResponse.json({ error: error.message });
   }
 }
-
