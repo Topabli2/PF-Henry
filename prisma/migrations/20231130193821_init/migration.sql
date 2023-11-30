@@ -22,7 +22,7 @@ CREATE TABLE "Games" (
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "user_id" TEXT NOT NULL,
-    "attributes" JSONB NOT NULL,
+    "email" TEXT NOT NULL,
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
