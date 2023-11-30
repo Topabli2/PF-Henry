@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import './about.css'
 import Footer from "@/components/footer/footer";
+import Link from "next/link";
 
 const About = () => {
     return (
@@ -21,12 +22,18 @@ const About = () => {
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>Ver mas</button>
 
                     <div className='icons' >
 
-                    <FaGithub className="icon" />
-                    <FaLinkedin className="icon" />
+                    <Link href={`https://github.com/diaz027`}>
+                        <FaGithub className="icon" />
+                    </Link>
+                    
+
+                    <Link href={`https://www.linkedin.com/in/damian-diaz-6a7537258/`} >
+                        <FaLinkedin className="icon" />
+                    </Link>
+                    
 
                     </div>
 
@@ -44,12 +51,16 @@ const About = () => {
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>Ver mas</button>
 
                     <div className='icons' >
 
-                    <FaGithub className="icon" />
-                    <FaLinkedin className="icon" />
+                    <Link href={`https://github.com/RiosDeboraS`}>
+                        <FaGithub className="icon" />
+                    </Link>
+
+                    <Link href={`https://www.linkedin.com/in/debora-sabrina-rios-307467284/`} >
+                        <FaLinkedin className="icon" />
+                    </Link>
 
                     </div>
 
@@ -67,12 +78,17 @@ const About = () => {
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>Ver mas</button>
 
                     <div className='icons' >
 
-                    <FaGithub className="icon" />
-                    <FaLinkedin className="icon" />
+                    <Link href={`https://github.com/Topabli2`}>
+                        <FaGithub className="icon" />
+                    </Link>
+                    
+                    <Link href={`https://www.linkedin.com/in/pablo-vera-744676161/`}>
+                        <FaLinkedin className="icon" />
+                    </Link>
+                    
 
                     </div>
 
@@ -90,12 +106,18 @@ const About = () => {
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>View More</button>
 
                     <div className='icons' >
 
-                    <FaGithub className="icon" />
-                    <FaLinkedin className="icon" />
+                    <Link href={`https://github.com/afradenburg`}>
+                        <FaGithub className="icon" />
+                    </Link>
+                    
+
+                    <Link href={`https://www.linkedin.com/in/andres-castro-flechas-39a0ba186/`}>
+                        <FaLinkedin className="icon" />
+                    </Link>
+                    
 
                     </div>
 
@@ -113,12 +135,17 @@ const About = () => {
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>View More</button>
 
                     <div className='icons' >
 
-                    <FaGithub className="icon" />
-                    <FaLinkedin className="icon" />
+                    <Link href={`https://github.com/zuoki`}>
+                        <FaGithub className="icon" />
+                    </Link>
+                    
+
+                    <Link href={`https://www.linkedin.com/in/gabriel-juarez-720998240/`}>
+                        <FaLinkedin className="icon" />
+                    </Link>
 
                     </div>
 
@@ -136,12 +163,17 @@ const About = () => {
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>View More</button>
 
                     <div className='icons' >
 
-                    <FaGithub className="icon" />
-                    <FaLinkedin className="icon" />
+                    <Link href={`https://github.com/santiclfriedrich`}>
+                        <FaGithub className="icon" />
+                    </Link>
+                    
+
+                    <Link href={`https://www.linkedin.com/in/santiago-martin-claros-friedrich-122323223/`}>
+                        <FaLinkedin className="icon" />
+                    </Link>
 
                     </div>
 
@@ -160,12 +192,17 @@ const About = () => {
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>View More</button>
 
                     <div className='icons' >
 
-                    <FaGithub className="icon" />
-                    <FaLinkedin className="icon" />
+                    <Link href={`https://github.com/Chrisnatalx`}>
+                        <FaGithub className="icon" />
+                    </Link>
+                    
+
+                    <Link href={`https://www.linkedin.com/in/christian-natale-/`}>
+                        <FaLinkedin className="icon" />
+                    </Link>
 
                     </div>
 
@@ -183,12 +220,18 @@ const About = () => {
                     <p>Hola! soy Santiago y 
                     actualmente me encuentro cursando el bootcamp Soy Henry para seguir aprendiendo y desarrollando habilidades en lo que es esta nueva pasión que he descubierto, la programación.
                     </p>
-                    <button>View More</button>
+                    
 
                     <div className='icons' >
 
-                    <FaGithub className="icon" />
-                    <FaLinkedin className="icon" />
+                    <Link href={`https://www.linkedin.com/in/diego-martins-563954278/`}>
+                        <FaGithub className="icon" />
+                    </Link>
+                    
+
+                    <Link href={`https://github.com/MartinsDiego17`}>
+                        <FaLinkedin className="icon" />
+                    </Link>
 
                     </div>
 
