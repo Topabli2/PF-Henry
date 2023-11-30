@@ -1,42 +1,15 @@
-import { NextResponse } from "next/server";
-import { prisma } from "@/libs/prisma";
+import { NextResponse } from 'next/server';
+import  {prisma } from '@/libs/prisma';
 
 export async function GET() {
-  const Allusers = await prisma.user.findMany();
-  return NextResponse.json(Allusers);
-}
+    const allProfile = await prisma.user.findMany();
+    return NextResponse.json(allProfile);
+  }
 
-export async function POST(request) {
-  const { username, lastName, password, email, country, phone, profile } =
-    await request.json();
-  const newUser = await prisma.user.create({
-    data: {
-      username,
-      lastName,
-      password,
-      email,
-      country,
-      phone,
-      profile: {
-        create: profile,
-      }, // creo el perfil cuando creo el usuario
-    },
+  export async function POST(request) {
+    const data = await request.json()
+    const newUser = await prisma.user.create({
+      data
   });
-  return NextResponse.json(newUser);
-}
-
-export async function PUT(request) {
-  const { id, username, lastName, country, phone } = await request.json();
-  const updatedUser = await prisma.user.update({
-    where: {
-      id: id,
-    },
-    data: {
-      username,
-      lastName,
-      country,
-      phone,
-    },
-  });
-  return NextResponse.json(updatedUser);
-}
+    return NextResponse.json(newUser);
+  };

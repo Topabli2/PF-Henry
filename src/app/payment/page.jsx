@@ -4,7 +4,7 @@ import "./payment.css";
 import { useState } from "react";
 import { sendEmail } from "@/app/api/sendEmail/route";
 
-const page = () => {
+const Page = () => {
   const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
   const [css, setCss] = useState("progress");
 
@@ -73,7 +73,5 @@ const page = () => {
   );
 };
 
-//
-//
+export default Page;
 
-export default page;
