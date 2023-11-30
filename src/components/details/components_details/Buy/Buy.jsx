@@ -2,32 +2,73 @@
 import React from 'react'
 import "./Buy.css"
 import ButtonComponent from '@/components/utils/button_Component/ButtonComponent';
-import { useStoreCart, useStoreGame } from '@/zustand/store';
+// import { useStoreCart, useStoreGame } from '@/zustand/store';
 import Link from 'next/link';
 
-const Buy = ({ game }) => {
-  const { gamesInCart, addGamesToCart } = useStoreCart();
+// const Buy = ({ game }) => {
+//   const { gamesInCart, addGamesToCart } = useStoreCart();
 
-  const handleCart = (game) => {
-    addGamesToCart(game);
-  }
+//   const handleCart = (game) => {
+//     addGamesToCart(game);
+//   }
+
+//   return (
+//     <section className='Dbuy'>
+
+//       <div className='Dbuy2'>
+//         <h2 className='DBof'> CURRENT OFFER</h2>
+//         <div className='priceContainerD'>
+//           <h1 className='DBPRC'>BUY FOR : ${game.price}</h1>
+//         </div>
+//         <div className='butonDBJContainer'>
+//           <button type='button' className='ADC' onClick={() => handleCart(game)} >  ADD TO CART</button>
+//           <Link href={'/cart'}><button type='button' className='IAC'>GO TO CART</button></Link>
+//         </div>
+//       </div>
+
+//     </section>
+//   )
+// }
+
+// export default Buy
+
+// import React from 'react';
+import { useStoreCart } from '@/zustand/store';
+// import Link from 'next/link';
+import { useUser } from '@clerk/nextjs';
+
+const Buy = ({ game }) => {
+  const { addGamesToCart } = useStoreCart();
+  const user = useUser();
+
+  const handleCart = () => {
+    if (user?.isSignedIn) {
+      addGamesToCart(game);
+    } else {
+      window.location.href = '/sign-in'; // Redirige al usuario a la página de registro
+    }
+  };
 
   return (
     <section className='Dbuy'>
-
       <div className='Dbuy2'>
         <h2 className='DBof'> CURRENT OFFER</h2>
         <div className='priceContainerD'>
-          <h1 className='DBPRC'>BUY FOR : ${game.price}</h1>
+          <h1 className='DBPRC'>BUY FOR: ${game.price}</h1>
         </div>
         <div className='butonDBJContainer'>
-          <button type='button' className='ADC' onClick={() => handleCart(game)} >  ADD TO CART</button>
-          <Link href={'/cart'}><button type='button' className='IAC'>GO TO CART</button></Link>
+          <button type='button' className='ADC' onClick={handleCart}>
+            ADD TO CART
+          </button>
+          <Link href={'/cart'}>
+            <button type='button' className='IAC'>
+              GO TO CART
+            </button>
+          </Link>
         </div>
       </div>
-
     </section>
-  )
-}
+  );
+};
 
-export default Buy
+export default Buy;
