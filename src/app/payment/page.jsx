@@ -44,10 +44,21 @@ const Page = () => {
                 },
                 body: JSON.stringify({
                   status: "success",
-                  email: "pabloverat2@gmail.com",
+                  email: "kasjda",
                 }),
               });
             }}
+            // await fetch("/api/sendEmail", {
+            //   method: "POST",
+            //   headers: {
+            //     "Content-Type": "application/x-www-form-urlencoded",
+            //   },
+            //   body: new FormData({
+            //     status: "success",
+            //     email: "hola",
+            //   }),
+            // });
+            // }}
             // fin bloque backend
             onCancel={async (data) => {
               console.log(data);
