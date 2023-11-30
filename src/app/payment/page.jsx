@@ -3,18 +3,13 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import "./payment.css";
 import { useState } from "react";
 
-const page = () => {
-
-   const [statebuy,setStateBuy]= useState(" COMPRA EN PROGRESO ");
-   const [css,setCss]= useState("progress");
+const Page = () => {
+  const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
+  const [css, setCss] = useState("progress");
 
   return (
     <div className="paypal">
       <div className="visualP">
-
-
-
-
         <h1 className={css}>{statebuy}</h1>
         <PayPalScriptProvider
           options={{
@@ -35,16 +30,15 @@ const page = () => {
             }}
             onApprove={(data, actions) => {
               actions.order.capture();
-              setStateBuy("COMPRA REALIZADA CON EXITO")
-              setCss("finish")
-              
-              //poner aqui el envio de gmail 
+              setStateBuy("COMPRA REALIZADA CON EXITO");
+              setCss("finish");
 
+              // Poner aquí el envío de Gmail
             }}
             onCancel={(data) => {
               console.log(data);
-              setStateBuy("COMPRA CANCELADA")
-              setCss("cancel")
+              setStateBuy("COMPRA CANCELADA");
+              setCss("cancel");
             }}
           />
         </PayPalScriptProvider>
@@ -53,7 +47,5 @@ const page = () => {
   );
 };
 
-//
-//
+export default Page;
 
-export default page;
