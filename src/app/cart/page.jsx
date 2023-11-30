@@ -1,19 +1,19 @@
 'use client';
-import { useStoreCart } from '@/zustand/store'
-import './cart.css'
+import {useStoreCart} from '@/zustand/store';  // Adjust the path as needed
+import './cart.css';
 
-const page = () => {
+const Page = () => {
     const { gamesInCart } = useStoreCart();
-    console.log(gamesInCart)
-  return (
-    <div className='cartContainer'>
-      {gamesInCart.length > 0 &&
-        gamesInCart.map(game => (
-            <h1>{game.title}</h1>
-        ))
-      }
-    </div>
-  )
-}
+    console.log(gamesInCart);
 
-export default page
+    return (
+        <div className='cartContainer'>
+            {gamesInCart.length > 0 &&
+                gamesInCart.map(game => (
+                    <h1 key={game.id}>{game.title}</h1>
+                ))}
+        </div>
+    );
+};
+
+export default Page;
