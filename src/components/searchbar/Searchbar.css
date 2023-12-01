@@ -37,7 +37,7 @@
 
 .SearchIconContainer{
     display: flex;
-    background-color: #F66900;
+    background-color: #176900;
     height: 40px;
     width: 60px;
     border-radius: 0px 3px 3px 0px;
@@ -47,7 +47,7 @@
     margin-bottom: 1px;
 }
 .SearchIconContainer:hover{
-    background-color: #EF5F00;
+    background-color: #229c00;
 }
 .prueba{
     margin-top: 20%;

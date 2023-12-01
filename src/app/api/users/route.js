@@ -1,42 +1,48 @@
-import { NextResponse } from "next/server";
-import { prisma } from "@/libs/prisma";
+import { NextResponse } from 'next/server';
+import  {prisma } from '@/libs/prisma';
 
 export async function GET() {
-  const Allusers = await prisma.user.findMany();
-  return NextResponse.json(Allusers);
-}
+    const allProfile = await prisma.user.findMany();
+    return NextResponse.json(allProfile);
+  }
+
+// export async function POST(request) {
+//   const { user_id, email } = await request.json();
+  
+//   const newUser = await prisma.user.upsert({
+//     where: { user_id: user_id },
+//     create: {
+//        user_id,
+//        email
+//      }
+//   });
+  
+//   return NextResponse.json(newUser);
+// };
+
 
 export async function POST(request) {
-  const { username, lastName, password, email, country, phone, profile } =
-    await request.json();
-  const newUser = await prisma.user.create({
-    data: {
-      username,
-      lastName,
-      password,
-      email,
-      country,
-      phone,
-      profile: {
-        create: profile,
-      }, // creo el perfil cuando creo el usuario
-    },
-  });
-  return NextResponse.json(newUser);
-}
+  try {
+    const { user_id, email } = await request.json();
+    let existingUser = await prisma.user.findUnique({
+      where: { user_id: user_id },
+    });
 
-export async function PUT(request) {
-  const { id, username, lastName, country, phone } = await request.json();
-  const updatedUser = await prisma.user.update({
-    where: {
-      id: id,
-    },
-    data: {
-      username,
-      lastName,
-      country,
-      phone,
-    },
-  });
-  return NextResponse.json(updatedUser);
+    if (existingUser) {
+      // Si el usuario ya existe, simplemente devolverlo
+      return NextResponse.json(existingUser);
+    } else {
+      // Si el usuario no existe, crear uno nuevo
+      const newUser = await prisma.user.create({
+        data: {
+          user_id,
+          email,
+        },
+      });
+      return NextResponse.json(newUser);
+    }
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: 'Error en el servidor' }, { status: 500 });
+  }
 }
