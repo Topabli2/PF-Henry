@@ -48,13 +48,6 @@ const Buy = ({ game }) => {
       window.location.href = "/sign-in"; // Redirige al usuario a la página de registro
     }
   };
-  const handle = () => {
-    if (user?.isSignedIn) {
-      window.location.href = "/cart";
-    } else {
-      window.location.href = "/sign-in"; // Redirige al usuario a la página de registro
-    }
-  };
 
   return (
     <section className="Dbuy">
@@ -68,11 +61,17 @@ const Buy = ({ game }) => {
             ADD TO CART
           </button>
 
-          {/* <Link href={user ? "/cart" : "/sing-in"}> */}
-          <button type="button" className="IAC" onClick={handle}>
-            GO TO CART
-          </button>
-          {/* </Link> */}
+          {user?.isSignedIn ? (
+            <Link href="/cart">
+              <button type="button" className="IAC">
+                GO TO CART
+              </button>
+            </Link>
+          ) : (
+            <button type="button" className="IAC" disabled>
+              GO TO CART
+            </button>
+          )}
         </div>
       </div>
     </section>
