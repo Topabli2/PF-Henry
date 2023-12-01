@@ -4,6 +4,14 @@
 }
 
 
+.imgLogoNavbar{
+    position: relative;
+    width: 105%;
+    transform: scale(.7);
+    left: -5%;
+    top: 3%;
+}
+
 
 
 @media (max-width: 768px) {

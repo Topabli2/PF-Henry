@@ -56,14 +56,14 @@ const Aside = ({ types, onChange }) => {
   return (
     <div className="diosAside">
       <div className="ordenarAside">
-        <a>Order</a>
+        <a>ORDER</a>
         <p onClick={() => onChange[1]("PD")}>By Price (High to Low)</p>
         <p onClick={() => onChange[1]("PA")}>By Price (Low to High)</p>
         <p onClick={() => onChange[1]("FD")}>By Release Date (Newest)</p>
         <p onClick={() => onChange[1]("FA")}>By Release Date (Oldest)</p>
 
-        <p onClick={() => onChange[1]("CLEAN")} className="broom">
-          <FontAwesomeIcon icon={faBroom} />
+        <p className="broom" onClick={() => onChange[1]("CLEAN")} >
+        RESET SORTING
         </p>
       </div>
       <div className="aside">
@@ -74,8 +74,8 @@ const Aside = ({ types, onChange }) => {
               value={"listButton--click"}
               onClick={handleClass}
             >
-              <a className="listLink">Filter</a>
-              <FontAwesomeIcon icon={faSortDown} className="listIcon" />
+              <a className="listLink">FILTER</a>
+              ...
             </div>
             <ul className="listShow">
               <li className="listInside">
@@ -112,7 +112,7 @@ const Aside = ({ types, onChange }) => {
                   onChange[0](typesToSend), setTypesToSend([]);
                 }}
               >
-                Aplicar
+                APPLY
               </button>
             </ul>
           </li>

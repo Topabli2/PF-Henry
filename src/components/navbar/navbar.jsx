@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { FaShoppingCart, FaUser, FaBars } from 'react-icons/fa';
 import './navbar.css';
 import { UserButton, useUser } from '@clerk/nextjs';
+import vLogo from './vortexLogo.png';
+import Image from 'next/image'
 
 const NavBar = () => {
 	const user = useUser();
@@ -11,7 +13,7 @@ const NavBar = () => {
 	return (
 		<div className="navBar">
 			<Link href={'/'}>
-				<h1>Vorttex Gaming</h1>
+				<Image className='imgLogoNavbar' src={vLogo}/>
 			</Link>
 			<div className="sections">
 				<Link href={'/'}>
