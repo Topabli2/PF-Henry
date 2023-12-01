@@ -1,11 +1,16 @@
 'use client';
 import React, { useState } from 'react'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useUser } from '@clerk/nextjs';
 
 const Payment = () => {
 
     const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
     const [css, setCss] = useState("progress");
+    const data = useUser();
+    // const emailUser= data.user
+    // const email = data.emailAddresses[0].emailAddress;
+    console.log(data.user)
 
     return (
         <div className='paypal'>
