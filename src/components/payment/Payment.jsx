@@ -9,8 +9,8 @@ const Payment = () => {
     const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
     const [css, setCss] = useState("progress");
     const data = useUser();
-//   const email = data?.user?.emailAddresses?.[0]?.emailAddress;
-const email = "pabloverat2@gmail.com"
+  const email = data?.user?.emailAddresses?.[0]?.emailAddress;
+// const email = "pabloverat2@gmail.com"
  
 
     return (
@@ -42,21 +42,15 @@ const email = "pabloverat2@gmail.com"
 
                             //poner aqui el envio de gmail
                             // Hacer una solicitud al back-end para enviar un correo electrónico
-                            console.log(email)
+                            
                             await axios.post("/api/sendEmail", {
-                                email: email,
+                                email
                               }, {
                                 headers: {
                                   "Content-Type": "application/json",
                                 },
                               });
-                        //     const response = await axios.post("/api/sendEmail", {
-                        //         email: email
-                        //     }, {
-                        //         headers: {
-                        //             'Content-Type': 'application/json'
-                        //         }
-                        //     });
+                     
                         }}
                         // fin bloque backend
                         onCancel={async (data) => {
@@ -71,8 +65,7 @@ const email = "pabloverat2@gmail.com"
                                     "Content-Type": "application/json",
                                 },
                                 body: JSON.stringify({
-                                    status: "cancel",
-                                    email: "pabloverat2@gmail.com",
+                                    email
                                 }),
                             });
                         }}

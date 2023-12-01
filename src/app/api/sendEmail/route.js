@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 const resend = new Resend('re_A58K1LkF_JUmBLeDpdWPyWHKtCPJ1p8Bc');
+
 export async function POST(request) {
-  const { email } = request.body;
-  console.log(request)
+  const { email } = await request.json();
+  console.log(email);
   let subject, html;
 
   try {
