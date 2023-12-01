@@ -43,9 +43,7 @@ const Payment = () => {
                             //poner aqui el envio de gmail
                             // Hacer una solicitud al back-end para enviar un correo electrónico
                             
-                            await axios.post("/api/sendEmail", {
-                                email
-                              }, {
+                            await axios.post("/api/sendEmail", { email }, {
                                 headers: {
                                   "Content-Type": "application/json",
                                 },
