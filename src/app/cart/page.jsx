@@ -26,6 +26,7 @@ const Page = () => {
   };
 
   const user = useUser();
+  console.log(user);
 
   if (user) {
     const user_id = user.user.id;
