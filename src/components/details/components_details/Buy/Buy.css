@@ -132,6 +132,7 @@
   white-space: nowrap;
   z-index: 1;
   background-color: #555555;
+  cursor: no-drop;
 }
 
 
