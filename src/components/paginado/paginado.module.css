@@ -12,9 +12,9 @@
 }
 
 .buttonPage:hover{
-    background-color:#219900;   
+    background-color:#FF9500;   
 }
 .active{
     transform: scale(1.2);
-    background-color: #219900;
+    background-color: #FF9500;
 }

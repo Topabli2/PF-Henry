@@ -15,9 +15,9 @@
 
 .aside {
     position: relative;
-    left: 20%;
+    left: 21.5%;
     border-radius: 4px;
-    width: 100%;
+    width: 98.3%;
     height: 10%;
 }
 
@@ -35,13 +35,16 @@
 }
 
 .listItem {
+    height: 50%;
     list-style: none;
     margin-left: -42px;
     width: 123%;
+
     text-align: left;
     overflow: hidden;
     border-radius: 2px;
     background-color: #333;
+     
 }
 
 .listItem--click {
@@ -68,6 +71,7 @@
     width: 400px;
     color: #ccc;
     padding-top: 25px;
+     height: 10%;
 }
 
 .listLink--inside {
@@ -85,8 +89,12 @@
     color: white;
     background-color:#444 ;
 }
-
+.listContainer{
+    height: 0%;
+    overflow: scroll;
+}
 .listShow {
+    position: relative;
     width: 100%;
     list-style: none;
     transition: height .4s;
@@ -128,7 +136,9 @@
 }
 
 .list .apply[disabled] {
-    margin-left: 26px;
+   margin-left: 25%;
+   width: 50%;
+   font-size: 120%;
     background-color: #444;
     border: none;
     padding: 8px 30px;
@@ -141,8 +151,10 @@
 }
 
 .list .apply {
-    margin-left: 26px;
-    background-color: #00abb8;
+   margin-left: 25%;
+   width: 50%;
+   font-size: 120%;
+   background-color:#FF9500 ;
     cursor: pointer;
     border: none;
     padding: 8px 30px;
@@ -177,6 +189,7 @@
     left: 7%;
     border-radius: 2px;
     color: #ccc;
+    border-radius: 2%;
 }
 
 .ordenarAside a {
@@ -202,14 +215,15 @@
 }
 
 .ordenarAside .broom {
+    border-bottom-right-radius: 2% ;
+    border-bottom-left-radius: 2%;
+    font-size: 150%;
     text-align: center;
     padding: 5px 0;
-    background-color: #176900;
-    transition: .3s;
+    background-color: #e60505f3;
     color: white;
-    font-size: 25px;
 }
 
 .ordenarAside .broom:hover {
-    background-color: #229c00;
+    background-color: #e60505f3;
 }

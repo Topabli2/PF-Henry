@@ -7,6 +7,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import EmptyCart from "@/components/emptyCartt/EmptyCart";
 import { useUser } from "@clerk/nextjs";
 import axios from "axios";
+import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 
 const Page = () => {
   const { gamesInCart, removeGameFromCart, emptyCart } = useStoreCart();
@@ -46,6 +47,8 @@ const Page = () => {
   }
 
   return (
+    <>
+      <ParticlesWall/>
     <div className="cartContainer">
       <div className="cartContainerGames">
         {gamesInCart.length > 0 ? (
@@ -87,6 +90,7 @@ const Page = () => {
         </Link>
       </div>
     </div>
+    </>
   );
 };
 
