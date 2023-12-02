@@ -11,7 +11,8 @@ import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 import { useEffect } from "react";
 
 const Page = () => {
-  const { gamesInCart, removeGameFromCart, emptyCart, incrementQuantity, decrementQuantity } = useStoreCart();
+  const { gamesInCart, removeGameFromCart, emptyCart, setUserId, userId } =
+    useStoreCart();
 
   let subtotal = 0;
   gamesInCart.forEach((game) => {
@@ -32,6 +33,12 @@ const Page = () => {
   useEffect(() => {
     alert('hola')
   }, [incrementQuantity, decrementQuantity])
+
+  useEffect(() => {
+    if (user && user.user.id !== userId) {
+      setUserId(user.user.id);
+    }
+  }, [user]);
 
   if (user) {
     const user_id = user.user.id;
@@ -59,15 +66,9 @@ const Page = () => {
               <div className="cartGame" key={game.id}>
                 <img src={game.image} />
                 <p>{game.title}</p>
-
-                <div className="quantityGames">
-                  <p>Cantidad: {game.cantidad}</p>
-                  <span className="span" onClick={() => incrementQuantity(game.id)} >+</span>
-                  <span onClick={() => decrementQuantity(game.id)}>-</span>
-                </div>
-
+                <p>Cantidad: {game.id}</p>
                 <p>Precio: ${game.price}</p>
-                <p>Subtotal: ${(game.price * game.cantidad).toFixed(2)}</p>
+                <p>Subtotal: ${Math.floor(game.price * game.id)}</p>
                 <FontAwesomeIcon
                   icon={faTrash}
                   className="subtotal"
@@ -86,7 +87,7 @@ const Page = () => {
         <div className="cartContainerDetails">
           <h4>
             TOTAL
-            <hr /> <p>${subtotal.toFixed(2)}</p>
+            <hr /> <p>${Math.ceil(subtotal)}</p>
           </h4>
           <Link href="/payment">
             <button className="firstButton" disabled={subtotal == 0}>
