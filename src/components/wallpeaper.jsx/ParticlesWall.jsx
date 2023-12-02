@@ -15,7 +15,7 @@ const ParticlesWall = () => {
         window.particlesJS({
           particles: {
             number: {
-              value: 87,
+              value: 40,
               density: {
                 enable: false,
                 value_area: 800
