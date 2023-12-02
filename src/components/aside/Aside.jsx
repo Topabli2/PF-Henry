@@ -66,14 +66,16 @@ const Aside = ({ types, onChange }) => {
         RESET SORTING
         </p>
       </div>
+            <div className="jesusAside">
       <div className="aside">
         <ul className="list">
           <li className="listItem listItem--click">
+
             <div
               className={clase}
               value={"listButton--click"}
               onClick={handleClass}
-            >
+              >
               <a className="listLink">FILTER</a>
               ...
             </div>
@@ -83,7 +85,7 @@ const Aside = ({ types, onChange }) => {
                 <p
                   className="listLink listLink--inside all"
                   onClick={() => onChange[0]("all")}
-                >
+                  >
                   All
                 </p>
               </li>
@@ -118,6 +120,7 @@ const Aside = ({ types, onChange }) => {
             </ul>
           </li>
         </ul>
+                  </div>
       </div>
     </div>
   );
