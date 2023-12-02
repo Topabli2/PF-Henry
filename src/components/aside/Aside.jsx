@@ -77,7 +77,6 @@ const Aside = ({ types, onChange }) => {
               onClick={handleClass}
               >
               <a className="listLink">FILTER</a>
-              ...
             </div>
           
             <ul className="listShow">

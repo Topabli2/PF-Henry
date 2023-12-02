@@ -176,12 +176,11 @@
 }
 
 .ordenarAside a {
+    text-align: center;
     font-size: 150%;
-  
-    display: block;
-    width: 100%;
-    background-color: #222;
-    padding-left: 35px;
+    position: relative;
+    width: 50%;
+    left: 25%;
 }
 
 .ordenarAside p {
