@@ -77,6 +77,7 @@ const Aside = ({ types, onChange }) => {
               <a className="listLink">FILTER</a>
               ...
             </div>
+          
             <ul className="listShow">
               <li className="listInside">
                 <p
@@ -100,7 +101,7 @@ const Aside = ({ types, onChange }) => {
                         type="checkbox"
                         onChange={() => handleCheckboxChange(type)}
                         checked={typesToSend.includes(type)}
-                      />
+                        />
                     </p>
                   </li>
                 );
@@ -111,7 +112,7 @@ const Aside = ({ types, onChange }) => {
                 onClick={() => {
                   onChange[0](typesToSend), setTypesToSend([]);
                 }}
-              >
+                >
                 APPLY
               </button>
             </ul>

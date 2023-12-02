@@ -12,6 +12,7 @@ import Genders from "@/components/generos/Genders.jsx";
 import SearchBar from "@/components/searchbar/Searchbar.jsx";
 import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
+import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
 
 const gamesPerPage = 8;
 
@@ -106,6 +107,7 @@ const HomePage = () => {
 
   return (
     <div>
+       <ParticlesWall/>
       <MostPrice mostPrice={mostPriceGames} />
       <Offerts games={mostPriceGames} />
       <Genders types={uniqueArrTypesGames} />
