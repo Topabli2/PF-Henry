@@ -13,6 +13,7 @@ import SearchBar from "@/components/searchbar/Searchbar.jsx";
 import search from "./utils/search";
 import Paginado from "@/components/paginado/paginado";
 import ParticlesWall from "@/components/wallpeaper.jsx/ParticlesWall";
+import Cahatbot from "@/components/chatbot/cahatbot";
 
 const gamesPerPage = 8;
 
@@ -126,6 +127,7 @@ const HomePage = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
+      <Cahatbot/>
     </div>
   );
 };
