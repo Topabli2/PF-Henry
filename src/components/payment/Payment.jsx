@@ -9,8 +9,8 @@ const Payment = () => {
   const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
   const [css, setCss] = useState("progress");
   const data = useUser();
-  const email = data?.user?.emailAddresses?.[0]?.emailAddress;
-  // const email = "pabloverat2@gmail.com"
+  //const email = data?.user?.emailAddresses?.[0]?.emailAddress;
+  const email = "riosdeborasabrina@gmail.com";
   const { emptyCart } = useStoreCart();
 
   return (
@@ -40,7 +40,6 @@ const Payment = () => {
               setStateBuy("COMPRA REALIZADA CON EXITO");
               setCss("finish");
               // Vacía el carrito de compras después de que se haya realizado un pago exitoso
-              emptyCart();
 
               //poner aqui el envio de gmail
               // Hacer una solicitud al back-end para enviar un correo electrónico
@@ -54,6 +53,7 @@ const Payment = () => {
                   },
                 }
               );
+              emptyCart();
             }}
             // fin bloque backend
             onCancel={async (data) => {

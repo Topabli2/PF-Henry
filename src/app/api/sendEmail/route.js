@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-const resend = new Resend('re_A58K1LkF_JUmBLeDpdWPyWHKtCPJ1p8Bc');
+//const resend = new Resend('re_A58K1LkF_JUmBLeDpdWPyWHKtCPJ1p8Bc');
+const resend = new Resend('re_Tiv61iGA_f8JmR9KUZkUE357BNAUkyKDm')
 
 export async function POST(request) {
   const { email } = await request.json();
@@ -12,7 +13,7 @@ export async function POST(request) {
     html = 'Tu compra ha sido realizada con éxito. Gracias por tu compra. vortex gaming te ama';
     await resend.emails.send({
       from: 'vorttexgaming <onboarding@resend.dev>',
-      to: "andres.burg@hotmail.com",
+      to: "riosdeborasabrina@gmail.com",
       subject,
       html,
     });
