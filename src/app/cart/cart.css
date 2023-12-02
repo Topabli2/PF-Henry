@@ -30,8 +30,7 @@
 }
 
 .cartGame:hover {
-    transform: scale(1.02);
-    border: solid 1px #888;
+    transform: scale(1.01);
 }
 
 .cartGame img {
@@ -109,4 +108,30 @@
     color: #bbb;
     border: solid 1px #888;
     cursor: no-drop;
+}
+
+.cartGame .quantityGames {
+    margin-top: 3.4%;
+}
+
+.cartGame .quantityGames .span {
+    margin-left: 10%;
+    margin-right: 20%;
+}
+
+.cartGame .quantityGames span {
+    font-size: 15px;
+    border: solid 1px #ccc;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    padding: 0 8px;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.cartGame .quantityGames span:hover {
+    background-color: #222;
+    color: white;
 }
