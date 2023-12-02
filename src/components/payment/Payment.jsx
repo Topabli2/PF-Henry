@@ -1,11 +1,17 @@
 'use client';
 import React, { useState } from 'react'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useUser } from '@clerk/nextjs';
+import axios from 'axios';
 
 const Payment = () => {
 
     const [statebuy, setStateBuy] = useState(" COMPRA EN PROGRESO ");
     const [css, setCss] = useState("progress");
+    const data = useUser();
+  const email = data?.user?.emailAddresses?.[0]?.emailAddress;
+// const email = "pabloverat2@gmail.com"
+ 
 
     return (
         <div className='paypal'>
@@ -36,16 +42,13 @@ const Payment = () => {
 
                             //poner aqui el envio de gmail
                             // Hacer una solicitud al back-end para enviar un correo electrónico
-                            await fetch("/api/sendEmail", {
-                                method: "POST",
+                            
+                            await axios.post("/api/sendEmail", { email }, {
                                 headers: {
-                                    "Content-Type": "application/json",
+                                  "Content-Type": "application/json",
                                 },
-                                body: JSON.stringify({
-                                    status: "success",
-                                    email: "pabloverat2@gmail.com",
-                                }),
-                            });
+                              });
+                     
                         }}
                         // fin bloque backend
                         onCancel={async (data) => {
@@ -60,8 +63,7 @@ const Payment = () => {
                                     "Content-Type": "application/json",
                                 },
                                 body: JSON.stringify({
-                                    status: "cancel",
-                                    email: "pabloverat2@gmail.com",
+                                    email
                                 }),
                             });
                         }}
