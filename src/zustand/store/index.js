@@ -58,7 +58,7 @@ export const useStoreGame = create((set) => ({
 
 
 // Importamos la librería zustand para manejar el estado global de la aplicación.
-import {create} from 'zustand';
+import { create } from 'zustand';
 
 // Asumiendo que tienes una función que obtiene el userId del usuario actual.
 //import { useUser } from '@clerk/nextjs'; // Asegúrate de reemplazar esto con tu propio módulo de autenticación.
@@ -106,8 +106,8 @@ import {create} from 'zustand';
 
 export const useStoreCart = create((set) => ({
     userId: null,
-    gamesInCart: [],
- //Storage
+    gamesInCart: JSON.parse(localStorage.gamesInCartnull),
+    //Storage
     setUserId: (id) => set((state) => {
         const storedGamesInCart = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('gamesInCart' + id)) : [];
         return { userId: id, gamesInCart: storedGamesInCart || [] };
@@ -116,13 +116,28 @@ export const useStoreCart = create((set) => ({
     //Storage 
     addGamesToCart: (games) => {
         set((state) => {
-            if (state.gamesInCart.length < 4) {
+            let condicion = false;
+
+            if (JSON.parse(localStorage.gamesInCartnull).length === 4) {
+                condicion = true;
+                return state;
+            }
+
+            if (state.gamesInCart.length < 4 || condicion) {
+                alert('creando jugo')
+                const findGame = state.gamesInCart.find(juego => juego.id === games.id)
+                if (findGame.id) {
+                    alert('Ya tienes ese juego en el carrito');
+                    return state;
+                }
                 const newGamesInCart = [...state.gamesInCart, games];
                 if (typeof window !== 'undefined') {
                     localStorage.setItem('gamesInCart' + state.userId, JSON.stringify(newGamesInCart));
                 }
                 return { gamesInCart: newGamesInCart };
-            } else {
+            }
+
+            else {
                 alert("No se pueden agregar más de 4 productos al carrito.");
                 return state;
             }
