@@ -32,12 +32,12 @@ const Page = () => {
   console.log(user);
 
   useEffect(() => {
-    if (user && user.user.id !== userId) {
+    if (user && user.user && user.user.id !== userId) {
       setUserId(user.user.id);
     }
   }, [user]);
 
-  if (user) {
+  if (user && user.user) {
     const user_id = user.user.id;
     const email = user.user.primaryEmailAddress.emailAddress;
 
