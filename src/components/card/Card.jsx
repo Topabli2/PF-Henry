@@ -24,7 +24,7 @@ const Card = ({ data }) => {
             </Link>
           ))
         ) : (
-          <div className='notFound'><h1>I'm sorry, we don't have that game.</h1>
+          <div className='notFound'><h1>Im sorry, we dont have that game.</h1>
           </div>
         )}
 
