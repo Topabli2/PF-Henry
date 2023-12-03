@@ -6,7 +6,7 @@
   right: -70%;
   width: 25%;
   height: 50%;
-  background-color: #0e3c5d;
+  background-color: #333333;
   border-radius: 2%;
   transition: all .3s;
   font-family: "Kdam Thmor Pro", sans-serif;
@@ -17,9 +17,9 @@
   left: 5%;
   width: 90%;
   height: 90%;
-  background-color: #0e3c5d;
+  background-color: #333333;
   border-radius: 10px;
-  border: 3px solid #06b0ff;
+  border: 3px solid #FF9301;
 }
 .DBof {
   position: relative;
@@ -27,7 +27,7 @@
   margin: auto;
   text-align: center;
   width: 40%;
-  background-color: #0e3c5d;
+  background-color: #333333;
   color: white;
 }
 
@@ -66,7 +66,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   z-index: 1;
-  background-color: #0e3c5d;
+  background-color: #3333;
 }
 
 .IAC::after {
@@ -77,10 +77,10 @@
   left: 0;
   top: 0;
   transform: skew(5deg, 0deg);
-  background-color: #06b0ff;
+  background-color: #FF9301;;
   transition: all.3s ease-in-out;
   border-radius: 5px;
-  background-color: #06b0ff;
+  background-color:#FF9301;
 }
 .IAC::before {
   content: "";
@@ -90,7 +90,7 @@
   left: 0;
   top: 0;
   transform: skew(5deg, 0deg);
-  border: 3px solid #06b0ff;
+  border: 3px solid #FF9301;;
   border-radius: 5%;
   transition: all 0.3s;
   z-index: -1;
@@ -166,7 +166,7 @@
   background-position: left -154%;
   transform: skew(5deg, 0deg);
   z-index: 1;
-  background-color: #0e3c5d;
+  background-color: #3333;
 }
 
 .ADC::after {
@@ -177,7 +177,7 @@
   left: 0;
   top: 0;
   transform: skew(5deg, 0deg);
-  background-color: #06b0ff;
+  background-color: #FF9301;
   transition: all.4s ease;
   border-radius: 5px;
 }
@@ -189,7 +189,7 @@
   left: 0;
   top: 0;
   transform: skew(5deg, 0deg);
-  border: 3px solid #06b0ff;
+  border: 3px solid #FF9301;
   border-radius: 5%;
   transition: all 0.3s ease;
   z-index: -1;
@@ -229,7 +229,7 @@
 .cB{
   width: 240px;
   height: 50px;
-  background-color: blueviolet;
+
 }
 
 

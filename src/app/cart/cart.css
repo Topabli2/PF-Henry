@@ -1,5 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+
 .cartContainer {
-    background-color: #222;
+    font-family: "Kdam Thmor Pro", sans-serif;
+    background: rgba( 34, 34, 34, 0.35 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
     width: 90%;
     height: 70vh;
     margin: 0 auto;

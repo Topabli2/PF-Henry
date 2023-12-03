@@ -7,8 +7,8 @@ const EmptyCart = () => {
   return (
     <div className='emptyCartContainer' >
       <span className='bagFill' ><PiHandbagThin /></span>
-      <p>¡Empieza un carrito de compras!</p>
-      <Link href='/' ><button className='emptyCartButton' >COMENZAR A COMPRAR</button></Link>
+      <p>START A SHOPPING CART!</p>
+      <Link href='/' ><button className='emptyCartButton' >START SHOPPING</button></Link>
     </div>
   )
 }

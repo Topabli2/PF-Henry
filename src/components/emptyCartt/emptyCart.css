@@ -1,4 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+
+
 .emptyCartContainer {
+    font-family: "Kdam Thmor Pro", sans-serif;
     width: 40%;
     text-align: center;
     margin: 0 auto;
@@ -6,19 +10,22 @@
 }
 
 .bagFill {
-    font-size: 170px;
+    font-family: "Kdam Thmor Pro", sans-serif;
+    font-size: 1000%;
     color: #ccc;
 }
 
 .emptyCartContainer p {
+    font-family: "Kdam Thmor Pro", sans-serif;
     margin-top: -10%;
 }
 
 .emptyCartButton {
+    font-family: "Kdam Thmor Pro", sans-serif;
     width: 80%;
     border: none;
     padding: 15px 0;
-    background-color: #176900;
+    background-color:  #cc780a;
     border-radius: 2px;
     margin-top: 5%;
     cursor: pointer;
@@ -26,5 +33,5 @@
 }
 
 .emptyCartButton:hover {
-    background-color: #229c00;
+    background-color: #ff8801;
 }

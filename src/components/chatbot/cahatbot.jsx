@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState,useEffect } from 'react';
 import Image from 'next/image';
 import vLogo from './chat.png';
 import './chatbot.css';
@@ -31,7 +31,6 @@ const Chatbot = () => {
     };
   }, []);
 
-  // Cambia el manejador de eventos de onClick a onMouseOver
   const toggleVortix = () => {
     setVortixClass(vortixClass === 'vortixOut' ? 'vortix' : 'vortixOut');
   };
@@ -39,8 +38,8 @@ const Chatbot = () => {
   return (
     <div className='chatContainer'>
       <Image className={vortixClass} src={vLogo} alt='Chat Logo' />
-      <div className="escondido" onMouseOver={toggleVortix}>
-        {/* Contenido del div que cambia de clase */}
+      <div className="escondido" onClick={toggleVortix}>
+          <h1>  HI VORT  </h1>
       </div>
     </div>
   );
