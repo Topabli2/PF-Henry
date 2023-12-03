@@ -38,7 +38,6 @@ import { useStoreCart } from "@/zustand/store";
 import { useUser } from "@clerk/nextjs";
 
 const Buy = ({ game }) => {
-  console.log(game);
   const { addGamesToCart } = useStoreCart();
   const user = useUser();
 
