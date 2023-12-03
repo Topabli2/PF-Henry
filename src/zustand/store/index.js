@@ -89,13 +89,13 @@ export const useStoreCart = create((set) => ({
   //Storage
   addGamesToCart: (games) => {
     set((state) => {
-      let condicion = false;
+      // let condicion = false;
 
-      if (JSON.parse(localStorage.gamesInCartnull).length === 4) {
-        console.log(JSON.parse(localStorage.gamesInCartnull));
-        condicion = true;
-        return state;
-      }
+      // if (JSON.parse(localStorage.gamesInCartnull).length === 4) {
+      //   console.log(JSON.parse(localStorage.gamesInCartnull));
+      //   condicion = true;
+      //   return state;
+      // }
       if (state.gamesInCart.length < 4) {
         const newGamesInCart = [...state.gamesInCart, games];
         if (typeof window !== "undefined") {
