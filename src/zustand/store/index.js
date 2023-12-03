@@ -107,12 +107,13 @@ import {create} from 'zustand';
 export const useStoreCart = create((set) => ({
     userId: null,
     gamesInCart: [],
-
+ //Storage
     setUserId: (id) => set((state) => {
         const storedGamesInCart = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('gamesInCart' + id)) : [];
         return { userId: id, gamesInCart: storedGamesInCart || [] };
     }),
 
+    //Storage 
     addGamesToCart: (games) => {
         set((state) => {
             if (state.gamesInCart.length < 4) {
