@@ -2,18 +2,18 @@
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(fondo.jpg);
     background-size: cover;
     background-position: center;
-    height: 400px;
+    height: 70vh;
     width: 100vw;
     align-items: center;
     justify-content: center;
-    margin-top: 4.5%;
+    margin-top: -4.5%;
 }
 
 .sectionDetails {
     color: white;
     width: 315px;
     margin-left: 100px;
-    padding-top: 80px;
+    padding-top: 15%;
     text-align: justify;
 }
 

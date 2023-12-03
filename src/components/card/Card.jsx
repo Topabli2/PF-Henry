@@ -1,6 +1,8 @@
 import React from 'react'
 import './Card.css'
 import { isArray } from 'lodash';
+import Image from "next/image";
+import robot from './robot.png'
 import Link from 'next/link';
 
 const Card = ({ data }) => {
@@ -22,7 +24,8 @@ const Card = ({ data }) => {
             </Link>
           ))
         ) : (
-          <div className='notFound'><h1>Lo siento, no tenemos ese juego</h1></div>
+          <div className='notFound'><h1>I'm sorry, we don't have that game.</h1>
+          </div>
         )}
 
       </div>

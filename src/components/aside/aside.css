@@ -202,10 +202,10 @@
     font-size: 120%;
     text-align: center;
     padding: 5px 0;
-    background-color: #e60505f3;
+    background-color: #FF9301;
     color: white;
 }
 
 .ordenarAside .broom:hover {
-    background-color: #e60505f3;
+    background-color: #FF9301;
 }

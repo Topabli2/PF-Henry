@@ -36,7 +36,10 @@
   }
 
 .navBar {
-    background-color: #222;
+    background: rgba( 34, 34, 34, 0.75 );
+    box-shadow: 0 8px 32px 0 rgba( 238, 138, 0, 0.37 );
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
     color: white;
     display: flex;
     justify-content: space-between;
