@@ -21,24 +21,12 @@ CREATE TABLE "Games" (
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
-    "username" TEXT NOT NULL,
-    "lastName" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
+    "user_id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "country" TEXT NOT NULL,
-    "phone" TEXT,
+    "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "Profile" (
-    "id" SERIAL NOT NULL,
-    "profileName" TEXT NOT NULL,
-    "profile_type" INTEGER NOT NULL,
-    "userId" INTEGER,
-
-    CONSTRAINT "Profile_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -53,38 +41,17 @@ CREATE TABLE "License" (
     CONSTRAINT "License_pkey" PRIMARY KEY ("id")
 );
 
--- CreateTable
-CREATE TABLE "paypal" (
-    "id" SERIAL NOT NULL,
-    "email" TEXT NOT NULL,
-    "success" TEXT NOT NULL,
-
-    CONSTRAINT "paypal_pkey" PRIMARY KEY ("id")
-);
-
 -- CreateIndex
 CREATE UNIQUE INDEX "Games_title_key" ON "Games"("title");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_user_id_key" ON "User"("user_id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_phone_key" ON "User"("phone");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Profile_profileName_key" ON "Profile"("profileName");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Profile_userId_key" ON "Profile"("userId");
-
--- CreateIndex
 CREATE UNIQUE INDEX "License_name_key" ON "License"("name");
-
--- CreateIndex
-CREATE UNIQUE INDEX "paypal_email_key" ON "paypal"("email");
-
--- AddForeignKey
-ALTER TABLE "Profile" ADD CONSTRAINT "Profile_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "License" ADD CONSTRAINT "License_gameId_fkey" FOREIGN KEY ("gameId") REFERENCES "Games"("id") ON DELETE SET NULL ON UPDATE CASCADE;

@@ -30,8 +30,8 @@ model Games {
 
 model User {
   id        Int       @id @default(autoincrement())
-  user_id   String
-  email     String
+  user_id   String    @unique
+  email     String    @unique
   createAt  DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   licenses  License[]
