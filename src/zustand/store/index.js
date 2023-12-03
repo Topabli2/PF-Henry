@@ -32,6 +32,7 @@ export const useStoreGame = create((set) => ({
 
 // Importamos la librería zustand para manejar el estado global de la aplicación.
 import {create} from 'zustand';
+import Swal from 'sweetalert2';
 
 // Asumiendo que tienes una función que obtiene el userId del usuario actual.
 //import { useUser } from '@clerk/nextjs'; // Asegúrate de reemplazar esto con tu propio módulo de autenticación.
@@ -102,8 +103,12 @@ export const useStoreCart = create((set) => ({
                     localStorage.setItem('gamesInCart' + state.userId, JSON.stringify(newGamesInCart));
                 }
                 return { gamesInCart: newGamesInCart };
-            } else {
-                alert("No se pueden agregar más de 4 productos al carrito.");
+            }else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No se pueden agregar más de 4 productos al carrito.',
+                });
                 return state;
             }
         });
