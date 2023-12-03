@@ -64,6 +64,7 @@ const Page = () => {
               <div className="cartGame" key={game.id}>
                 <img src={game.image} />
                 <p>{game.title}</p>
+                {/*<p>Cantidad: {game.id}</p>*/}
                 <p>Precio: ${game.price}</p>
                 <p>Subtotal: ${game.price.toFixed(2)}</p>
                 <FontAwesomeIcon
