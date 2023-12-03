@@ -90,7 +90,7 @@ export const useStoreCart = create((set) => ({
   //Storage
   addGamesToCart: (games) => {
     set((state) => {
-      // let condicion = false;
+       let condicion = false;
 
             if(JSON.parse(localStorage.gamesInCartnull).length === 4) {
                 console.log(JSON.parse(localStorage.gamesInCartnull))
@@ -104,9 +104,13 @@ export const useStoreCart = create((set) => ({
                 }
                 return { gamesInCart: newGamesInCart };
             } else {
-                alert("No se pueden agregar más de 4 productos al carrito.");
-                return state;
-            }
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'No se pueden agregar más de 4 productos al carrito.',
+              });
+              return state;
+          }
         });
     },
 
