@@ -9,16 +9,21 @@
 .diosAside{
     width: 100%;
     width: 100%;
+    justify-content: center;
+    padding-left: 10%;
 
+}
+.jesusAside{
+    width: 100%;
+    justify-content: center;
+    background-color: #00747c;
 }
 
 
 .aside {
     position: relative;
-    left: 21.5%;
     border-radius: 4px;
-    width: 98.3%;
-    height: 10%;
+    width: 100%;
 }
 
 .cardsAndAside {
@@ -30,15 +35,14 @@
 
 .list {
     border-radius: 4px;
-    width: 82.7%;
+    width: 100%;
     justify-content: center;
 }
 
 .listItem {
     height: 50%;
     list-style: none;
-    margin-left: -42px;
-    width: 123%;
+    width: 100%;
 
     text-align: left;
     overflow: hidden;
@@ -60,7 +64,6 @@
 }
 
 .listIcon {
-    margin-left: auto;
     margin-top: 10px;
 }
 
@@ -68,31 +71,27 @@
     display: block;
     text-decoration: none;
     list-style: none;
-    width: 400px;
+    width: 100%;
     color: #ccc;
     padding-top: 25px;
      height: 10%;
 }
 
 .listLink--inside {
-    padding-left: 40px;
     transition: .1s;
 }
 
 .listInside {
     list-style-type: none;
     width: 100%;
-    margin-left: -50px;
+    margin-left: -6%;
 }
 
 .listLink--inside:hover {
     color: white;
     background-color:#444 ;
 }
-.listContainer{
-    height: 0%;
-    overflow: scroll;
-}
+
 .listShow {
     position: relative;
     width: 100%;
@@ -102,29 +101,18 @@
 }
 
 
-.listIcon {
-    transition: .3s;
-}
-
-.arrow .listIcon {
-    transform: rotate(-180deg);
-}
-
-.listInside {
-    padding-left: 20px;
-}
 
 .listButton {
-    font-size: 25px;
+    font-size: 120%;
 }
 
 
 .listInside p {
-    padding: 10px 0px;
-    padding-left: 55px;
+    padding: 2% 0px;
+    padding-left: 15%;
     margin: 0px;
-    font-size: 12px;
-    width: 130%;
+    font-size: 100%;
+    width: 100%;
 }
 
 .list {
@@ -132,27 +120,26 @@
 }
 
 .listShow {
-    margin-top: 30px;
+    margin-top: 10%;
 }
 
 .list .apply[disabled] {
-   margin-left: 25%;
+    position: relative;
    width: 50%;
+   left: 25%;
    font-size: 120%;
     background-color: #444;
     border: none;
-    padding: 8px 30px;
     color: #888;
-    border: solid 1px #888;
-    margin-top:10px;
     cursor: no-drop;
     border-radius: 2px;
     transition: .3s;
 }
 
 .list .apply {
-   margin-left: 25%;
-   width: 50%;
+    position: relative;
+    width: 50%;
+    left: 25%;
    font-size: 120%;
    background-color:#FF9500 ;
     cursor: pointer;
@@ -160,53 +147,48 @@
     padding: 8px 30px;
     color: white;
     margin-top:10px;
-    border: solid 1px transparent;
     border-radius: 2px;
     transition: .3s;
     margin-bottom: 30px;
 }
 
-.list .apply:hover {
-    background-color: #00747c;
-}
+
 
 .list .apply[disabled]:hover {
     background-color: #444;
 }
 
 .checkbox {
-    margin-left: 10px;
+    position: relative;
+    margin-left: 10%;
+    font-size: 100%;
 }
 
-.listInside .all {
-    font-size: 18px;
-}
+
 
 .ordenarAside {
     position: relative;
     background-color: #333;
     width: 100%;
-    left: 7%;
     border-radius: 2px;
     color: #ccc;
     border-radius: 2%;
 }
 
 .ordenarAside a {
-    font-size: 25px;
-    padding: 10px 0px;
-    display: block;
-    width: 100%;
-    background-color: #222;
-    padding-left: 35px;
+    text-align: center;
+    font-size: 150%;
+    position: relative;
+    width: 50%;
+    left: 25%;
 }
 
 .ordenarAside p {
-    font-size: 12px;
+    font-size: 100%;
     padding: 8px 10px;
     cursor: pointer;
     transition: .2s;
-    padding-left: 15px;
+
 }
 
 .ordenarAside p:hover {
@@ -217,7 +199,7 @@
 .ordenarAside .broom {
     border-bottom-right-radius: 2% ;
     border-bottom-left-radius: 2%;
-    font-size: 150%;
+    font-size: 120%;
     text-align: center;
     padding: 5px 0;
     background-color: #e60505f3;

@@ -64,7 +64,7 @@ import {create} from 'zustand';
 //import { useUser } from '@clerk/nextjs'; // Asegúrate de reemplazar esto con tu propio módulo de autenticación.
 
 
-export const useStoreCart = create((set) => ({
+/*export const useStoreCart = create((set) => ({
     userId: null,
     gamesInCart: [],
 
@@ -101,4 +101,50 @@ export const useStoreCart = create((set) => ({
             return { gamesInCart: [] };
         });
     },
+}));*/
+
+
+export const useStoreCart = create((set) => ({
+    userId: null,
+    gamesInCart: [],
+
+    setUserId: (id) => set((state) => {
+        const storedGamesInCart = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('gamesInCart' + id)) : [];
+        return { userId: id, gamesInCart: storedGamesInCart || [] };
+    }),
+
+    addGamesToCart: (games) => {
+        set((state) => {
+            if (state.gamesInCart.length < 4) {
+                const newGamesInCart = [...state.gamesInCart, games];
+                if (typeof window !== 'undefined') {
+                    localStorage.setItem('gamesInCart' + state.userId, JSON.stringify(newGamesInCart));
+                }
+                return { gamesInCart: newGamesInCart };
+            } else {
+                alert("No se pueden agregar más de 4 productos al carrito.");
+                return state;
+            }
+        });
+    },
+
+    removeGameFromCart: (gameID) => {
+        set((state) => {
+            const newGamesInCart = state.gamesInCart.filter((game) => game.id !== gameID);
+            if (typeof window !== 'undefined') {
+                localStorage.setItem('gamesInCart' + state.userId, JSON.stringify(newGamesInCart));
+            }
+            return { gamesInCart: newGamesInCart };
+        });
+    },
+
+    emptyCart: () => {
+        set((state) => {
+            if (typeof window !== 'undefined') {
+                localStorage.removeItem('gamesInCart' + state.userId);
+            }
+            return { gamesInCart: [] };
+        });
+    },
 }));
+
