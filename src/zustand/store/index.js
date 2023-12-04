@@ -1,77 +1,5 @@
-/*import { create } from 'zustand';
-
-export const useStoreCart = create((set) => ({
-    gamesInCart: [],
-    addGamesToCart: (games) => {
-        set((state) => ({
-            gamesInCart: [...state.gamesInCart, games],
-        }));
-    },
-    removeGameFromCart: (gameID) => {
-        set((state) => ({
-            gamesInCart: state.gamesInCart.filter((game) => game.id !== gameID),
-        }));
-    },
-    emptyCart: () => {
-        set(() => ({
-            gamesInCart: []
-        }));
-    }
-}));
-
-export const useStoreGame = create((set) => ({
-    gameToBack: [],
-    addGameToBack: (game) => {
-        set((state) => ({
-            gameToBack: [...state.gameToBack, game],
-        }));
-    },
-}));*/
-
-// Importamos la librería zustand para manejar el estado global de la aplicación.
 import { create } from "zustand";
-
-// Asumiendo que tienes una función que obtiene el userId del usuario actual.
-//import { useUser } from '@clerk/nextjs'; // Asegúrate de reemplazar esto con tu propio módulo de autenticación.
-
-/*export const useStoreCart = create((set) => ({
-    userId: null,
-    gamesInCart: [],
-
-    setUserId: (id) => set((state) => {
-        const storedGamesInCart = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('gamesInCart' + id)) : [];
-        return { userId: id, gamesInCart: storedGamesInCart || [] };
-    }),
-
-    addGamesToCart: (games) => {
-        set((state) => {
-            const newGamesInCart = [...state.gamesInCart, games];
-            if (typeof window !== 'undefined') {
-                localStorage.setItem('gamesInCart' + state.userId, JSON.stringify(newGamesInCart));
-            }
-            return { gamesInCart: newGamesInCart };
-        });
-    },
-
-    removeGameFromCart: (gameID) => {
-        set((state) => {
-            const newGamesInCart = state.gamesInCart.filter((game) => game.id !== gameID);
-            if (typeof window !== 'undefined') {
-                localStorage.setItem('gamesInCart' + state.userId, JSON.stringify(newGamesInCart));
-            }
-            return { gamesInCart: newGamesInCart };
-        });
-    },
-
-    emptyCart: () => {
-        set((state) => {
-            if (typeof window !== 'undefined') {
-                localStorage.removeItem('gamesInCart' + state.userId);
-            }
-            return { gamesInCart: [] };
-        });
-    },
-}));*/
+import Swal from "sweetalert2";
 
 export const useStoreCart = create((set) => ({
   userId: null,
@@ -89,15 +17,17 @@ export const useStoreCart = create((set) => ({
   //Storage
   addGamesToCart: (games) => {
     set((state) => {
-      // let condicion = false;
-
-      // if (JSON.parse(localStorage.gamesInCartnull).length === 4) {
-      //   console.log(JSON.parse(localStorage.gamesInCartnull));
-      //   condicion = true;
-      //   return state;
-      // }
       if (state.gamesInCart.length < 4) {
         const newGamesInCart = [...state.gamesInCart, games];
+        Swal.fire({
+          icon: 'success',
+          iconColor: 'green', // Cambia el color del icono a amarillo
+          titleText: "GAME ADD TO CART",
+          background: '#333333', // Color de fondo negro
+          html: '<span style="color: orange;"></span>', // Cambia el color del texto a blanco
+          footer: '<a href="http://localhost:3000/cart">Success! The game has been added to your shopping cart.</a>',
+         
+        });
         if (typeof window !== "undefined") {
           localStorage.setItem(
             "gamesInCart" + state.userId,
@@ -106,7 +36,18 @@ export const useStoreCart = create((set) => ({
         }
         return { gamesInCart: newGamesInCart };
       } else {
-        alert("No se pueden agregar más de 4 productos al carrito.");
+        Swal.fire({
+          icon: 'warning',
+          iconColor: 'yellow', // Cambia el color del icono a amarillo
+          titleText: "WARNING...",
+          background: '#333333', // Color de fondo negro
+          html: '<span style="color: orange;">No more than 4 games can be added in a single purchase</span>', // Cambia el color del texto a blanco
+          footer: '<a href="http://localhost:3000/cart">Complete your cart purchase or remove the games.</a>',
+          confirmButtonColor: '#3333;', // Cambia el color del botón de confirmación a negro
+        });
+        
+        
+        
         return state;
       }
     });

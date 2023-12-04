@@ -66,7 +66,7 @@ const Page = () => {
                 <p>{game.title}</p>
                 {/*<p>Cantidad: {game.id}</p>*/}
                 <p>Precio: ${game.price}</p>
-                <p>Subtotal: ${Math.floor(game.price * game.id)}</p>
+                <p>Subtotal: ${game.price.toFixed(2)}</p>
                 <FontAwesomeIcon
                   icon={faTrash}
                   className="subtotal"
@@ -85,7 +85,7 @@ const Page = () => {
         <div className="cartContainerDetails">
           <h4>
             TOTAL
-            <hr /> <p>${Math.ceil(subtotal)}</p>
+            <hr /> <p>${subtotal.toFixed(2)}</p>
           </h4>
           <Link href="/payment">
             <button className="firstButton" disabled={subtotal == 0}>

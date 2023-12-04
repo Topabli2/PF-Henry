@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useUser } from "@clerk/nextjs";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { useStoreCart } from "@/zustand/store";
 
 const Payment = () => {
@@ -35,14 +36,19 @@ const Payment = () => {
               return order.id;
             }}
             onApprove={async (data, actions) => {
+              Swal.fire({
+                background: '#fff',
+                title: "Success!...",
+                text: "You will be sent the codes for the games purchased",
+                imageUrl: "https://media0.giphy.com/media/XreQmk7ETCak0/giphy.gif?cid=ecf05e47390bwrvnc8r79ic7r23v8yovq0s5lw4uz7kdcb4u&ep=v1_gifs_search&rid=giphy.gif&ct=g",
+                imageWidth: 300,
+                imageHeight: 200,
+                imageAlt: "Custom image"
+              });
               // agregamos async
-              await actions.order.capture(); // agregamos await *Debbb
-              setStateBuy("COMPRA REALIZADA CON EXITO");
-              setCss("finish");
+              await actions.order.capture(); // agregamos await *Debbb 
               // Vacía el carrito de compras después de que se haya realizado un pago exitoso
 
-              //poner aqui el envio de gmail
-              // Hacer una solicitud al back-end para enviar un correo electrónico
 
               await axios.post(
                 "/api/sendEmail",
@@ -58,8 +64,15 @@ const Payment = () => {
             // fin bloque backend
             onCancel={async (data) => {
               console.log(data);
-              setStateBuy("COMPRA CANCELADA");
-              setCss("cancel");
+              Swal.fire({
+                background: '#fff',
+                title: "Opss!...",
+                text: "It seems that you have canceled the purchase",
+                imageUrl: "https://static.vecteezy.com/system/resources/previews/017/396/313/non_2x/illustration-businessman-holding-an-empty-wallet-free-png.png",
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: "Custom image"
+              });
 
               // Hacer una solicitud al back-end para enviar un correo electrónico
               await fetch("/api/sendEmail", {
