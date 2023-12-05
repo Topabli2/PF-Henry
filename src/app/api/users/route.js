@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 import  {prisma } from '@/libs/prisma';
 
-export async function GET() {
-    const allProfile = await prisma.user.findMany();
-    return NextResponse.json(allProfile);
-  }
+// export async function GET() {
+//     const allProfile = await prisma.user.findMany();
+//     return NextResponse.json(allProfile);
+//   }
 
 // export async function POST(request) {
 //   const { user_id, email } = await request.json();
@@ -37,6 +37,7 @@ export async function POST(request) {
         data: {
           user_id,
           email,
+          fullName
         },
       });
       return NextResponse.json(newUser);
