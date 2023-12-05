@@ -21,11 +21,13 @@
     align-items: center;
     padding-left: 5%;
     background-color: #222;
+    color: #ccc;
     margin: 3%;
     width: 360%;
     margin-left: -130%;
     border-radius: 4px;
     justify-content: space-around;
+    transition: .2s;
 }
 
 .gamesContainer .gameDiv p {
@@ -35,4 +37,14 @@
 
 .gamesContainer .gameDiv img {
     height: 100%;
+}
+
+.gameDiv:hover {
+    transform: scale(0.99);
+    color: white;
+}
+
+.gameDiv .eyeGame {
+    color: #3ddbe6;
+    cursor: pointer;
 }
