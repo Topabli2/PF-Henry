@@ -40,11 +40,9 @@
 }
 
 .gameDiv:hover {
-    transform: scale(0.99);
     color: white;
 }
 
 .gameDiv .eyeGame {
-    color: #3ddbe6;
     cursor: pointer;
 }

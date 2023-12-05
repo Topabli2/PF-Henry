@@ -34,7 +34,7 @@ const HomePage = () => {
     const intervalId = setInterval(() => {
       let randomGameIndexes = [];
       while (randomGameIndexes.length < 3) {
-        const randomIndex = Math.floor(Math.random() * 10);
+        const randomIndex = Math.floor(Math.random() * 24);
         if (!randomGameIndexes.includes(randomIndex)) {
           randomGameIndexes.push(randomIndex);
         }
